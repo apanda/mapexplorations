@@ -5,7 +5,11 @@
 //  Created by Aurojit Panda on 2/20/10.
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
+#import "MapView.h"
+#import "LocationDelegate.h"
 
+@class MapView;
+@class LocationDelegate;
 @interface MapExplorationAppDelegate : NSObject <UIApplicationDelegate> {
 
     NSManagedObjectModel *managedObjectModel;
@@ -13,6 +17,8 @@
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
     UIWindow *window;
+	MapView *mapView;
+	LocationDelegate *locationDelegate;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -20,8 +26,11 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) MapView *mapView;
+
 
 - (NSString *)applicationDocumentsDirectory;
+- (void) updateLocation: (CLLocation*) location;
 
 @end
 

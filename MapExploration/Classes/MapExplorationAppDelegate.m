@@ -12,18 +12,26 @@
 @implementation MapExplorationAppDelegate
 
 @synthesize window;
-
+@synthesize mapView;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-    // Override point for customization after app launch    
-
+    // Override point for customization after app launch  
+	locationDelegate = [[LocationDelegate alloc] initWithAppDelegate:self];	
+	[locationDelegate retain];
+	[locationDelegate.m_locationManager startUpdatingLocation];
+	mapView = [[MapView alloc] initWithAppDelegate:self];
+	[window addSubview:mapView.view];
 	[window makeKeyAndVisible];
 }
 
+- (void) updateLocation:(CLLocation *)location {
+	NSLog(@"New location");
+	[mapView setNewLocation:location];
+}
 /**
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */
