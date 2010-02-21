@@ -34,7 +34,7 @@
 	self.view = [[UIView alloc] initWithFrame:rect];
 	self.view.autoresizesSubviews = YES;
 	
-	m_mapView = [[MKMapView alloc] initWithFrame:rect];
+	m_mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 	m_mapView.showsUserLocation = YES;
 	m_mapView.zoomEnabled = YES;
 	m_mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
