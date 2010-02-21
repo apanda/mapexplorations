@@ -19,6 +19,8 @@
 		571DBA0511311A4E00D17167 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBA0411311A4E00D17167 /* MapKit.framework */; };
 		571DBA9211311FCF00D17167 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBA9111311FCF00D17167 /* CoreLocation.framework */; };
 		571DBBBD1131294C00D17167 /* LocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBBBC1131294C00D17167 /* LocationDelegate.m */; };
+		571DBC591131E24A00D17167 /* MapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBC581131E24A00D17167 /* MapViewDelegate.m */; };
+		571DBC8D1131F81700D17167 /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBC8C1131F81700D17167 /* PinAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		571DBA9111311FCF00D17167 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		571DBBBB1131294C00D17167 /* LocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDelegate.h; sourceTree = "<group>"; };
 		571DBBBC1131294C00D17167 /* LocationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDelegate.m; sourceTree = "<group>"; };
+		571DBC571131E24A00D17167 /* MapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewDelegate.h; sourceTree = "<group>"; };
+		571DBC581131E24A00D17167 /* MapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewDelegate.m; sourceTree = "<group>"; };
+		571DBC8B1131F81700D17167 /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
+		571DBC8C1131F81700D17167 /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MapExploration-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MapExploration-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,10 +70,14 @@
 			children = (
 				1D3623240D0F684500981E51 /* MapExplorationAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MapExplorationAppDelegate.m */,
+				571DBC571131E24A00D17167 /* MapViewDelegate.h */,
+				571DBC581131E24A00D17167 /* MapViewDelegate.m */,
 				571DBA0111311A3000D17167 /* MapView.h */,
 				571DBA0211311A3000D17167 /* MapView.m */,
 				571DBBBB1131294C00D17167 /* LocationDelegate.h */,
 				571DBBBC1131294C00D17167 /* LocationDelegate.m */,
+				571DBC8B1131F81700D17167 /* PinAnnotation.h */,
+				571DBC8C1131F81700D17167 /* PinAnnotation.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -182,6 +192,8 @@
 				28C3AD8A0F43EF2300507BA6 /* MapExploration.xcdatamodel in Sources */,
 				571DBA0311311A3000D17167 /* MapView.m in Sources */,
 				571DBBBD1131294C00D17167 /* LocationDelegate.m in Sources */,
+				571DBC591131E24A00D17167 /* MapViewDelegate.m in Sources */,
+				571DBC8D1131F81700D17167 /* PinAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

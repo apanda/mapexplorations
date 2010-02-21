@@ -11,19 +11,19 @@
 #include <time.h>
 
 @implementation LocationDelegate
-@synthesize m_locationManager;
+@synthesize locationManager = m_locationManager;
 
 - (id) initWithAppDelegate:(MapExplorationAppDelegate*)appDelegate {
 	self = [super init];
 	m_appDelegate = appDelegate;
 	// Allocate location manager
-	self.m_locationManager = [[[CLLocationManager alloc] init] autorelease];
+	self.locationManager = [[[CLLocationManager alloc] init] autorelease];
 	// Receive updates always
-	self.m_locationManager.distanceFilter = kCLDistanceFilterNone;
+	self.locationManager.distanceFilter = kCLDistanceFilterNone;
 	// We don't need more acuracy than the 10s of meters
-	self.m_locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+	self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
 	// Set ourselves up as the delegate
-	self.m_locationManager.delegate = self;
+	self.locationManager.delegate = self;
 	return self;
 }
 

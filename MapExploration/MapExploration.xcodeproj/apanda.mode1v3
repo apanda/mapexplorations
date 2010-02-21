@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -273,7 +271,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
+									<integer>7</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -309,6 +307,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -323,15 +323,24 @@
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
 										<string>MapView.m</string>
+										<key>_historyCapacity</key>
+										<integer>0</integer>
+										<key>bookmark</key>
+										<string>571DBCEC1131FEDB00D17167</string>
 										<key>history</key>
 										<array>
 											<string>571DBBC8113129CA00D17167</string>
-											<string>571DBBC9113129CA00D17167</string>
-											<string>571DBBE911312AE900D17167</string>
 											<string>571DBBEA11312AE900D17167</string>
-											<string>571DBC0B11312B9700D17167</string>
-											<string>571DBC0C11312B9700D17167</string>
-											<string>571DBC0311312B6A00D17167</string>
+											<string>571DBC6C1131E8CB00D17167</string>
+											<string>571DBCC41131FD1200D17167</string>
+											<string>571DBCC51131FD1200D17167</string>
+											<string>571DBCC81131FD1200D17167</string>
+											<string>571DBCDF1131FEA800D17167</string>
+											<string>571DBCE01131FEA800D17167</string>
+											<string>571DBCE11131FEA800D17167</string>
+											<string>571DBCE21131FEA800D17167</string>
+											<string>571DBCE31131FEA800D17167</string>
+											<string>571DBCE41131FEA800D17167</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -529,7 +538,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>571DBC3E11312DB800D17167</string>
+		<string>571DBCED1131FEDB00D17167</string>
+		<string>571DBC771131E8CB00D17167</string>
 		<string>571DBC3F11312DB800D17167</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
@@ -558,7 +568,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>MapViewDelegate.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -575,6 +585,8 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -627,7 +639,7 @@
 			<key>WindowToolGUID</key>
 			<string>571DB9EC1131190800D17167</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

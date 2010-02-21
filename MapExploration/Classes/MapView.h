@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MapExplorationAppDelegate.h"
+#import "MapViewDelegate.h"
 
 @class MapExplorationAppDelegate;
+@class MapViewDelegate;
 @interface MapView : UIViewController {
 	MKMapView *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
+	MapViewDelegate *m_mapViewDelegate;
 	
 }
 

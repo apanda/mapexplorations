@@ -34,11 +34,15 @@
 	self.view = [[UIView alloc] initWithFrame:rect];
 	self.view.autoresizesSubviews = YES;
 	
+	m_mapViewDelegate = [[MapViewDelegate alloc] initWithMapView:self];
+	
+	
 	m_mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 	m_mapView.showsUserLocation = YES;
 	m_mapView.zoomEnabled = YES;
 	m_mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	m_mapView.scrollEnabled = YES;
+	[m_mapView setDelegate:m_mapViewDelegate];
 	
 	[self.view addSubview:m_mapView];
 	
@@ -54,7 +58,10 @@
 	span.longitudeDelta = 0.01;
 	region.span = span;
 //	1/0;
-	[m_mapView setRegion:region animated:YES];
+	[m_mapView setRegion:region animated:NO];
+	PinAnnotation *pinAnnotation = [[PinAnnotation alloc]initWithCoordinate:location.coordinate];
+	[m_mapView addAnnotation:pinAnnotation];
+	
 }
 #pragma mark -
 

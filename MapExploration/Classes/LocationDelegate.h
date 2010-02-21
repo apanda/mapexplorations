@@ -19,7 +19,7 @@
 	MapExplorationAppDelegate* m_appDelegate;
 }
 
-@property (nonatomic, retain) CLLocationManager* m_locationManager;
+@property (nonatomic, retain) CLLocationManager* locationManager;
 
 - (void) locationManager: (CLLocationManager*) manager
 	 didUpdateToLocation: (CLLocation *) newLocation

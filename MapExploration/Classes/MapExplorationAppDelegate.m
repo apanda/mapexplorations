@@ -22,7 +22,7 @@
     // Override point for customization after app launch  
 	locationDelegate = [[LocationDelegate alloc] initWithAppDelegate:self];	
 	[locationDelegate retain];
-	[locationDelegate.m_locationManager startUpdatingLocation];
+	[locationDelegate.locationManager startUpdatingLocation];
 	mapView = [[MapView alloc] initWithAppDelegate:self];
 	[window addSubview:mapView.view];
 	[window makeKeyAndVisible];
