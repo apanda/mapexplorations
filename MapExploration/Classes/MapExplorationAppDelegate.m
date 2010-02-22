@@ -33,6 +33,7 @@
 	[locationDelegate retain];
 	[locationDelegate.locationManager startUpdatingLocation];
 	mapView = [[MapView alloc] initWithAppDelegate:self];
+	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped];
 
 	[self.window addSubview:mapView.view];
 	[self.window makeKeyAndVisible];
@@ -51,6 +52,15 @@
 	NSLog(@"New location");
 	[mapView setNewLocation:location];
 }
+
+- (void) showDetailsForAnnotation: (PinAnnotation*) annotation {
+	m_informationView.currentAnnotation = annotation;
+	[mapView.view retain];
+	[mapView.view removeFromSuperview];
+	[mapView.view resignFirstResponder];
+	[window addSubview:m_informationView.view];
+}
+
 /**
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */

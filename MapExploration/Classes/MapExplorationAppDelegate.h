@@ -7,9 +7,13 @@
 //
 #import "MapView.h"
 #import "LocationDelegate.h"
+#import "PinAnnotation.h"
+#import "InformationView.h"
 
+@class InformationView;
 @class MapView;
 @class LocationDelegate;
+@class PinAnnotation;
 @interface MapExplorationAppDelegate : NSObject <UIApplicationDelegate> {
 
     NSManagedObjectModel *managedObjectModel;
@@ -20,6 +24,7 @@
 	MapView *mapView;
 	LocationDelegate *locationDelegate;
 	NSString *m_dbFilePath;
+	InformationView *m_informationView;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -33,6 +38,7 @@
 - (NSString *)applicationDocumentsDirectory;
 - (void) updateLocation: (CLLocation*) location;
 - (void) setDbFilePath;
+- (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
 
 @end
 

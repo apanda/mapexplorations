@@ -35,7 +35,7 @@
 	self.view = [[UIView alloc] initWithFrame:rect];
 	self.view.autoresizesSubviews = YES;
 	
-	m_mapViewDelegate = [[MapViewDelegate alloc] initWithMapView:self];
+	m_mapViewDelegate = [[MapViewDelegate alloc] initWithMapView:self appDelegate: m_appDelegate];
 	
 	
 	m_mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 470)];

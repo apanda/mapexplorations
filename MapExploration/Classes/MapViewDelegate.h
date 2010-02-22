@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "MapView.h"
 #import "PinAnnotation.h"
+#import "MapExplorationAppDelegate.h"
 
 @class MapView;
 @class PinAnnotation;
+@class MapExplorationAppDelegate;
 @interface MapViewDelegate : NSObject <MKMapViewDelegate> {
 	MapView *m_mapView;
+	MapExplorationAppDelegate *m_appDelegate;
 }
 
-- (id) initWithMapView: (MapView*) mapView;
+- (id) initWithMapView: (MapView*) mapView appDelegate: (MapExplorationAppDelegate*)appDelegate;
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated;
 //- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated;
 //

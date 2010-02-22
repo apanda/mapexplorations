@@ -22,6 +22,7 @@
 		571DBC8D1131F81700D17167 /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBC8C1131F81700D17167 /* PinAnnotation.m */; };
 		571DBCEF11320A5D00D17167 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBCEE11320A5D00D17167 /* libsqlite3.dylib */; };
 		571DBCF211320AE300D17167 /* tennis.db in Resources */ = {isa = PBXBuildFile; fileRef = 571DBCF111320AE300D17167 /* tennis.db */; };
+		577FE3C411328FE100072027 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 577FE3C311328FE100072027 /* InformationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		571DBC8C1131F81700D17167 /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
 		571DBCEE11320A5D00D17167 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		571DBCF111320AE300D17167 /* tennis.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = tennis.db; sourceTree = "<group>"; };
+		577FE3C211328FE100072027 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
+		577FE3C311328FE100072027 /* InformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MapExploration-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MapExploration-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +74,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				577FE3C211328FE100072027 /* InformationView.h */,
+				577FE3C311328FE100072027 /* InformationView.m */,
 				1D3623240D0F684500981E51 /* MapExplorationAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MapExplorationAppDelegate.m */,
 				571DBC571131E24A00D17167 /* MapViewDelegate.h */,
@@ -198,6 +203,7 @@
 				571DBBBD1131294C00D17167 /* LocationDelegate.m in Sources */,
 				571DBC591131E24A00D17167 /* MapViewDelegate.m in Sources */,
 				571DBC8D1131F81700D17167 /* PinAnnotation.m in Sources */,
+				577FE3C411328FE100072027 /* InformationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

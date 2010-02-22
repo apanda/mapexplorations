@@ -11,10 +11,10 @@
 
 @implementation MapViewDelegate
 
-- (id) initWithMapView:(MapView *)mapView {
+- (id) initWithMapView:(MapView *)mapView appDelegate: (MapExplorationAppDelegate*)appDelegate{
 	self = [super init];
 	m_mapView = [mapView retain];
-
+	m_appDelegate = [appDelegate retain];
 	return self;
 }
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -52,6 +52,7 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 	PinAnnotation* annotation = (PinAnnotation*) view.annotation;
+	[m_appDelegate showDetailsForAnnotation:annotation];
 	NSLog(@"Clicked on  %@, at address %@, in %@ with %d courts", 
 		  annotation.name,
 		  annotation.address,
