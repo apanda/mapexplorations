@@ -47,4 +47,8 @@
 		  annotation.numCourts);
 }
 
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+	m_mapView.changeView = false;
+}
+
 @end

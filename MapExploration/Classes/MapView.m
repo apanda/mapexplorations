@@ -12,6 +12,7 @@
 @implementation MapView
 
 @synthesize mapView = m_mapView;
+@synthesize changeView = m_changeView;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -43,6 +44,7 @@
 	m_mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	m_mapView.scrollEnabled = YES;
 	[m_mapView setDelegate:m_mapViewDelegate];
+	self.changeView = true;
 	
 	[self createPinsFromDB];
 	[self.view addSubview:m_mapView];
@@ -52,6 +54,9 @@
 #pragma mark location stuff
 
 - (void) setNewLocation:(CLLocation *)location {
+	if (!self.changeView) {
+		return;
+	}
 	MKCoordinateRegion region;
 	region.center = location.coordinate;
 	MKCoordinateSpan span;

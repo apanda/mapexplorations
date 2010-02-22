@@ -17,6 +17,7 @@
 	MKMapView *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
 	MapViewDelegate *m_mapViewDelegate;
+	bool m_changeView;
 	
 }
 
@@ -24,5 +25,6 @@
 - (void) setNewLocation: (CLLocation*) location;
 - (void) createPinsFromDB;
 @property (nonatomic, retain) MKMapView *mapView;
+@property (nonatomic) bool changeView;
 
 @end
