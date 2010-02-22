@@ -25,6 +25,8 @@
 			annotationView = [[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
 			[annotationView setPinColor:MKPinAnnotationColorPurple];
 		}
+		[annotationView setCanShowCallout: YES];
+		[annotationView setEnabled:YES];
 		return (MKAnnotationView*)annotationView;
 
 	}

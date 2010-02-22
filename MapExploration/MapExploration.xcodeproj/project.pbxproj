@@ -21,6 +21,8 @@
 		571DBBBD1131294C00D17167 /* LocationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBBBC1131294C00D17167 /* LocationDelegate.m */; };
 		571DBC591131E24A00D17167 /* MapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBC581131E24A00D17167 /* MapViewDelegate.m */; };
 		571DBC8D1131F81700D17167 /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBC8C1131F81700D17167 /* PinAnnotation.m */; };
+		571DBCEF11320A5D00D17167 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBCEE11320A5D00D17167 /* libsqlite3.dylib */; };
+		571DBCF211320AE300D17167 /* tennis.db in Resources */ = {isa = PBXBuildFile; fileRef = 571DBCF111320AE300D17167 /* tennis.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		571DBC581131E24A00D17167 /* MapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewDelegate.m; sourceTree = "<group>"; };
 		571DBC8B1131F81700D17167 /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
 		571DBC8C1131F81700D17167 /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
+		571DBCEE11320A5D00D17167 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		571DBCF111320AE300D17167 /* tennis.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = tennis.db; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MapExploration-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MapExploration-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +63,7 @@
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				571DBA0511311A4E00D17167 /* MapKit.framework in Frameworks */,
 				571DBA9211311FCF00D17167 /* CoreLocation.framework in Frameworks */,
+				571DBCEF11320A5D00D17167 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +102,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				571DBCEE11320A5D00D17167 /* libsqlite3.dylib */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = CustomTemplate;
@@ -114,6 +120,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				571DBCF111320AE300D17167 /* tennis.db */,
 				28C3AD890F43EF2300507BA6 /* MapExploration.xcdatamodel */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* MapExploration-Info.plist */,
@@ -177,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				571DBCF211320AE300D17167 /* tennis.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,18 +14,52 @@
 @synthesize window;
 @synthesize mapView;
 
+- (NSString*) dbFilePath {
+	return m_dbFilePath;
+}
+
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-    // Override point for customization after app launch  
+    // Override point for customization after app launch
+	[self setDbFilePath];
 	locationDelegate = [[LocationDelegate alloc] initWithAppDelegate:self];	
 	[locationDelegate retain];
 	[locationDelegate.locationManager startUpdatingLocation];
 	mapView = [[MapView alloc] initWithAppDelegate:self];
+
 	[window addSubview:mapView.view];
 	[window makeKeyAndVisible];
+}
+
+- (void) setDbFilePath {
+	NSString *DB_FILE_NAME = @"tennis.db";
+	NSString *DB_RESOURCE_NAME = @"tennis";
+	NSString *DB_RESOURCE_TYPE = @"db";
+	NSArray *searchPaths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentFolderPath = [searchPaths objectAtIndex: 0]; 
+	m_dbFilePath = [documentFolderPath stringByAppendingPathComponent: DB_FILE_NAME];
+	
+	
+	
+	if (! [[NSFileManager defaultManager] fileExistsAtPath: m_dbFilePath]) {
+		// didn't find db, need to copy
+		NSString *backupDbPath = [[NSBundle mainBundle]
+								  pathForResource:DB_RESOURCE_NAME
+								  ofType:DB_RESOURCE_TYPE];
+		if (backupDbPath == nil) {
+			// couldn't find backup db to copy, bail
+			assert(FALSE);
+		} else {
+			BOOL copiedBackupDb = [[NSFileManager defaultManager]
+								   copyItemAtPath:backupDbPath
+								   toPath:m_dbFilePath
+								   error:nil];
+			assert(copiedBackupDb);
+		}
+	}
 }
 
 - (void) updateLocation:(CLLocation *)location {

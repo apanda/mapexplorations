@@ -44,6 +44,7 @@
 	m_mapView.scrollEnabled = YES;
 	[m_mapView setDelegate:m_mapViewDelegate];
 	
+	[self createPinsFromDB];
 	[self.view addSubview:m_mapView];
 	
 }
@@ -57,10 +58,33 @@
 	span.latitudeDelta = 0.01;
 	span.longitudeDelta = 0.01;
 	region.span = span;
-//	1/0;
 	[m_mapView setRegion:region animated:NO];
-	PinAnnotation *pinAnnotation = [[PinAnnotation alloc]initWithCoordinate:location.coordinate];
-	[m_mapView addAnnotation:pinAnnotation];
+	
+}
+
+- (void) createPinsFromDB {
+	const char *dbName = [m_appDelegate.dbFilePath UTF8String];
+	sqlite3 *db;
+	int dbrc = sqlite3_open(dbName, &db);
+	assert (dbrc == SQLITE_OK);
+	sqlite3_stmt *sqlite_stmt;
+	NSString* sqlstatement = @"select courtname, address, latitude, longitude from tenniscourts";
+	dbrc = sqlite3_prepare_v2(db, [sqlstatement UTF8String], -1, &sqlite_stmt, NULL);
+	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
+	assert (dbrc == SQLITE_OK);
+	while ((dbrc = sqlite3_step(sqlite_stmt)) == SQLITE_ROW) {
+		NSString *title = [[NSString alloc] initWithUTF8String:(const char*) sqlite3_column_text(sqlite_stmt, 0)];
+		NSString *subtitle = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 1)];
+		CLLocationCoordinate2D coordinate;
+		coordinate.latitude = sqlite3_column_double(sqlite_stmt, 2);
+		coordinate.longitude = sqlite3_column_double(sqlite_stmt, 3);
+		NSLog(@"Adding court %@\n", title);
+		PinAnnotation *pinAnnotation =[[[PinAnnotation alloc] initWithCoordinate:coordinate title:title subtitle:subtitle] autorelease];
+		[m_mapView addAnnotation: pinAnnotation];
+	}
+	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
+	sqlite3_finalize(sqlite_stmt);
+	sqlite3_close(db);
 	
 }
 #pragma mark -

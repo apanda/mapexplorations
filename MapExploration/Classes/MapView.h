@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 #import "MapExplorationAppDelegate.h"
 #import "MapViewDelegate.h"
 
@@ -21,7 +22,7 @@
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate;
 - (void) setNewLocation: (CLLocation*) location;
-
+- (void) createPinsFromDB;
 @property (nonatomic, retain) MKMapView *mapView;
 
 @end

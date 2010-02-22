@@ -19,6 +19,7 @@
     UIWindow *window;
 	MapView *mapView;
 	LocationDelegate *locationDelegate;
+	NSString *m_dbFilePath;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -27,10 +28,11 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) MapView *mapView;
-
+@property (nonatomic, retain, readonly) NSString *dbFilePath;
 
 - (NSString *)applicationDocumentsDirectory;
 - (void) updateLocation: (CLLocation*) location;
+- (void) setDbFilePath;
 
 @end
 
