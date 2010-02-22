@@ -6,14 +6,14 @@ Alki PG,5817 SW Lander St.,Seattle,Southwest,2
 Rainier PF,3700 S Alaska St.,Seattle,Southeast,4
 Rainier Beach PF,8802 Rainier Ave. S,Seattle,Southeast,4
 Mt. Baker Park,2521 Lake Park Dr. S,Seattle,Southeast,2
-Hutchinson PG,S Norfolk St. / 59th Ave. S,Seattle,Southeast,2
+Hutchinson PG,S Norfolk St. & 59th Ave. S,Seattle,Southeast,2
 I-90 Lid/Sam Smith,1400 Martin Luther King Jr. Way S,Seattle,Southeast,2
 Brighton PF,6000 39th Ave. S,Seattle,Southeast,2
 Amy Yee Tennis Center,2000 Martin Luther King Jr Way S,Seattle,Southeast,4
 Kinnear Park,899 W Olympic Pl.,Seattle,Queen Anne,1
 David Rodgers Park,2800 1st Ave. W,Seattle,Queen Anne,3
 Bitter Lake PF,13030 N Park Ave. N,Seattle,Northwest,4
-University PG,9th Ave. NE / NE 50th St.,Seattle,Northeast,2
+University PG,9th Ave. NE & NE 50th St.,Seattle,Northeast,2
 Ravenna Park,5520 Ravenna Ave. NE,Seattle,Northeast,2
 Ravenna-Eckstein,6535 Ravenna Ave. NE,Seattle,Northeast,1
 Magnuson Park,6500 Sand Point Way NE,Seattle,Northeast,6
@@ -29,9 +29,9 @@ Magnolia PF,2518 34th Ave. W,Seattle,Magnolia,4
 Discovery Park,3801 W Government Way,Seattle,Magnolia,2
 Madison Park,2300 43rd Ave. E,Seattle,Madison Park,2
 Wallingford PF,4219 Wallingford Ave. N,Seattle,Lake Union,2
-Rogers PG,Eastlake Ave. E / E Roanoke St.,Seattle,Lake Union,3
+Rogers PG,Eastlake Ave. E & E Roanoke St.,Seattle,Lake Union,3
 Green Lake Park,7201 East Green Lake Dr. N,Seattle,Green Lake,5
-Woodland Park (Upper),Midvale N / N 50th St.,Seattle,Green Lake,4
+Woodland Park (Upper),Midvale N & N 50th St.,Seattle,Green Lake,4
 Woodland Park (Lower),5851 West Green Lake Way N,Seattle,Green Lake,10
 South Park PG,738 S Sullivan St.,Seattle,Greater Duwamish,2
 Georgetown PF,750 S Homer St.,Seattle,Greater Duwamish,1
@@ -40,7 +40,7 @@ Cleveland High School,5511 15th Ave. S,Seattle,Greater Duwamish,2
 Riverview PF,7226 12th Ave. SW,Seattle,Delridge,2
 Highland Park PG,1100 SW Cloverdale St.,Seattle,Delridge,1
 Delridge PF,4458 Delridge Way SW,Seattle,Delridge,2
-Garfield PF,23rd Ave. / E Cherry St.,Seattle,Central Area,3
+Garfield PF,23rd Ave. & E Cherry St.,Seattle,Central Area,3
 Madrona Playfield,34th E and E Spring street,Seattle,Central,2
 Leschi Park,201 Lakeside Ave. S,Seattle,Central,1
 Volunteer Park,1247 15th Ave. E,Seattle,Capitol Hill,4
