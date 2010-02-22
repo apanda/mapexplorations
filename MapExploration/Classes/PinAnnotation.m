@@ -15,21 +15,38 @@
 	return m_coordinate;
 }
 
-- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString*) title subtitle: (NSString*) subtitle {
+- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate name:(NSString*) name address: (NSString*) address city: (NSString*) city numCourts: (int) numCourts {
 	self = [super init];
 	m_coordinate = coordinate;
-	m_title = title;
-	m_subtitle = subtitle;
+	m_name = name;
+	m_address = address;
+	m_numCourts = numCourts;
+	m_city = city;
 	return self;
 }
 
 - (NSString*) title {
-	return m_title;
+	return m_name;
 }
 
 -(NSString*) subtitle {
-	return m_subtitle;
+	return m_address;
+}
+
+- (int) numCourts {
+	return m_numCourts;
 }
 
 
+- (NSString*) name {
+	return m_name;
+}
+
+- (NSString*) address {
+	return m_address;
+}
+
+- (NSString*) city {
+	return m_city;
+}
 @end

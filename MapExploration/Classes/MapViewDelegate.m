@@ -23,6 +23,9 @@
 		annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
 		if (annotationView == nil) {
 			annotationView = [[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
+			UIButton* button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+			button.frame = CGRectMake(0,0,23,23);
+			annotationView.rightCalloutAccessoryView = button;
 			[annotationView setPinColor:MKPinAnnotationColorPurple];
 		}
 		[annotationView setCanShowCallout: YES];
@@ -33,6 +36,15 @@
 	else {
 		return nil;
 	}
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+	PinAnnotation* annotation = (PinAnnotation*) view.annotation;
+	NSLog(@"Clicked on  %@, at address %@, in %@ with %d courts", 
+		  annotation.name,
+		  annotation.address,
+		  annotation.city,
+		  annotation.numCourts);
 }
 
 @end

@@ -11,12 +11,22 @@
 
 @interface PinAnnotation : NSObject <MKAnnotation> {
 	CLLocationCoordinate2D m_coordinate;
-	NSString* m_title;
-	NSString* m_subtitle;
+	NSString* m_name;
+	NSString* m_address;
+	int m_numCourts;
+	NSString* m_city;
 }
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly) int numCourts;
+@property (nonatomic, readonly) NSString* name;
+@property (nonatomic, readonly) NSString* address;
+@property (nonatomic, readonly) NSString* city;
 
-- (id) initWithCoordinate: (CLLocationCoordinate2D) coordinate title:(NSString*) title subtitle:(NSString*) subtitle;
+- (id) initWithCoordinate: (CLLocationCoordinate2D) coordinate 
+					name:(NSString*) name 
+				    address:(NSString*) address
+					 city: (NSString*) city
+					numCourts: (int) numCourts;
 
 @end
