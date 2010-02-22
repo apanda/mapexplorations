@@ -20,13 +20,25 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
 	MKPinAnnotationView *annotationView = nil;
 	if ([annotation isKindOfClass: [PinAnnotation class]]) {
+		PinAnnotation* pinAnnotation = (PinAnnotation*) annotation;
 		annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
 		if (annotationView == nil) {
 			annotationView = [[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
 			UIButton* button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 			button.frame = CGRectMake(0,0,23,23);
 			annotationView.rightCalloutAccessoryView = button;
-			[annotationView setPinColor:MKPinAnnotationColorPurple];
+			MKPinAnnotationColor color;
+			if (pinAnnotation.numCourts > 7) {
+				color = MKPinAnnotationColorGreen;
+			}
+			else if (pinAnnotation.numCourts > 3) {
+				color = MKPinAnnotationColorPurple;
+			}
+			else {
+				color = MKPinAnnotationColorRed;
+			}
+
+			[annotationView setPinColor:color];
 		}
 		[annotationView setCanShowCallout: YES];
 		[annotationView setEnabled:YES];
@@ -48,7 +60,7 @@
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-	m_mapView.changeView = false;
+	//m_mapView.changeView = false;
 }
 
 @end

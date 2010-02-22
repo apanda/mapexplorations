@@ -16,18 +16,19 @@ for row in c:
         addr = str.format("{0} in {2} {1} WA", row[1], row[2], row[3])
         print addr
         
-        #try:
-        #    place, (lat, lng) = google.geocode(addr)
-        #    out = str.format("{0}: {1}, {2}", place, lat, lng)
-        #    print out
-        #except ValueError:
-        #    print "valerror"
-
         try:
-            place, (lat, lng) = yahoo.geocode(addr)
+            place, (lat, lng) = google.geocode(addr)
             out = str.format("{0}: {1}, {2}", place, lat, lng)
             c2.execute("insert into tenniscourts (courtname, address, city, neighborhood, courts, latitude, longitude) values (?, ?, ?, ?, ?, ?, ?)", (row[0], row[1], row[2], row[3], row[4], lat, lng))
             print out
         except ValueError:
             print "valerror"
+
+        #try:
+        #    place, (lat, lng) = yahoo.geocode(addr)
+        #    out = str.format("{0}: {1}, {2}", place, lat, lng)
+        #    c2.execute("insert into tenniscourts (courtname, address, city, neighborhood, courts, latitude, longitude) values (?, ?, ?, ?, ?, ?, ?)", (row[0], row[1], row[2], row[3], row[4], lat, lng))
+        #    print out
+        #except ValueError:
+        #    print "valerror"
 connection2.commit()

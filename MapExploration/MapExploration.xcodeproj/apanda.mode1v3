@@ -252,7 +252,7 @@
 						<dict>
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
-								<real>186</real>
+								<real>223</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -268,20 +268,19 @@
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>571DBCF711320C2000D17167</string>
-								<string>571DBCF811320C2000D17167</string>
+								<string>1C37FAAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
-									<integer>1</integer>
+									<integer>14</integer>
+									<integer>12</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 692}}</string>
+							<string>{{0, 0}, {223, 692}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -293,11 +292,11 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {203, 710}}</string>
+						<string>{{0, 0}, {240, 710}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
-							<real>186</real>
+							<real>223</real>
 						</array>
 						<key>RubberWindowFrame</key>
 						<string>0 127 1440 751 0 0 1440 878 </string>
@@ -305,7 +304,7 @@
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>203pt</string>
+					<string>240pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
@@ -318,7 +317,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapView.m</string>
+								<string>main.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +325,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MapView.m</string>
+										<string>main.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>571DBFDB11327A6200D17167</string>
+										<string>577FE36A11327DF700072027</string>
 										<key>history</key>
 										<array>
 											<string>571DBBC8113129CA00D17167</string>
@@ -346,7 +345,9 @@
 											<string>571DBFCF11327A4100D17167</string>
 											<string>571DBFD011327A4100D17167</string>
 											<string>571DBFD911327A6200D17167</string>
-											<string>571DBFDA11327A6200D17167</string>
+											<string>571DBFF711327D5A00D17167</string>
+											<string>577FE36411327DDC00072027</string>
+											<string>577FE36511327DDC00072027</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -358,14 +359,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1232, 519}}</string>
+								<string>{{0, 0}, {1195, 513}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 127 1440 751 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>519pt</string>
+							<string>513pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -378,18 +379,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 524}, {1232, 186}}</string>
+								<string>{{0, 518}, {1195, 192}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 127 1440 751 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>186pt</string>
+							<string>192pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>1232pt</string>
+					<string>1195pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -404,9 +405,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>571DBC3411312DB800D17167</string>
+				<string>577FE36711327DDC00072027</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>571DBC3511312DB800D17167</string>
+				<string>577FE36811327DDC00072027</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -544,12 +545,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>571DBFDC11327A6200D17167</string>
-		<string>571DBEE41132558000D17167</string>
-		<string>571DBC771131E8CB00D17167</string>
-		<string>571DBC3F11312DB800D17167</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>571DB9EC1131190800D17167</string>
 		<string>/Users/apanda/code/mapexplorations/MapExploration/MapExploration.xcodeproj</string>
 	</array>
@@ -570,14 +565,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapView.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -633,7 +626,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>571DB9EC1131190800D17167</string>
-				<string>571DBC3611312DB800D17167</string>
+				<string>577FE36911327DDC00072027</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -935,7 +928,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

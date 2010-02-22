@@ -38,7 +38,7 @@
 	m_mapViewDelegate = [[MapViewDelegate alloc] initWithMapView:self];
 	
 	
-	m_mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	m_mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 470)];
 	m_mapView.showsUserLocation = YES;
 	m_mapView.zoomEnabled = YES;
 	m_mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -64,6 +64,7 @@
 	span.longitudeDelta = 0.01;
 	region.span = span;
 	[m_mapView setRegion:region animated:NO];
+	//self.changeView = FALSE;
 	
 }
 

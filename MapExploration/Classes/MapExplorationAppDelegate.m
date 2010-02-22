@@ -22,6 +22,10 @@
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
+	
+	UIWindow *appWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = appWindow;
+    [appWindow release];
     
     // Override point for customization after app launch
 	[self setDbFilePath];
@@ -30,8 +34,8 @@
 	[locationDelegate.locationManager startUpdatingLocation];
 	mapView = [[MapView alloc] initWithAppDelegate:self];
 
-	[window addSubview:mapView.view];
-	[window makeKeyAndVisible];
+	[self.window addSubview:mapView.view];
+	[self.window makeKeyAndVisible];
 }
 
 - (void) setDbFilePath {
