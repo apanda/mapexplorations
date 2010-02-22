@@ -275,9 +275,10 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
-									<integer>1</integer>
-									<integer>0</integer>
+									<integer>27</integer>
+									<integer>25</integer>
+									<integer>24</integer>
+									<integer>23</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -330,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>571DBFB31132735100D17167</string>
+										<string>571DBFC9113278CB00D17167</string>
 										<key>history</key>
 										<array>
 											<string>571DBBC8113129CA00D17167</string>
@@ -346,7 +347,7 @@
 											<string>571DBFA81132645300D17167</string>
 											<string>571DBFB11132735100D17167</string>
 											<string>571DBFB21132735100D17167</string>
-											<string>571DBFA61132645300D17167</string>
+											<string>571DBFBF1132788A00D17167</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -544,13 +545,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>571DBFB41132735100D17167</string>
+		<string>571DBFCA113278CB00D17167</string>
 		<string>571DBEE41132558000D17167</string>
 		<string>571DBC771131E8CB00D17167</string>
 		<string>571DBC3F11312DB800D17167</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>571DB9EC1131190800D17167</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/apanda/code/mapexplorations/MapExploration/MapExploration.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -902,7 +903,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {650, 209}}</string>
 								<key>RubberWindowFrame</key>
-								<string>711 296 650 250 0 0 1440 878 </string>
+								<string>400 225 650 250 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -931,11 +932,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>711 296 650 250 0 0 1440 878 </string>
+			<string>400 225 650 250 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

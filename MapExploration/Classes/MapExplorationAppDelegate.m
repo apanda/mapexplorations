@@ -35,31 +35,12 @@
 }
 
 - (void) setDbFilePath {
-	NSString *DB_FILE_NAME = @"tennis.db";
 	NSString *DB_RESOURCE_NAME = @"tennis";
 	NSString *DB_RESOURCE_TYPE = @"db";
-	NSArray *searchPaths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentFolderPath = [searchPaths objectAtIndex: 0]; 
-	m_dbFilePath = [documentFolderPath stringByAppendingPathComponent: DB_FILE_NAME];
-	
-	
-	
-	if (! [[NSFileManager defaultManager] fileExistsAtPath: m_dbFilePath]) {
-		// didn't find db, need to copy
-		NSString *backupDbPath = [[NSBundle mainBundle]
-								  pathForResource:DB_RESOURCE_NAME
-								  ofType:DB_RESOURCE_TYPE];
-		if (backupDbPath == nil) {
-			// couldn't find backup db to copy, bail
-			assert(FALSE);
-		} else {
-			BOOL copiedBackupDb = [[NSFileManager defaultManager]
-								   copyItemAtPath:backupDbPath
-								   toPath:m_dbFilePath
-								   error:nil];
-			assert(copiedBackupDb);
-		}
-	}
+	m_dbFilePath = [[NSBundle mainBundle]
+					pathForResource:DB_RESOURCE_NAME
+					ofType:DB_RESOURCE_TYPE];
+		
 }
 
 - (void) updateLocation:(CLLocation *)location {
