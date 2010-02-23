@@ -11,30 +11,34 @@
 
 @implementation InformationView
 @synthesize currentAnnotation = m_annotation;
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
+
+- (id)initWithStyle:(UITableViewStyle)style appDelegate: (MapExplorationAppDelegate*) appDelegate {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
+    self = [super initWithStyle:style];
+	m_appDelegate = appDelegate;
     return self;
 }
-*/
+
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-	self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	//self.navigationItem.leftBarButtonItem = self.editButtonItem;
+	// self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	// self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 
-/*
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	[self.tableView reloadData];
+	self.tableView.editing = NO;
+	self.title = self.currentAnnotation.name;
+	[m_appDelegate showNavigationBar];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -104,6 +108,7 @@
 		cell.textLabel.text = @"Address";
 		cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
 		cell.detailTextLabel.numberOfLines = 5;
+		cell.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 		cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@\n%@, WA", self.currentAnnotation.address, self.currentAnnotation.city];
 	}
 	else if (index == 2) {
@@ -116,7 +121,20 @@
     return cell;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
+	// return [super tableView: tableView heightForRowAtIndexPath: indexPath];
+	if ([indexPath indexAtPosition:1] != 1) {
+		return tableView.rowHeight;
+	
+	}
+	CGSize maxSize;
+	float height = 2009;
+	float width = CGRectGetWidth(tableView.frame) - 200;
+	maxSize = CGSizeMake(width, height);
+	CGSize size = [self.currentAnnotation.address sizeWithFont:[UIFont systemFontOfSize: [UIFont systemFontSize]] constrainedToSize:maxSize lineBreakMode:UILineBreakModeWordWrap];
+	CGSize size2 = [self.currentAnnotation.city sizeWithFont:[UIFont systemFontOfSize: [UIFont systemFontSize]] constrainedToSize:maxSize lineBreakMode:UILineBreakModeWordWrap];
+	return size.height + size2.height + 5.0;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];

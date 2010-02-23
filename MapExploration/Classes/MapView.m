@@ -26,6 +26,7 @@
 - (id) initWithAppDelegate:(MapExplorationAppDelegate *)appDelegate {
 	self = [super initWithNibName:nil bundle:nil];
 	m_appDelegate = appDelegate;
+	self.title = @"Map View";
 	return self;
 }
 
@@ -49,6 +50,10 @@
 	[self createPinsFromDB];
 	[self.view addSubview:m_mapView];
 	
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[m_appDelegate hideNavigationBar];
 }
 
 #pragma mark location stuff

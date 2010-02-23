@@ -19,7 +19,7 @@
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
+	UINavigationController *m_navigationCountroller;
     UIWindow *window;
 	MapView *mapView;
 	LocationDelegate *locationDelegate;
@@ -39,6 +39,8 @@
 - (void) updateLocation: (CLLocation*) location;
 - (void) setDbFilePath;
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
+- (void) hideNavigationBar;
+- (void) showNavigationBar;
 
 @end
 

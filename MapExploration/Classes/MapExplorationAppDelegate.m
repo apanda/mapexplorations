@@ -33,9 +33,10 @@
 	[locationDelegate retain];
 	[locationDelegate.locationManager startUpdatingLocation];
 	mapView = [[MapView alloc] initWithAppDelegate:self];
-	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped];
-
-	[self.window addSubview:mapView.view];
+	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
+	m_navigationCountroller = [[UINavigationController alloc] initWithRootViewController:mapView];
+	
+	[self.window addSubview:m_navigationCountroller.view];
 	[self.window makeKeyAndVisible];
 }
 
@@ -55,12 +56,20 @@
 
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation {
 	m_informationView.currentAnnotation = annotation;
-	[mapView.view retain];
+	/*[mapView.view retain];
 	[mapView.view removeFromSuperview];
 	[mapView.view resignFirstResponder];
-	[window addSubview:m_informationView.view];
+	[window addSubview:m_informationView.view];*/
+	[m_navigationCountroller pushViewController:m_informationView animated:NO];
 }
 
+- (void) hideNavigationBar {
+	m_navigationCountroller.navigationBarHidden = YES;
+}
+
+- (void) showNavigationBar {
+	m_navigationCountroller.navigationBarHidden = NO;
+}
 /**
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */

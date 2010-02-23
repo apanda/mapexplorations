@@ -24,6 +24,7 @@
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate;
 - (void) setNewLocation: (CLLocation*) location;
 - (void) createPinsFromDB;
+- (void)viewWillAppear:(BOOL)animated;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic) bool changeView;
 
