@@ -18,10 +18,10 @@
 - (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate name:(NSString*) name address: (NSString*) address city: (NSString*) city numCourts: (int) numCourts {
 	self = [super init];
 	m_coordinate = coordinate;
-	m_name = name;
-	m_address = address;
+	m_name = [name retain];
+	m_address = [address retain];
 	m_numCourts = numCourts;
-	m_city = city;
+	m_city = [city retain];
 	return self;
 }
 

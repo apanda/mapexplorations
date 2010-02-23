@@ -65,8 +65,8 @@
 	MKCoordinateRegion region;
 	region.center = location.coordinate;
 	MKCoordinateSpan span;
-	span.latitudeDelta = 0.01;
-	span.longitudeDelta = 0.01;
+	span.latitudeDelta = 0.03;
+	span.longitudeDelta = 0.03;
 	region.span = span;
 	[m_mapView setRegion:region animated:NO];
 	//self.changeView = FALSE;
@@ -95,6 +95,9 @@
 		coordinate.longitude = sqlite3_column_double(sqlite_stmt, 3);
 		
 		PinAnnotation *pinAnnotation =[[[PinAnnotation alloc] initWithCoordinate:coordinate name:name address:address city:city numCourts:courts] autorelease];
+		[name release];
+		[address release];
+		[city release];
 		[m_mapView addAnnotation: pinAnnotation];
 	}
 	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
