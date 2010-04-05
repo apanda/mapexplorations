@@ -25,6 +25,7 @@
 	LocationDelegate *locationDelegate;
 	NSString *m_dbFilePath;
 	InformationView *m_informationView;
+	bool m_locationSet;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

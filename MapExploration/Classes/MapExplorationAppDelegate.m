@@ -35,6 +35,7 @@
 	mapView = [[MapView alloc] initWithAppDelegate:self];
 	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
 	m_navigationCountroller = [[UINavigationController alloc] initWithRootViewController:mapView];
+	m_locationSet = FALSE;
 	
 	[self.window addSubview:m_navigationCountroller.view];
 	[self.window makeKeyAndVisible];
@@ -51,6 +52,10 @@
 
 - (void) updateLocation:(CLLocation *)location {
 	NSLog(@"New location");
+	if (m_locationSet) {
+		return;
+	}
+	m_locationSet = TRUE;
 	[mapView setNewLocation:location];
 }
 
