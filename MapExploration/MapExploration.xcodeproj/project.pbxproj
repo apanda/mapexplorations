@@ -42,14 +42,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libTouchCustoms.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = TouchCustoms;
 		};
 		57ACC13F1169C33B008A4A02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* TouchCustoms */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = TouchCustoms;
 		};
 /* End PBXContainerItemProxy section */

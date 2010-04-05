@@ -1,0 +1,3 @@
+[submodule "external/TouchCustoms"]
+	path = external/TouchCustoms
+	url = git://github.com/eisernWolf/TouchCustoms.git
