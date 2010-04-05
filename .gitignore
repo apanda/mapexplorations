@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 *.swp
+=======
+build
+*.pbxuser
+*.mode1v3
+.DS_Store
+>>>>>>> a5966b1df34ca7ae11be2cd96074ecbbd649a417

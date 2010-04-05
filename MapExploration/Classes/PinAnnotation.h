@@ -15,10 +15,12 @@
 	NSString* m_address;
 	int m_numCourts;
 	NSString* m_city;
+	int m_rating;
 }
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, readonly) int numCourts;
+@property (nonatomic, readonly) int rating;
 @property (nonatomic, readonly) NSString* name;
 @property (nonatomic, readonly) NSString* address;
 @property (nonatomic, readonly) NSString* city;
@@ -27,6 +29,7 @@
 					name:(NSString*) name 
 				    address:(NSString*) address
 					 city: (NSString*) city
-					numCourts: (int) numCourts;
+					numCourts: (int) numCourts
+				    rating: (int) rating;
 
 @end

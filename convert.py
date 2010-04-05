@@ -19,7 +19,7 @@ for row in c:
         try:
             place, (lat, lng) = google.geocode(addr)
             out = str.format("{0}: {1}, {2}", place, lat, lng)
-            c2.execute("insert into tenniscourts (courtname, address, city, neighborhood, courts, latitude, longitude) values (?, ?, ?, ?, ?, ?, ?)", (row[0], row[1], row[2], row[3], row[4], lat, lng))
+            c2.execute("insert into tenniscourts (courtname, address, city, neighborhood, courts, latitude, longitude, rating) values (?, ?, ?, ?, ?, ?, ?, ?)", (row[0], row[1], row[2], row[3], row[4], lat, lng, 2))
             print out
         except ValueError:
             print "valerror"

@@ -15,13 +15,14 @@
 	return m_coordinate;
 }
 
-- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate name:(NSString*) name address: (NSString*) address city: (NSString*) city numCourts: (int) numCourts {
+- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate name:(NSString*) name address: (NSString*) address city: (NSString*) city numCourts: (int) numCourts rating: (int) rating{
 	self = [super init];
 	m_coordinate = coordinate;
 	m_name = [name retain];
 	m_address = [address retain];
 	m_numCourts = numCourts;
 	m_city = [city retain];
+	m_rating = rating;
 	return self;
 }
 
@@ -37,6 +38,9 @@
 	return m_numCourts;
 }
 
+- (int) rating {
+	return m_rating;
+}
 
 - (NSString*) name {
 	return m_name;
