@@ -85,7 +85,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 
@@ -114,6 +114,20 @@
 	else if (index == 2) {
 		cell.textLabel.text = @"Courts";
 		cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", self.currentAnnotation.numCourts];
+	}
+	else if (index == 3) {
+		//cell.textLabel.text = @"Rating";
+		//cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", self.currentAnnotation.rating];
+		SCRatingView* ratingView = [[SCRatingView alloc] initWithFrame:cell.contentView.frame];
+		ratingView.rating = 2;
+		ratingView.userInteractionEnabled = FALSE;
+		[ratingView setStarImage:[UIImage imageNamed:@"small-star-nonselected.png"] forState:kSCRatingViewNonSelected];
+		[ratingView setStarImage:[UIImage imageNamed:@"small-star-selected.png"] forState:kSCRatingViewSelected];
+		[ratingView setStarImage:[UIImage imageNamed:@"small-star-halfselected.png"] forState:kSCRatingViewHalfSelected];
+		[ratingView setStarImage:[UIImage imageNamed:@"small-star-hot.png"] forState:kSCRatingViewHot];
+		[ratingView setStarImage:[UIImage imageNamed:@"small-star-highlighted.png"] forState:kSCRatingViewHighlighted];
+		//cell = [[UITableViewCell alloc] initWithStyle:<#(UITableViewCellStyle)style#> reuseIdentifier:<#(NSString *)reuseIdentifier#>
+		[cell.contentView addSubview:ratingView];
 	}
     // Set up the cell...
 	

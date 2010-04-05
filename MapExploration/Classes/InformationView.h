@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PinAnnotation.h"
 #import "MapExplorationAppDelegate.h"
+#import <SCRatingView.h>
 
 @class PinAnnotation;
 @class MapExplorationAppDelegate;

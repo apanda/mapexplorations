@@ -89,7 +89,7 @@
 		NSString *address = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 1)];
 		NSString *city = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 5)];
 		int courts = sqlite3_column_int(sqlite_stmt, 4);
-		int rating = sqlite3_column_int(sqlite_stmt, 5);
+		int rating = sqlite3_column_int(sqlite_stmt, 6);
 		CLLocationCoordinate2D coordinate;
 		coordinate.latitude = sqlite3_column_double(sqlite_stmt, 2);
 		coordinate.longitude = sqlite3_column_double(sqlite_stmt, 3);

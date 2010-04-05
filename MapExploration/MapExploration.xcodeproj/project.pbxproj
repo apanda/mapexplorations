@@ -23,7 +23,36 @@
 		571DBCEF11320A5D00D17167 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBCEE11320A5D00D17167 /* libsqlite3.dylib */; };
 		571DBCF211320AE300D17167 /* tennis.db in Resources */ = {isa = PBXBuildFile; fileRef = 571DBCF111320AE300D17167 /* tennis.db */; };
 		577FE3C411328FE100072027 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 577FE3C311328FE100072027 /* InformationView.m */; };
+		57ACC2491169C7DC008A4A02 /* libTouchCustoms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ACC13D1169C326008A4A02 /* libTouchCustoms.a */; };
+		57ACC2F61169CF0C008A4A02 /* small-star-halfselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2EB1169CF0C008A4A02 /* small-star-halfselected.png */; };
+		57ACC2F71169CF0C008A4A02 /* small-star-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2EC1169CF0C008A4A02 /* small-star-highlighted.png */; };
+		57ACC2F81169CF0C008A4A02 /* small-star-hot.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2ED1169CF0C008A4A02 /* small-star-hot.png */; };
+		57ACC2F91169CF0C008A4A02 /* small-star-nonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2EE1169CF0C008A4A02 /* small-star-nonselected.png */; };
+		57ACC2FA1169CF0C008A4A02 /* small-star-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2EF1169CF0C008A4A02 /* small-star-selected.png */; };
+		57ACC2FB1169CF0C008A4A02 /* star-halfselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2F01169CF0C008A4A02 /* star-halfselected.png */; };
+		57ACC2FC1169CF0C008A4A02 /* star-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2F11169CF0C008A4A02 /* star-highlighted.png */; };
+		57ACC2FD1169CF0C008A4A02 /* star-hot.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2F21169CF0C008A4A02 /* star-hot.png */; };
+		57ACC2FE1169CF0C008A4A02 /* star-nonselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2F31169CF0C008A4A02 /* star-nonselected.png */; };
+		57ACC2FF1169CF0C008A4A02 /* star-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2F41169CF0C008A4A02 /* star-selected.png */; };
+		57ACC3001169CF0C008A4A02 /* star-userselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2F51169CF0C008A4A02 /* star-userselected.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57ACC13C1169C326008A4A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libTouchCustoms.a */;
+			remoteInfo = TouchCustoms;
+		};
+		57ACC13F1169C33B008A4A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* TouchCustoms */;
+			remoteInfo = TouchCustoms;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,6 +79,18 @@
 		571DBCF111320AE300D17167 /* tennis.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = tennis.db; sourceTree = "<group>"; };
 		577FE3C211328FE100072027 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
 		577FE3C311328FE100072027 /* InformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationView.m; sourceTree = "<group>"; };
+		57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TouchCustoms.xcodeproj; path = ../external/TouchCustoms/TouchCustoms.xcodeproj; sourceTree = SOURCE_ROOT; };
+		57ACC2EB1169CF0C008A4A02 /* small-star-halfselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-star-halfselected.png"; path = "Resources/Images/small-star-halfselected.png"; sourceTree = "<group>"; };
+		57ACC2EC1169CF0C008A4A02 /* small-star-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-star-highlighted.png"; path = "Resources/Images/small-star-highlighted.png"; sourceTree = "<group>"; };
+		57ACC2ED1169CF0C008A4A02 /* small-star-hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-star-hot.png"; path = "Resources/Images/small-star-hot.png"; sourceTree = "<group>"; };
+		57ACC2EE1169CF0C008A4A02 /* small-star-nonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-star-nonselected.png"; path = "Resources/Images/small-star-nonselected.png"; sourceTree = "<group>"; };
+		57ACC2EF1169CF0C008A4A02 /* small-star-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-star-selected.png"; path = "Resources/Images/small-star-selected.png"; sourceTree = "<group>"; };
+		57ACC2F01169CF0C008A4A02 /* star-halfselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-halfselected.png"; path = "Resources/Images/star-halfselected.png"; sourceTree = "<group>"; };
+		57ACC2F11169CF0C008A4A02 /* star-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-highlighted.png"; path = "Resources/Images/star-highlighted.png"; sourceTree = "<group>"; };
+		57ACC2F21169CF0C008A4A02 /* star-hot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-hot.png"; path = "Resources/Images/star-hot.png"; sourceTree = "<group>"; };
+		57ACC2F31169CF0C008A4A02 /* star-nonselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-nonselected.png"; path = "Resources/Images/star-nonselected.png"; sourceTree = "<group>"; };
+		57ACC2F41169CF0C008A4A02 /* star-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-selected.png"; path = "Resources/Images/star-selected.png"; sourceTree = "<group>"; };
+		57ACC2F51169CF0C008A4A02 /* star-userselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-userselected.png"; path = "Resources/Images/star-userselected.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MapExploration-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MapExploration-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ACC2491169C7DC008A4A02 /* libTouchCustoms.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -123,6 +165,17 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57ACC2EB1169CF0C008A4A02 /* small-star-halfselected.png */,
+				57ACC2EC1169CF0C008A4A02 /* small-star-highlighted.png */,
+				57ACC2ED1169CF0C008A4A02 /* small-star-hot.png */,
+				57ACC2EE1169CF0C008A4A02 /* small-star-nonselected.png */,
+				57ACC2EF1169CF0C008A4A02 /* small-star-selected.png */,
+				57ACC2F01169CF0C008A4A02 /* star-halfselected.png */,
+				57ACC2F11169CF0C008A4A02 /* star-highlighted.png */,
+				57ACC2F21169CF0C008A4A02 /* star-hot.png */,
+				57ACC2F31169CF0C008A4A02 /* star-nonselected.png */,
+				57ACC2F41169CF0C008A4A02 /* star-selected.png */,
+				57ACC2F51169CF0C008A4A02 /* star-userselected.png */,
 				571DBCF111320AE300D17167 /* tennis.db */,
 				28C3AD890F43EF2300507BA6 /* MapExploration.xcdatamodel */,
 				8D1107310486CEB800E47090 /* MapExploration-Info.plist */,
@@ -133,6 +186,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
@@ -141,6 +195,14 @@
 				571DBA9111311FCF00D17167 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57ACC1391169C326008A4A02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57ACC13D1169C326008A4A02 /* libTouchCustoms.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +219,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				57ACC1401169C33B008A4A02 /* PBXTargetDependency */,
 			);
 			name = MapExploration;
 			productName = MapExploration;
@@ -173,6 +236,12 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 57ACC1391169C326008A4A02 /* Products */;
+					ProjectRef = 57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* MapExploration */,
@@ -180,12 +249,33 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		57ACC13D1169C326008A4A02 /* libTouchCustoms.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTouchCustoms.a;
+			remoteRef = 57ACC13C1169C326008A4A02 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				571DBCF211320AE300D17167 /* tennis.db in Resources */,
+				57ACC2F61169CF0C008A4A02 /* small-star-halfselected.png in Resources */,
+				57ACC2F71169CF0C008A4A02 /* small-star-highlighted.png in Resources */,
+				57ACC2F81169CF0C008A4A02 /* small-star-hot.png in Resources */,
+				57ACC2F91169CF0C008A4A02 /* small-star-nonselected.png in Resources */,
+				57ACC2FA1169CF0C008A4A02 /* small-star-selected.png in Resources */,
+				57ACC2FB1169CF0C008A4A02 /* star-halfselected.png in Resources */,
+				57ACC2FC1169CF0C008A4A02 /* star-highlighted.png in Resources */,
+				57ACC2FD1169CF0C008A4A02 /* star-hot.png in Resources */,
+				57ACC2FE1169CF0C008A4A02 /* star-nonselected.png in Resources */,
+				57ACC2FF1169CF0C008A4A02 /* star-selected.png in Resources */,
+				57ACC3001169CF0C008A4A02 /* star-userselected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +299,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		57ACC1401169C33B008A4A02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TouchCustoms;
+			targetProxy = 57ACC13F1169C33B008A4A02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -224,6 +322,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapExploration_Prefix.pch;
+				HEADER_SEARCH_PATHS = "../external/TouchCustoms/Classes/**";
 				INFOPLIST_FILE = "MapExploration-Info.plist";
 				PRODUCT_NAME = MapExploration;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57E6E2A5-F36D-4328-B5BD-AF59D22A1255";
@@ -242,6 +341,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapExploration_Prefix.pch;
+				HEADER_SEARCH_PATHS = "../external/TouchCustoms/Classes/**";
 				INFOPLIST_FILE = "MapExploration-Info.plist";
 				PRODUCT_NAME = MapExploration;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57E6E2A5-F36D-4328-B5BD-AF59D22A1255";
