@@ -138,11 +138,18 @@
 			m_ratingView = [[SCRatingView alloc] initWithFrame: cell.frame];
 			m_ratingView.rating = 2;
 			//m_ratingView.userInteractionEnabled = FALSE;
-			[m_ratingView setStarImage:[UIImage imageNamed:@"star-nonselected.png"] forState:kSCRatingViewNonSelected];
-			[m_ratingView setStarImage:[UIImage imageNamed:@"star-selected.png"] forState:kSCRatingViewSelected];
-			[m_ratingView setStarImage:[UIImage imageNamed:@"star-halfselected.png"] forState:kSCRatingViewHalfSelected];
-			[m_ratingView setStarImage:[UIImage imageNamed:@"star-hot.png"] forState:kSCRatingViewHot];
-			[m_ratingView setStarImage:[UIImage imageNamed:@"star-highlighted.png"] forState:kSCRatingViewHighlighted];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-halfselected.png"]
+								 forState:kSCRatingViewHalfSelected];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-highlighted.png"]
+								 forState:kSCRatingViewHighlighted];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-hot.png"]
+								 forState:kSCRatingViewHot];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-nonselected.png"]
+								 forState:kSCRatingViewNonSelected];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-selected.png"]
+								 forState:kSCRatingViewSelected];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-userselected.png"]
+								 forState:kSCRatingViewUserSelected];
 			
 			[cell.contentView addSubview:m_ratingView];
 			UIView *transparentBackground = [[UIView alloc] initWithFrame:CGRectZero];

@@ -47,6 +47,8 @@
 	[m_mapView setDelegate:m_mapViewDelegate];
 	self.changeView = true;
 	
+	
+	m_database = [[TennisDatabase alloc]initWithWritableDbWithAppDelegate:m_appDelegate];
 	[self createPinsFromDB];
 	[self.view addSubview:m_mapView];
 	
@@ -74,44 +76,8 @@
 }
 
 - (void) createPinsFromDB {
-	const char *dbName = [m_appDelegate.dbFilePath UTF8String];
-	sqlite3 *db;
-	int dbrc = sqlite3_open(dbName, &db);
-	assert (dbrc == SQLITE_OK);
-	sqlite3_stmt *sqlite_stmt;
-	NSString* sqlstatement = @"select courtname, address, latitude, longitude, courts, city, rating, key, neighborhood from tenniscourts";
-	dbrc = sqlite3_prepare_v2(db, [sqlstatement UTF8String], -1, &sqlite_stmt, NULL);
-	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
-	assert (dbrc == SQLITE_OK);
-	while ((dbrc = sqlite3_step(sqlite_stmt)) == SQLITE_ROW) {
-		
-		NSString *name = [[NSString alloc] initWithUTF8String:(const char*) sqlite3_column_text(sqlite_stmt, 0)];
-		NSString *address = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 1)];
-		NSString *city = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 5)];
-		NSString *neighborhood = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 8)];
-		int courts = sqlite3_column_int(sqlite_stmt, 4);
-		int rating = sqlite3_column_int(sqlite_stmt, 6);
-		int key = sqlite3_column_int(sqlite_stmt, 7);
-		CLLocationCoordinate2D coordinate;
-		coordinate.latitude = sqlite3_column_double(sqlite_stmt, 2);
-		coordinate.longitude = sqlite3_column_double(sqlite_stmt, 3);
-		
-		PinAnnotation *pinAnnotation =[[[PinAnnotation alloc] initWithCoordinate:coordinate 
-																			 key: key 
-																			name: name 
-																		 address: address 
-																			city: city 
-																	   numCourts: courts
-																	neighborhood: neighborhood
-																		  rating: rating] autorelease];
-		[name release];
-		[address release];
-		[city release];
-		[m_mapView addAnnotation: pinAnnotation];
-	}
-	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
-	sqlite3_finalize(sqlite_stmt);
-	sqlite3_close(db);
+	[m_mapView addAnnotations: [m_database getAnnotations]];
+	
 	
 }
 #pragma mark -
@@ -146,6 +112,7 @@
 
 
 - (void)dealloc {
+	[m_database release];
     [super dealloc];
 }
 

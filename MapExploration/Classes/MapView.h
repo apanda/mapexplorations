@@ -10,15 +10,17 @@
 #import <sqlite3.h>
 #import "MapExplorationAppDelegate.h"
 #import "MapViewDelegate.h"
+#import "TennisDatabase.h"
 
 @class MapExplorationAppDelegate;
 @class MapViewDelegate;
+@class TennisDatabase;
 @interface MapView : UIViewController {
 	MKMapView *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
 	MapViewDelegate *m_mapViewDelegate;
 	bool m_changeView;
-	
+	TennisDatabase *m_database;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate;
