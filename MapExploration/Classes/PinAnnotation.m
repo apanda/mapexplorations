@@ -11,6 +11,7 @@
 
 @implementation PinAnnotation
 //@synthesize coordinate = m_coordinate;
+@synthesize rating=m_rating;
 - (CLLocationCoordinate2D) coordinate {
 	return m_coordinate;
 }

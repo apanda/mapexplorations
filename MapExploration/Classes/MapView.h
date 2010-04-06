@@ -23,7 +23,7 @@
 	TennisDatabase *m_database;
 }
 
-- (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate;
+- (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;
 - (void) setNewLocation: (CLLocation*) location;
 - (void) createPinsFromDB;
 - (void)viewWillAppear:(BOOL)animated;

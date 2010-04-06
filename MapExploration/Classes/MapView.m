@@ -23,9 +23,10 @@
 }
 */
 
-- (id) initWithAppDelegate:(MapExplorationAppDelegate *)appDelegate {
+- (id) initWithAppDelegate:(MapExplorationAppDelegate *)appDelegate tennisDatabase: (TennisDatabase*) database{
 	self = [super initWithNibName:nil bundle:nil];
 	m_appDelegate = appDelegate;
+	m_database = [database retain];
 	self.title = @"Map View";
 	return self;
 }
@@ -48,7 +49,6 @@
 	self.changeView = true;
 	
 	
-	m_database = [[TennisDatabase alloc]initWithWritableDbWithAppDelegate:m_appDelegate];
 	[self createPinsFromDB];
 	[self.view addSubview:m_mapView];
 	

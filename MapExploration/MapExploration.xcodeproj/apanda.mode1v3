@@ -267,6 +267,7 @@
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
+								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>575128091169D7EE001BF241</string>
 								<string>1C37FAAC04509CD000000102</string>
@@ -275,13 +276,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
+									<integer>3</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {223, 692}}</string>
+							<string>{{0, 34}, {223, 692}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -318,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapView.m</string>
+								<string>InformationView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MapView.m</string>
+										<string>InformationView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>575129C0116B0518001BF241</string>
+										<string>57512A04116B121E001BF241</string>
 										<key>history</key>
 										<array>
 											<string>571DBC6C1131E8CB00D17167</string>
@@ -353,21 +354,21 @@
 											<string>57512905116AF1F0001BF241</string>
 											<string>57512906116AF1F0001BF241</string>
 											<string>57512963116AF798001BF241</string>
-											<string>575129B1116B0518001BF241</string>
 											<string>575129B2116B0518001BF241</string>
-											<string>575129B3116B0518001BF241</string>
 											<string>575129B4116B0518001BF241</string>
-											<string>575129B5116B0518001BF241</string>
-											<string>575129B6116B0518001BF241</string>
 											<string>575129B7116B0518001BF241</string>
-											<string>575129B8116B0518001BF241</string>
 											<string>575129B9116B0518001BF241</string>
-											<string>575129BA116B0518001BF241</string>
-											<string>575129BB116B0518001BF241</string>
-											<string>575129BC116B0518001BF241</string>
-											<string>575129BD116B0518001BF241</string>
-											<string>575129BE116B0518001BF241</string>
-											<string>575129BF116B0518001BF241</string>
+											<string>575129EB116B0BAD001BF241</string>
+											<string>575129ED116B0BAD001BF241</string>
+											<string>575129FB116B121E001BF241</string>
+											<string>575129FC116B121E001BF241</string>
+											<string>575129FD116B121E001BF241</string>
+											<string>575129FE116B121E001BF241</string>
+											<string>575129FF116B121E001BF241</string>
+											<string>57512A00116B121E001BF241</string>
+											<string>57512A01116B121E001BF241</string>
+											<string>57512A02116B121E001BF241</string>
+											<string>57512A03116B121E001BF241</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -594,7 +595,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapView.m</string>
+								<string>MapExplorationAppDelegate.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -665,7 +666,7 @@
 			<key>WindowToolGUID</key>
 			<string>571DB9EC1131190800D17167</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

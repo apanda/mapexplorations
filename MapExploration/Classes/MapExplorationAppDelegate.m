@@ -17,7 +17,9 @@
 - (NSString*) dbFilePath {
 	return m_dbFilePath;
 }
-
+- (NSString*) writableDbFilePath {
+	return m_writableDbFilePath;
+}
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -25,20 +27,27 @@
 	
 	UIWindow *appWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = appWindow;
+	[self setDbFilePath];
+	[self setWritableDbFilePath];
+	
+	m_database = [[TennisDatabase alloc]initWithWritableDbWithAppDelegate:self];
     [appWindow release];
     
     // Override point for customization after app launch
-	[self setDbFilePath];
 	locationDelegate = [[LocationDelegate alloc] initWithAppDelegate:self];	
 	[locationDelegate retain];
 	[locationDelegate.locationManager startUpdatingLocation];
-	mapView = [[MapView alloc] initWithAppDelegate:self];
+	mapView = [[MapView alloc] initWithAppDelegate:self tennisDatabase: m_database];
 	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
 	m_navigationCountroller = [[UINavigationController alloc] initWithRootViewController:mapView];
 	m_locationSet = FALSE;
 	
 	[self.window addSubview:m_navigationCountroller.view];
 	[self.window makeKeyAndVisible];
+}
+
+- (void) updateRatingForAnnotation:(PinAnnotation *)annotation {
+	[m_database updateRatingsForAnnotation:annotation];
 }
 
 - (void) setDbFilePath {
@@ -49,6 +58,16 @@
 					ofType:DB_RESOURCE_TYPE];
 		
 }
+
+- (void) setWritableDbFilePath {
+	NSString *DB_RESOURCE_NAME = @"tennis.0.db";
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	m_writableDbFilePath = [documentsDirectory stringByAppendingPathComponent:DB_RESOURCE_NAME];
+	
+}
+
 
 - (void) updateLocation:(CLLocation *)location {
 	NSLog(@"New location");
@@ -183,7 +202,7 @@
     [managedObjectContext release];
     [managedObjectModel release];
     [persistentStoreCoordinator release];
-    
+    [m_database release];
 	[window release];
 	[super dealloc];
 }

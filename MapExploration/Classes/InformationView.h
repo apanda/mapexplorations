@@ -14,12 +14,13 @@
 @class PinAnnotation;
 @class MapExplorationAppDelegate;
 
-@interface InformationView : UITableViewController {
+@interface InformationView : UITableViewController <SCRatingDelegate>{
 	PinAnnotation* m_annotation;
 	MapExplorationAppDelegate *m_appDelegate;
 	SCRatingView *m_ratingView;
 }
 - (id)initWithStyle:(UITableViewStyle)style appDelegate: (MapExplorationAppDelegate*) appDelegate;
+- (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating;
 
 @property (nonatomic, retain)PinAnnotation* currentAnnotation;
 @end

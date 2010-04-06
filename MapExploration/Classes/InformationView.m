@@ -136,6 +136,7 @@
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
 			m_ratingView = [[SCRatingView alloc] initWithFrame: cell.frame];
+			[m_ratingView setDelegate:self];
 			m_ratingView.rating = 2;
 			//m_ratingView.userInteractionEnabled = FALSE;
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-halfselected.png"]
@@ -261,6 +262,15 @@
     [super dealloc];
 }
 
+- (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating
+{
+	//NSLog(@"New rating %d\n", userRating);
+	self.currentAnnotation.rating = userRating;
+	[m_appDelegate updateRatingForAnnotation:self.currentAnnotation];
+}
 
+- (void)ratingView:(SCRatingView *)ratingView didChangeRatingFrom:(CGFloat)previousRating to:(CGFloat)rating
+{
+}
 @end
 

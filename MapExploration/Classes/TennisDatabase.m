@@ -14,8 +14,22 @@
 - (id) initWithWritableDbWithAppDelegate: (MapExplorationAppDelegate*) delegate
 {
 	self = [super init];
+	BOOL success;
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSError *error;
+	NSLog(delegate.writableDbFilePath);
+	success = [fileManager fileExistsAtPath:delegate.writableDbFilePath];
+	if (!success)
+	{
+		NSLog(@"No file");
+		// The writable database does not exist, so copy the default to the appropriate location.
+		success = [fileManager copyItemAtPath:delegate.dbFilePath toPath:delegate.writableDbFilePath error:&error];
+		if (!success) {
+			NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+		}
+	}
 	
-	const char *dbName = [delegate.dbFilePath UTF8String];
+	const char *dbName = [delegate.writableDbFilePath UTF8String];
 	int dbrc = sqlite3_open(dbName, &m_db);
 	assert (dbrc == SQLITE_OK);
 	return self;
@@ -61,9 +75,22 @@
 	return array;
 }
 
+
 - (void) dealloc
 {
 	sqlite3_close(m_db);
 	[super dealloc];
+}
+
+- (void) updateRatingsForAnnotation:(PinAnnotation*) annotation
+{
+	sqlite3_stmt *sqlite_stmt;
+	NSString* sqlstatement = [NSString stringWithFormat:@"update tenniscourts set rating=%d where key=%d", annotation.rating, annotation.key];
+	NSLog(sqlstatement);
+	int dbrc = sqlite3_prepare_v2(m_db, [sqlstatement UTF8String], -1, &sqlite_stmt, NULL);
+	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
+	assert (dbrc == SQLITE_OK);
+	int err = sqlite3_exec(m_db, [sqlstatement UTF8String], NULL, NULL, NULL);
+	NSLog(@"dbrc = %d SQLITE_OK = %d", err, SQLITE_OK);
 }
 @end
