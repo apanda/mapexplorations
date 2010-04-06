@@ -17,6 +17,7 @@
 @interface InformationView : UITableViewController {
 	PinAnnotation* m_annotation;
 	MapExplorationAppDelegate *m_appDelegate;
+	SCRatingView *m_ratingView;
 }
 - (id)initWithStyle:(UITableViewStyle)style appDelegate: (MapExplorationAppDelegate*) appDelegate;
 

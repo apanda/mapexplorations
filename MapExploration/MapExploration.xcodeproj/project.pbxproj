@@ -22,6 +22,7 @@
 		571DBC8D1131F81700D17167 /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBC8C1131F81700D17167 /* PinAnnotation.m */; };
 		571DBCEF11320A5D00D17167 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBCEE11320A5D00D17167 /* libsqlite3.dylib */; };
 		571DBCF211320AE300D17167 /* tennis.db in Resources */ = {isa = PBXBuildFile; fileRef = 571DBCF111320AE300D17167 /* tennis.db */; };
+		575128D6116ADF47001BF241 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575128D5116ADF47001BF241 /* CoreFoundation.framework */; };
 		577FE3C411328FE100072027 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 577FE3C311328FE100072027 /* InformationView.m */; };
 		57ACC2491169C7DC008A4A02 /* libTouchCustoms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ACC13D1169C326008A4A02 /* libTouchCustoms.a */; };
 		57ACC2F61169CF0C008A4A02 /* small-star-halfselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ACC2EB1169CF0C008A4A02 /* small-star-halfselected.png */; };
@@ -77,6 +78,7 @@
 		571DBC8C1131F81700D17167 /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
 		571DBCEE11320A5D00D17167 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		571DBCF111320AE300D17167 /* tennis.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = tennis.db; sourceTree = "<group>"; };
+		575128D5116ADF47001BF241 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		577FE3C211328FE100072027 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
 		577FE3C311328FE100072027 /* InformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationView.m; sourceTree = "<group>"; };
 		57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TouchCustoms.xcodeproj; path = ../external/TouchCustoms/TouchCustoms.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -107,6 +109,7 @@
 				571DBA0511311A4E00D17167 /* MapKit.framework in Frameworks */,
 				571DBA9211311FCF00D17167 /* CoreLocation.framework in Frameworks */,
 				571DBCEF11320A5D00D17167 /* libsqlite3.dylib in Frameworks */,
+				575128D6116ADF47001BF241 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +196,7 @@
 				28D801B30F44B63D00FB423F /* CoreData.framework */,
 				571DBA0411311A4E00D17167 /* MapKit.framework */,
 				571DBA9111311FCF00D17167 /* CoreLocation.framework */,
+				575128D5116ADF47001BF241 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

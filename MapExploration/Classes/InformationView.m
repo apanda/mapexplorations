@@ -16,6 +16,8 @@
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
     self = [super initWithStyle:style];
 	m_appDelegate = appDelegate;
+	
+		
     return self;
 }
 
@@ -79,61 +81,86 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+	if (section == 0) {
+		return 3;
+	}
+	else {
+		return 1;
+	}
+
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
-    }
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	int index = [indexPath indexAtPosition:1];
-    if (index == 0) {
-		cell.textLabel.text = @"Name";
-		cell.detailTextLabel.text = self.currentAnnotation.name;
+	int section = [indexPath indexAtPosition:0];
+	UITableViewCell *cell = nil;
+	if (section == 0) {
+		static NSString *CellIdentifier = @"Cell";
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+		}
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		int index = [indexPath indexAtPosition:1];
+		if (index == 0) {
+			cell.textLabel.text = @"Name";
+			cell.detailTextLabel.text = self.currentAnnotation.name;
+		}
+		else if (index == 1){
+			cell.textLabel.text = @"Address";
+			cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+			cell.detailTextLabel.numberOfLines = 5;
+			cell.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+			cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@\n%@, WA", self.currentAnnotation.address, self.currentAnnotation.city];
+			cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+		}
+		else if (index == 2) {
+			cell.textLabel.text = @"Courts";
+			cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", self.currentAnnotation.numCourts];
+		}
 	}
-	else if (index == 1){
-		cell.textLabel.text = @"Address";
-		cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
-		cell.detailTextLabel.numberOfLines = 5;
-		cell.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-		cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@\n%@, WA", self.currentAnnotation.address, self.currentAnnotation.city];
-	}
-	else if (index == 2) {
-		cell.textLabel.text = @"Courts";
-		cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", self.currentAnnotation.numCourts];
-	}
-	else if (index == 3) {
+	else if (section == 1) {
+		static NSString *CellIdentifier = @"RatingCell";
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+			m_ratingView = [[SCRatingView alloc] initWithFrame: cell.frame];
+			m_ratingView.rating = 2;
+			//m_ratingView.userInteractionEnabled = FALSE;
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-nonselected.png"] forState:kSCRatingViewNonSelected];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-selected.png"] forState:kSCRatingViewSelected];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-halfselected.png"] forState:kSCRatingViewHalfSelected];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-hot.png"] forState:kSCRatingViewHot];
+			[m_ratingView setStarImage:[UIImage imageNamed:@"star-highlighted.png"] forState:kSCRatingViewHighlighted];
+			
+			[cell.contentView addSubview:m_ratingView];
+			UIView *transparentBackground = [[UIView alloc] initWithFrame:CGRectZero];
+			transparentBackground.backgroundColor = [UIColor clearColor];
+			cell.backgroundView = transparentBackground;
+		}
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;	
+		m_ratingView.rating = self.currentAnnotation.rating;
 		//cell.textLabel.text = @"Rating";
 		//cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", self.currentAnnotation.rating];
-		SCRatingView* ratingView = [[SCRatingView alloc] initWithFrame:cell.contentView.frame];
-		ratingView.rating = 2;
-		ratingView.userInteractionEnabled = FALSE;
-		[ratingView setStarImage:[UIImage imageNamed:@"small-star-nonselected.png"] forState:kSCRatingViewNonSelected];
-		[ratingView setStarImage:[UIImage imageNamed:@"small-star-selected.png"] forState:kSCRatingViewSelected];
-		[ratingView setStarImage:[UIImage imageNamed:@"small-star-halfselected.png"] forState:kSCRatingViewHalfSelected];
-		[ratingView setStarImage:[UIImage imageNamed:@"small-star-hot.png"] forState:kSCRatingViewHot];
-		[ratingView setStarImage:[UIImage imageNamed:@"small-star-highlighted.png"] forState:kSCRatingViewHighlighted];
-		//cell = [[UITableViewCell alloc] initWithStyle:<#(UITableViewCellStyle)style#> reuseIdentifier:<#(NSString *)reuseIdentifier#>
-		[cell.contentView addSubview:ratingView];
+		
 	}
     // Set up the cell...
 	
 	
     return cell;
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
 	// return [super tableView: tableView heightForRowAtIndexPath: indexPath];
@@ -156,6 +183,32 @@
 	// [anotherViewController release];
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+	int section = [indexPath indexAtPosition:0];
+	int index = [indexPath indexAtPosition:1];
+	
+	if (section == 0 && index == 1) {
+		UIApplication *app = [UIApplication sharedApplication];
+		
+		NSString *address = [NSString stringWithFormat:@"%@ %@ %@, WA", 
+							 self.currentAnnotation.address, 
+							 self.currentAnnotation.neighborhood
+							 ,self.currentAnnotation.city];
+		NSLog(address);
+		NSLog(self.currentAnnotation.neighborhood);
+		NSString* encodedAddress = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
+														   (CFStringRef)address,
+														   NULL,
+														   (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
+														  kCFStringEncodingUTF8);
+		
+		NSString* urlString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", 
+							   encodedAddress];
+		
+		NSLog(urlString);
+		[app openURL:[NSURL URLWithString: urlString]];
+	}
+}
 
 /*
 // Override to support conditional editing of the table view.

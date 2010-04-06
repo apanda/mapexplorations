@@ -16,6 +16,8 @@
 	int m_numCourts;
 	NSString* m_city;
 	int m_rating;
+	int m_key;
+	NSString* m_neighborhood;
 }
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
@@ -24,12 +26,16 @@
 @property (nonatomic, readonly) NSString* name;
 @property (nonatomic, readonly) NSString* address;
 @property (nonatomic, readonly) NSString* city;
+@property (nonatomic, readonly) NSString* neighborhood;
+@property (nonatomic, readonly) int key;
 
-- (id) initWithCoordinate: (CLLocationCoordinate2D) coordinate 
+- (id) initWithCoordinate: (CLLocationCoordinate2D) coordinate
+					  key:(int) key 
 					name:(NSString*) name 
 				    address:(NSString*) address
 					 city: (NSString*) city
 					numCourts: (int) numCourts
+			     neighborhood: (NSString*) neighborhood
 				    rating: (int) rating;
 
 @end
