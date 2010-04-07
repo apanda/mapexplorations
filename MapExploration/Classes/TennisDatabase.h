@@ -10,14 +10,16 @@
 #import <sqlite3.h>
 #import "MapExplorationAppDelegate.h"
 #import "PinAnnotation.h"
+#import "TennisFilter.h"
 
 @class MapExplorationAppDelegate;
 @class PinAnnotation;
+@class TennisFilter;
 @interface TennisDatabase : NSObject {
 	sqlite3 *m_db;
 }
 
 - (id) initWithWritableDbWithAppDelegate: (MapExplorationAppDelegate*) delegate;
-- (NSArray*) getAnnotations;
+- (NSArray*) getAnnotationsWithFilter: (TennisFilter*) filter;
 - (void) updateRatingsForAnnotation:(PinAnnotation*) annotation;
 @end

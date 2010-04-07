@@ -27,8 +27,31 @@
 	self = [super initWithNibName:nil bundle:nil];
 	m_appDelegate = appDelegate;
 	m_database = [database retain];
+	
+	UIImage *target = [UIImage imageNamed:@"13-target.png"];
+	UIImage *gear = [UIImage imageNamed:@"19-gear.png"];
+	UIBarButtonItem *targetButton = [[[UIBarButtonItem alloc] initWithImage:target style:UIBarButtonItemStylePlain target:self 
+																	 action:@selector(targetClicked)] autorelease];
+	UIBarButtonItem *space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil] autorelease];
+	UIBarButtonItem *gearButton = [[[UIBarButtonItem alloc] initWithImage:gear style:UIBarButtonItemStylePlain target:self 
+																   action:@selector(gearClicked)] autorelease];
+	NSArray *buttonArray = [[NSArray arrayWithObjects:targetButton, space, gearButton, nil] autorelease];
+	[self setToolbarItems:buttonArray];
 	self.title = @"Map View";
+	
+	
 	return self;
+}
+-(void) gearClicked
+{
+	NSLog(@"Button clicked");
+}
+
+- (void) targetClicked
+{
+	if (m_appDelegate.location != nil) {
+		[self setNewLocation: m_appDelegate.location];
+	}
 }
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -56,6 +79,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[m_appDelegate hideNavigationBar];
+	[m_appDelegate showToolbar];
+
 }
 
 #pragma mark location stuff
@@ -76,7 +101,8 @@
 }
 
 - (void) createPinsFromDB {
-	[m_mapView addAnnotations: [m_database getAnnotations]];
+	TennisFilter *filter = [[TennisFilter alloc] init];
+	[m_mapView addAnnotations: [m_database getAnnotationsWithFilter:filter]];
 	
 	
 }

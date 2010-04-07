@@ -10,12 +10,14 @@
 #import "PinAnnotation.h"
 #import "InformationView.h"
 #import "TennisDatabase.h"
+#import "TennisFilter.h"
 
 @class TennisDatabase;
 @class InformationView;
 @class MapView;
 @class LocationDelegate;
 @class PinAnnotation;
+@class TennisFilter;
 @interface MapExplorationAppDelegate : NSObject <UIApplicationDelegate> {
 
     NSManagedObjectModel *managedObjectModel;
@@ -30,6 +32,8 @@
 	InformationView *m_informationView;
 	bool m_locationSet;
 	TennisDatabase *m_database;
+	TennisFilter *m_filter;
+	CLLocation *m_currentLocation;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -40,7 +44,8 @@
 @property (nonatomic, retain) MapView *mapView;
 @property (nonatomic, retain, readonly) NSString *dbFilePath;
 @property (nonatomic, retain, readonly) NSString *writableDbFilePath;
-
+@property (nonatomic, retain, readonly) TennisFilter *filter;
+@property (nonatomic, retain, readonly) CLLocation *location;
 
 - (NSString *)applicationDocumentsDirectory;
 - (void) updateLocation: (CLLocation*) location;
@@ -49,6 +54,8 @@
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
 - (void) hideNavigationBar;
 - (void) showNavigationBar;
+- (void) showToolbar;
+- (void) hideToolbar;
 - (void) updateRatingForAnnotation: (PinAnnotation*) annotation;
 
 @end

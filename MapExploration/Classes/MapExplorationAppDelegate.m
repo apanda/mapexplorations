@@ -20,6 +20,9 @@
 - (NSString*) writableDbFilePath {
 	return m_writableDbFilePath;
 }
+- (TennisFilter*) filter {
+	return m_filter;
+}
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -29,7 +32,7 @@
     self.window = appWindow;
 	[self setDbFilePath];
 	[self setWritableDbFilePath];
-	
+	m_filter = [[[TennisFilter alloc] init] retain];
 	m_database = [[TennisDatabase alloc]initWithWritableDbWithAppDelegate:self];
     [appWindow release];
     
@@ -41,6 +44,7 @@
 	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
 	m_navigationCountroller = [[UINavigationController alloc] initWithRootViewController:mapView];
 	m_locationSet = FALSE;
+	m_currentLocation = nil;
 	
 	[self.window addSubview:m_navigationCountroller.view];
 	[self.window makeKeyAndVisible];
@@ -70,13 +74,23 @@
 
 
 - (void) updateLocation:(CLLocation *)location {
+	if (m_currentLocation != nil) {
+		[m_currentLocation release];
+	}
+	m_currentLocation = [location retain];
 	NSLog(@"New location");
 	if (m_locationSet) {
 		return;
 	}
 	m_locationSet = TRUE;
+	
 	[mapView setNewLocation:location];
 }
+
+- (CLLocation*) location {
+	return m_currentLocation;
+}
+
 
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation {
 	m_informationView.currentAnnotation = annotation;
@@ -89,11 +103,22 @@
 
 - (void) hideNavigationBar {
 	m_navigationCountroller.navigationBarHidden = YES;
+	
 }
 
 - (void) showNavigationBar {
 	m_navigationCountroller.navigationBarHidden = NO;
 }
+
+- (void) hideToolbar {
+	m_navigationCountroller.toolbarHidden = YES;
+	
+}
+
+- (void) showToolbar {
+	m_navigationCountroller.toolbarHidden = NO;
+}
+
 /**
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */
@@ -203,6 +228,7 @@
     [managedObjectModel release];
     [persistentStoreCoordinator release];
     [m_database release];
+	[m_filter release];
 	[window release];
 	[super dealloc];
 }

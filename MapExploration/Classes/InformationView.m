@@ -39,6 +39,7 @@
 	self.tableView.editing = NO;
 	self.title = self.currentAnnotation.name;
 	[m_appDelegate showNavigationBar];
+	[m_appDelegate hideToolbar];
 }
 
 /*
@@ -198,12 +199,14 @@
 	if (section == 0 && index == 1) {
 		UIApplication *app = [UIApplication sharedApplication];
 		
-		NSString *address = [NSString stringWithFormat:@"%@ %@ %@, WA", 
+		NSString *address;
+		
+		address = [NSString stringWithFormat:@"%@ %@ %@, WA", 
 							 self.currentAnnotation.address, 
 							 self.currentAnnotation.neighborhood
 							 ,self.currentAnnotation.city];
-		NSLog(address);
-		NSLog(self.currentAnnotation.neighborhood);
+		//NSLog(@"%@", address);
+		//NSLog(@"%@", self.currentAnnotation.neighborhood);
 		NSString* encodedAddress = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
 														   (CFStringRef)address,
 														   NULL,
@@ -213,7 +216,7 @@
 		NSString* urlString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", 
 							   encodedAddress];
 		
-		NSLog(urlString);
+		//NSLog(@"%@",urlString);
 		[app openURL:[NSURL URLWithString: urlString]];
 	}
 }

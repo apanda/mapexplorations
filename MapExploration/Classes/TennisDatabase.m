@@ -17,7 +17,7 @@
 	BOOL success;
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSError *error;
-	NSLog(delegate.writableDbFilePath);
+	NSLog(@"%@",delegate.writableDbFilePath);
 	success = [fileManager fileExistsAtPath:delegate.writableDbFilePath];
 	if (!success)
 	{
@@ -36,11 +36,13 @@
 	
 }
 
-- (NSArray*) getAnnotations
+- (NSArray*) getAnnotationsWithFilter: (TennisFilter*) filter
 {
 	NSMutableArray *array = [[NSMutableArray alloc] init];
 	sqlite3_stmt *sqlite_stmt;
 	NSString* sqlstatement = @"select courtname, address, latitude, longitude, courts, city, rating, key, neighborhood from tenniscourts";
+	NSString* whereClause = [filter whereClause];
+	sqlstatement = [sqlstatement stringByAppendingFormat:@" %@", whereClause];
 	int dbrc = sqlite3_prepare_v2(m_db, [sqlstatement UTF8String], -1, &sqlite_stmt, NULL);
 	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
 	assert (dbrc == SQLITE_OK);
@@ -49,7 +51,15 @@
 		NSString *name = [[NSString alloc] initWithUTF8String:(const char*) sqlite3_column_text(sqlite_stmt, 0)];
 		NSString *address = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 1)];
 		NSString *city = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 5)];
-		NSString *neighborhood = [[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(sqlite_stmt, 8)];
+		char *neighborhoodAsChar = (char*)sqlite3_column_text(sqlite_stmt, 8);
+		NSString *neighborhood;
+		if(neighborhoodAsChar != NULL) {
+			neighborhood = [NSString stringWithCString:neighborhoodAsChar encoding:NSUTF8StringEncoding];
+		}
+		else {
+			neighborhood = @"";
+		}
+
 		int courts = sqlite3_column_int(sqlite_stmt, 4);
 		int rating = sqlite3_column_int(sqlite_stmt, 6);
 		int key = sqlite3_column_int(sqlite_stmt, 7);
@@ -86,7 +96,7 @@
 {
 	sqlite3_stmt *sqlite_stmt;
 	NSString* sqlstatement = [NSString stringWithFormat:@"update tenniscourts set rating=%d where key=%d", annotation.rating, annotation.key];
-	NSLog(sqlstatement);
+	NSLog(@"%@", sqlstatement);
 	int dbrc = sqlite3_prepare_v2(m_db, [sqlstatement UTF8String], -1, &sqlite_stmt, NULL);
 	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);
 	assert (dbrc == SQLITE_OK);

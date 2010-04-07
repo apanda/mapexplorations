@@ -11,10 +11,12 @@
 #import "MapExplorationAppDelegate.h"
 #import "MapViewDelegate.h"
 #import "TennisDatabase.h"
+#import "TennisFilter.h"
 
 @class MapExplorationAppDelegate;
 @class MapViewDelegate;
 @class TennisDatabase;
+@class TennisFilter;
 @interface MapView : UIViewController {
 	MKMapView *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
@@ -27,6 +29,8 @@
 - (void) setNewLocation: (CLLocation*) location;
 - (void) createPinsFromDB;
 - (void)viewWillAppear:(BOOL)animated;
+- (void) gearClicked;
+- (void) targetClicked;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic) bool changeView;
 

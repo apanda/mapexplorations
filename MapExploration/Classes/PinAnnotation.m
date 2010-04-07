@@ -31,7 +31,7 @@
 	m_city = [city retain];
 	m_rating = rating;
 	m_key = key;
-	m_neighborhood = neighborhood;
+	m_neighborhood = [neighborhood retain];
 	return self;
 }
 
