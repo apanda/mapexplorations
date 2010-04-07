@@ -20,17 +20,17 @@
 {
 	self = [super init];
 	self.lights = false;
-	/*self.numberOfCourts = 0;
+	self.numberOfCourts = 0;
 	self.backboard = false;
 	self.rating = 0;
-	self.indoor = false;*/
+	self.indoor = false;
 	return self;
 }
 
 - (NSString*) whereClause
 {
 	NSString *stringToReturn = @"";
-	/*NSString *joinClause = @"where";
+	NSString *joinClause = @"where";
 	if (self.lights) {
 		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ lights = 1", joinClause];
 		joinClause = @" and";
@@ -50,7 +50,7 @@
 	if (self.indoor) {
 		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ indoor = 1", joinClause];
 		joinClause = @" and";
-	}*/
+	}
 	return stringToReturn;
 }
 
