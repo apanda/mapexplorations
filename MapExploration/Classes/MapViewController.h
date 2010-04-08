@@ -12,6 +12,7 @@
 #import "MapViewDelegate.h"
 #import "TennisDatabase.h"
 #import "TennisFilter.h"
+#import "PBToastView.h"
 
 @class MapExplorationAppDelegate;
 @class MapViewDelegate;
@@ -23,6 +24,8 @@
 	MapViewDelegate *m_mapViewDelegate;
 	bool m_changeView;
 	TennisDatabase *m_database;
+  
+  PBToastView* m_filterToast;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;

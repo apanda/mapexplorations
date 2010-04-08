@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "PBFilterView.h"
 
 
 @implementation MapViewController
@@ -44,7 +45,13 @@
 }
 -(void) gearClicked
 {
-	[m_appDelegate showFilterSelector];
+	//[m_appDelegate showFilterSelector];
+  
+  if (m_filterToast.hidden) {
+    [m_filterToast show];
+  } else {
+    [m_filterToast hide];
+  }
 }
 
 - (void) targetClicked
@@ -70,10 +77,28 @@
 	m_mapView.scrollEnabled = YES;
 	[m_mapView setDelegate:m_mapViewDelegate];
 	self.changeView = true;
-	
+  
+  // Filter toast
+  float toastHeight = 150;
+  float screenHeight = [UIScreen mainScreen].applicationFrame.size.height;
+  float toolbarHeight = self.navigationController.toolbarHidden ? 0 : self.navigationController.toolbar.frame.size.height;
+  float navBarHeight = self.navigationController.navigationBarHidden ? 0 : self.navigationController.navigationBar.frame.size.height;
+  
+  float filterToastHiddenY = screenHeight;
+  float filterToastVisibleY = screenHeight - navBarHeight - toolbarHeight - toastHeight;
+  CGRect filterToastHiddenFrame = CGRectMake(0, filterToastHiddenY, 320, toastHeight);
+  CGRect filterToastVisibleFrame = CGRectMake(0, filterToastVisibleY, 320, toastHeight);
+  m_filterToast = [[[PBToastView alloc] initWithHiddenFrame:filterToastHiddenFrame visibleFrame:filterToastVisibleFrame] autorelease];
+  m_filterToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
+  
+  // Filter view
+  PBFilterView* filterView = [[[PBFilterView alloc] initWithFrame:CGRectMake(0, 0, 320, toastHeight)] autorelease];
+  [m_filterToast addSubview:filterView];
 	
 	[self createPinsFromDB];
 	[self.view addSubview:m_mapView];
+  
+  [self.view addSubview:m_filterToast];
 	
 }
 

@@ -10,8 +10,10 @@
 #import <SCRatingView.h>
 #import "Three20/Three20.h"
 
-@interface PBFilterView : UITableView <UITableViewDelegate> {
-  
+@interface PBFilterView : UIView <UITableViewDelegate> {
+	UISwitch *m_lights;
+	UISwitch *m_backboard;
+	UISwitch *m_indoor;
 }
 
 @end
