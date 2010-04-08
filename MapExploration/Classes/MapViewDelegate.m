@@ -11,7 +11,7 @@
 
 @implementation MapViewDelegate
 
-- (id) initWithMapView:(MapView *)mapView appDelegate: (MapExplorationAppDelegate*)appDelegate{
+- (id) initWithMapView:(MapViewController *)mapView appDelegate: (MapExplorationAppDelegate*)appDelegate{
 	self = [super init];
 	m_mapView = [mapView retain];
 	m_appDelegate = [appDelegate retain];

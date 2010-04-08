@@ -5,16 +5,16 @@
 //  Created by Aurojit Panda on 2/20/10.
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
-#import "MapView.h"
+#import "MapViewController.h"
 #import "LocationDelegate.h"
 #import "PinAnnotation.h"
-#import "InformationView.h"
+#import "InformationViewController.h"
 #import "TennisDatabase.h"
 #import "TennisFilter.h"
 
 @class TennisDatabase;
-@class InformationView;
-@class MapView;
+@class InformationViewController;
+@class MapViewController;
 @class LocationDelegate;
 @class PinAnnotation;
 @class TennisFilter;
@@ -25,11 +25,11 @@
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
 	UINavigationController *m_navigationCountroller;
     UIWindow *window;
-	MapView *mapView;
+	MapViewController *mapView;
 	LocationDelegate *locationDelegate;
 	NSString *m_dbFilePath;
 	NSString *m_writableDbFilePath;
-	InformationView *m_informationView;
+	InformationViewController *m_informationView;
 	bool m_locationSet;
 	TennisDatabase *m_database;
 	TennisFilter *m_filter;
@@ -41,7 +41,7 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) MapView *mapView;
+@property (nonatomic, retain) MapViewController *mapView;
 @property (nonatomic, retain, readonly) NSString *dbFilePath;
 @property (nonatomic, retain, readonly) NSString *writableDbFilePath;
 @property (nonatomic, retain, readonly) TennisFilter *filter;

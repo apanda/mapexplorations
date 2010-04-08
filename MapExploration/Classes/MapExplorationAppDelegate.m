@@ -40,8 +40,8 @@
 	locationDelegate = [[LocationDelegate alloc] initWithAppDelegate:self];	
 	[locationDelegate retain];
 	[locationDelegate.locationManager startUpdatingLocation];
-	mapView = [[MapView alloc] initWithAppDelegate:self tennisDatabase: m_database];
-	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
+	mapView = [[MapViewController alloc] initWithAppDelegate:self tennisDatabase: m_database];
+	m_informationView = [[InformationViewController alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
 	m_navigationCountroller = [[UINavigationController alloc] initWithRootViewController:mapView];
 	m_locationSet = FALSE;
 	m_currentLocation = nil;
