@@ -7,7 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import "PBFilterView.h"
 
 
 @implementation MapViewController
@@ -38,6 +37,7 @@
 																   action:@selector(gearClicked)] autorelease];
 	NSArray *buttonArray = [[NSArray arrayWithObjects:targetButton, space, gearButton, nil] autorelease];
 	[self setToolbarItems:buttonArray];
+	m_filter = [[TennisFilter alloc] init];
 	self.title = @"Map View";
 	
 	
@@ -78,27 +78,30 @@
 	[m_mapView setDelegate:m_mapViewDelegate];
 	self.changeView = true;
   
-  // Filter toast
-  float toastHeight = 150;
-  float screenHeight = [UIScreen mainScreen].applicationFrame.size.height;
-  float toolbarHeight = self.navigationController.toolbarHidden ? 0 : self.navigationController.toolbar.frame.size.height;
-  float navBarHeight = self.navigationController.navigationBarHidden ? 0 : self.navigationController.navigationBar.frame.size.height;
+	// Filter toast
+	float toastHeight = 235;
+	float screenHeight = [UIScreen mainScreen].applicationFrame.size.height;
+	float toolbarHeight = self.navigationController.toolbarHidden ? 0 : self.navigationController.toolbar.frame.size.height;
+	float navBarHeight = self.navigationController.navigationBarHidden ? 0 : self.navigationController.navigationBar.frame.size.height;
   
-  float filterToastHiddenY = screenHeight;
-  float filterToastVisibleY = screenHeight - navBarHeight - toolbarHeight - toastHeight;
-  CGRect filterToastHiddenFrame = CGRectMake(0, filterToastHiddenY, 320, toastHeight);
-  CGRect filterToastVisibleFrame = CGRectMake(0, filterToastVisibleY, 320, toastHeight);
-  m_filterToast = [[[PBToastView alloc] initWithHiddenFrame:filterToastHiddenFrame visibleFrame:filterToastVisibleFrame] autorelease];
-  m_filterToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
-  
-  // Filter view
-  PBFilterView* filterView = [[[PBFilterView alloc] initWithFrame:CGRectMake(0, 0, 320, toastHeight)] autorelease];
-  [m_filterToast addSubview:filterView];
+	float filterToastHiddenY = screenHeight;
+	float filterToastVisibleY = screenHeight - navBarHeight - toolbarHeight - toastHeight;
+	CGRect filterToastHiddenFrame = CGRectMake(0, filterToastHiddenY, 320, toastHeight);
+	CGRect filterToastVisibleFrame = CGRectMake(0, filterToastVisibleY, 320, toastHeight);
+	m_filterToast = [[[PBToastView alloc] initWithHiddenFrame:filterToastHiddenFrame visibleFrame:filterToastVisibleFrame] autorelease];
+	m_filterToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
+	
+	
+	
+	// Filter view
+	m_filterView = [[[PBFilterView alloc] initWithFrame:CGRectMake(0, 0, 320, toastHeight)] autorelease];
+	m_filterView.mapView = self;
+	[m_filterToast addSubview:m_filterView];
 	
 	[self createPinsFromDB];
 	[self.view addSubview:m_mapView];
   
-  [self.view addSubview:m_filterToast];
+	[self.view addSubview:m_filterToast];
 	
 }
 
@@ -126,10 +129,18 @@
 }
 
 - (void) createPinsFromDB {
-	TennisFilter *filter = [[TennisFilter alloc] init];
-	[m_mapView addAnnotations: [m_database getAnnotationsWithFilter:filter]];
-	
-	
+
+	[m_mapView removeAnnotations: m_mapView.annotations];
+	[m_mapView addAnnotations: [m_database getAnnotationsWithFilter:m_filter]];
+}
+
+- (void) recalculateFilter {
+	m_filter.rating = m_filterView.rating;
+	m_filter.numberOfCourts = m_filterView.courts;
+	m_filter.lights = m_filterView.lights;
+	m_filter.indoor = m_filterView.indoor;
+	m_filter.backboard = m_filterView.backboard;
+	[self createPinsFromDB];
 }
 #pragma mark -
 

@@ -13,7 +13,9 @@
 #import "TennisDatabase.h"
 #import "TennisFilter.h"
 #import "PBToastView.h"
+#import "PBFilterView.h"
 
+@class PBFilterView;
 @class MapExplorationAppDelegate;
 @class MapViewDelegate;
 @class TennisDatabase;
@@ -24,8 +26,9 @@
 	MapViewDelegate *m_mapViewDelegate;
 	bool m_changeView;
 	TennisDatabase *m_database;
-  
-  PBToastView* m_filterToast;
+	TennisFilter *m_filter;
+	PBToastView* m_filterToast;
+	PBFilterView* m_filterView;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;
@@ -34,6 +37,7 @@
 - (void)viewWillAppear:(BOOL)animated;
 - (void) gearClicked;
 - (void) targetClicked;
+- (void) recalculateFilter;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic) bool changeView;
 

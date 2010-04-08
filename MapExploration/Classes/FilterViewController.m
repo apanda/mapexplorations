@@ -18,6 +18,15 @@
 		m_indoor = [[[UISwitch alloc] init] retain];
 		m_backboard = [[[UISwitch alloc] init] retain];
 		m_lights = [[[UISwitch alloc] init] retain];
+		
+		m_courts = [[[UISlider alloc] init] retain];
+		m_courts.minimumValue = 0;
+		m_courts.maximumValue = 10;
+		
+		m_rating = [[[UISlider alloc] init] retain];
+		m_rating.minimumValue = 0;
+		m_rating.maximumValue = 5;
+		
 		self.tableViewStyle = UITableViewStyleGrouped;
 		self.autoresizesForKeyboard = YES;
 		self.variableHeightRows = YES;
@@ -25,10 +34,14 @@
 		TTTableControlItem *lightControl = [TTTableControlItem itemWithCaption:@"Lights" control:m_lights];
 		TTTableControlItem *indoorControl = [TTTableControlItem itemWithCaption:@"Indoor" control:m_indoor];
 		TTTableControlItem *backboardControl = [TTTableControlItem itemWithCaption:@"Backboard" control:m_backboard];
+		TTTableControlItem *courtsControl = [TTTableControlItem itemWithCaption:@"Courts" control:m_courts];
+		TTTableControlItem *ratingControl = [TTTableControlItem itemWithCaption:@"Rating" control:m_rating];
 		self.dataSource = [TTListDataSource dataSourceWithObjects:
 						   lightControl,
 						   indoorControl,
 						   backboardControl,
+						   courtsControl,
+						   ratingControl,
 						   nil];
 		m_delegate = delegate;
     }

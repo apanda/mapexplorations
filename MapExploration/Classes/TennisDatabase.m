@@ -42,6 +42,7 @@
 	sqlite3_stmt *sqlite_stmt;
 	NSString* sqlstatement = @"select courtname, address, latitude, longitude, courts, city, rating, key, neighborhood from tenniscourts";
 	NSString* whereClause = [filter whereClause];
+	NSLog(@"where clause: %@", whereClause);
 	sqlstatement = [sqlstatement stringByAppendingFormat:@" %@", whereClause];
 	int dbrc = sqlite3_prepare_v2(m_db, [sqlstatement UTF8String], -1, &sqlite_stmt, NULL);
 	NSLog(@"dbrc = %d SQLITE_OK = %d", dbrc, SQLITE_OK);

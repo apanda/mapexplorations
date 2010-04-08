@@ -16,6 +16,8 @@
 	UISwitch *m_lights;
 	UISwitch *m_backboard;
 	UISwitch *m_indoor;
+	UISlider *m_courts;
+	UISlider *m_rating;
 	MapExplorationAppDelegate *m_delegate;
 }
 @property (nonatomic, readonly) bool lights;

@@ -27,19 +27,20 @@
 			UIButton* button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 			button.frame = CGRectMake(0,0,23,23);
 			annotationView.rightCalloutAccessoryView = button;
-			MKPinAnnotationColor color;
-			if (pinAnnotation.numCourts > 7) {
-				color = MKPinAnnotationColorGreen;
-			}
-			else if (pinAnnotation.numCourts > 3) {
-				color = MKPinAnnotationColorPurple;
-			}
-			else {
-				color = MKPinAnnotationColorRed;
-			}
-
-			[annotationView setPinColor:color];
+			
 		}
+		MKPinAnnotationColor color;
+		if (pinAnnotation.numCourts > 7) {
+			color = MKPinAnnotationColorGreen;
+		}
+		else if (pinAnnotation.numCourts > 3) {
+			color = MKPinAnnotationColorPurple;
+		}
+		else {
+			color = MKPinAnnotationColorRed;
+		}
+		
+		[annotationView setPinColor:color];
 		[annotationView setCanShowCallout: YES];
 		[annotationView setEnabled:YES];
 		return (MKAnnotationView*)annotationView;
