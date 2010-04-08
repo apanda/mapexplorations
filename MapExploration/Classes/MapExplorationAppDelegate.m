@@ -40,8 +40,9 @@
 	locationDelegate = [[LocationDelegate alloc] initWithAppDelegate:self];	
 	[locationDelegate retain];
 	[locationDelegate.locationManager startUpdatingLocation];
-	mapView = [[MapView alloc] initWithAppDelegate:self tennisDatabase: m_database];
-	m_informationView = [[InformationView alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
+	mapView = [[MapViewController alloc] initWithAppDelegate:self tennisDatabase: m_database];
+	m_informationView = [[InformationViewController alloc] initWithStyle:UITableViewStyleGrouped appDelegate: self];
+	m_filterView = [[FilterViewController alloc] initWithAppDelegate: self];
 	m_navigationCountroller = [[UINavigationController alloc] initWithRootViewController:mapView];
 	m_locationSet = FALSE;
 	m_currentLocation = nil;
@@ -94,11 +95,11 @@
 
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation {
 	m_informationView.currentAnnotation = annotation;
-	/*[mapView.view retain];
-	[mapView.view removeFromSuperview];
-	[mapView.view resignFirstResponder];
-	[window addSubview:m_informationView.view];*/
 	[m_navigationCountroller pushViewController:m_informationView animated:NO];
+}
+
+- (void) showFilterSelector {
+	[m_navigationCountroller pushViewController:m_filterView animated:NO];
 }
 
 - (void) hideNavigationBar {
