@@ -41,6 +41,7 @@
 		57CC632B116C2CA60087F7EA /* TennisFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CC632A116C2CA60087F7EA /* TennisFilter.m */; };
 		57CC6426116C5D650087F7EA /* 13-target.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6424116C5D650087F7EA /* 13-target.png */; };
 		57CC6427116C5D650087F7EA /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6425116C5D650087F7EA /* 19-gear.png */; };
+		57CC64FE116D7BB50087F7EA /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CC64F9116D7B6C0087F7EA /* libThree20.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = TouchCustoms;
+		};
+		57CC64F8116D7B6C0087F7EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BEF31F3A0F352DF5000DE5D2 /* libThree20.a */;
+			remoteInfo = Three20;
+		};
+		57CC64FA116D7B6C0087F7EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB9E6C6210B6A8F800DE563C /* UnitTests.octest */;
+			remoteInfo = UnitTests;
+		};
+		57CC64FC116D7B910087F7EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BEF31F390F352DF5000DE5D2 /* Three20 */;
+			remoteInfo = Three20;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -105,6 +127,7 @@
 		57CC632A116C2CA60087F7EA /* TennisFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TennisFilter.m; sourceTree = "<group>"; };
 		57CC6424116C5D650087F7EA /* 13-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "13-target.png"; path = "Resources/Images/13-target.png"; sourceTree = "<group>"; };
 		57CC6425116C5D650087F7EA /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "19-gear.png"; path = "Resources/Images/19-gear.png"; sourceTree = "<group>"; };
+		57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../external/Three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* MapExploration-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MapExploration-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57CC64FE116D7BB50087F7EA /* libThree20.a in Frameworks */,
 				57ACC2491169C7DC008A4A02 /* libTouchCustoms.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -208,6 +232,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */,
 				57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -228,6 +253,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		57CC64F4116D7B6C0087F7EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				57CC64F9116D7B6C0087F7EA /* libThree20.a */,
+				57CC64FB116D7B6C0087F7EA /* UnitTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +277,7 @@
 			);
 			dependencies = (
 				57ACC1401169C33B008A4A02 /* PBXTargetDependency */,
+				57CC64FD116D7B910087F7EA /* PBXTargetDependency */,
 			);
 			name = MapExploration;
 			productName = MapExploration;
@@ -261,6 +296,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 57CC64F4116D7B6C0087F7EA /* Products */;
+					ProjectRef = 57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */;
+				},
+				{
 					ProductGroup = 57ACC1391169C326008A4A02 /* Products */;
 					ProjectRef = 57ACC1381169C326008A4A02 /* TouchCustoms.xcodeproj */;
 				},
@@ -278,6 +317,20 @@
 			fileType = archive.ar;
 			path = libTouchCustoms.a;
 			remoteRef = 57ACC13C1169C326008A4A02 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		57CC64F9116D7B6C0087F7EA /* libThree20.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libThree20.a;
+			remoteRef = 57CC64F8116D7B6C0087F7EA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		57CC64FB116D7B6C0087F7EA /* UnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTests.octest;
+			remoteRef = 57CC64FA116D7B6C0087F7EA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -333,6 +386,11 @@
 			name = TouchCustoms;
 			targetProxy = 57ACC13F1169C33B008A4A02 /* PBXContainerItemProxy */;
 		};
+		57CC64FD116D7B910087F7EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Three20;
+			targetProxy = 57CC64FC116D7B910087F7EA /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -350,7 +408,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapExploration_Prefix.pch;
-				HEADER_SEARCH_PATHS = "../external/TouchCustoms/Classes/**";
+				HEADER_SEARCH_PATHS = (
+					../external/Three20/src,
+					"../external/TouchCustoms/Classes/**",
+				);
 				INFOPLIST_FILE = "MapExploration-Info.plist";
 				PRODUCT_NAME = MapExploration;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57E6E2A5-F36D-4328-B5BD-AF59D22A1255";
@@ -369,7 +430,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MapExploration_Prefix.pch;
-				HEADER_SEARCH_PATHS = "../external/TouchCustoms/Classes/**";
+				HEADER_SEARCH_PATHS = (
+					../external/Three20/src,
+					"../external/TouchCustoms/Classes/**",
+				);
 				INFOPLIST_FILE = "MapExploration-Info.plist";
 				PRODUCT_NAME = MapExploration;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57E6E2A5-F36D-4328-B5BD-AF59D22A1255";
