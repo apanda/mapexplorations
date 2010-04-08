@@ -1,3 +1,6 @@
 [submodule "external/TouchCustoms"]
 	path = external/TouchCustoms
 	url = git://github.com/eisernWolf/TouchCustoms.git
+[submodule "external/Three20"]
+	path = external/Three20
+	url = git://github.com/facebook/three20.git
