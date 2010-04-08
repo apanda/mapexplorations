@@ -46,6 +46,8 @@
 		57CC6426116C5D650087F7EA /* 13-target.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6424116C5D650087F7EA /* 13-target.png */; };
 		57CC6427116C5D650087F7EA /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6425116C5D650087F7EA /* 19-gear.png */; };
 		57CC64FE116D7BB50087F7EA /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CC64F9116D7B6C0087F7EA /* libThree20.a */; };
+		66C279EF116DAC3000B4F7D5 /* PBFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EC116DAC3000B4F7D5 /* PBFilterView.m */; };
+		66C279F0116DAC3000B4F7D5 /* PBToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EE116DAC3000B4F7D5 /* PBToastView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,10 @@
 		57CC6424116C5D650087F7EA /* 13-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "13-target.png"; path = "Resources/Images/13-target.png"; sourceTree = "<group>"; };
 		57CC6425116C5D650087F7EA /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "19-gear.png"; path = "Resources/Images/19-gear.png"; sourceTree = "<group>"; };
 		57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../external/Three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
+		66C279EB116DAC3000B4F7D5 /* PBFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFilterView.h; sourceTree = "<group>"; };
+		66C279EC116DAC3000B4F7D5 /* PBFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFilterView.m; sourceTree = "<group>"; };
+		66C279ED116DAC3000B4F7D5 /* PBToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBToastView.h; sourceTree = "<group>"; };
+		66C279EE116DAC3000B4F7D5 /* PBToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBToastView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MapExploration-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MapExploration-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +173,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66C279EB116DAC3000B4F7D5 /* PBFilterView.h */,
+				66C279EC116DAC3000B4F7D5 /* PBFilterView.m */,
+				66C279ED116DAC3000B4F7D5 /* PBToastView.h */,
+				66C279EE116DAC3000B4F7D5 /* PBToastView.m */,
 				577FE3C211328FE100072027 /* InformationViewController.h */,
 				57B858E7116D802600F81F9B /* FilterViewController.h */,
 				57B858E8116D802600F81F9B /* FilterViewController.m */,
@@ -393,6 +403,8 @@
 				57512992116B007C001BF241 /* TennisDatabase.m in Sources */,
 				57CC632B116C2CA60087F7EA /* TennisFilter.m in Sources */,
 				57B858E9116D802600F81F9B /* FilterViewController.m in Sources */,
+				66C279EF116DAC3000B4F7D5 /* PBFilterView.m in Sources */,
+				66C279F0116DAC3000B4F7D5 /* PBToastView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
