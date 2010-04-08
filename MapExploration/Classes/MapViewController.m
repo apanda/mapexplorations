@@ -44,7 +44,7 @@
 }
 -(void) gearClicked
 {
-	NSLog(@"Button clicked");
+	[m_appDelegate showFilterSelector];
 }
 
 - (void) targetClicked

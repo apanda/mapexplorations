@@ -15,6 +15,7 @@
 - (id)initWithStyle:(UITableViewStyle)style appDelegate: (MapExplorationAppDelegate*) appDelegate {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
     self = [super initWithStyle:style];
+	[TTStyleSheet setGlobalStyleSheet:[[TTDefaultStyleSheet alloc] init]];
 	m_appDelegate = appDelegate;
 	
 		

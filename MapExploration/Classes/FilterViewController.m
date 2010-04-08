@@ -12,16 +12,40 @@
 @implementation FilterViewController
 
 
-- (id)initWithStyle:(UITableViewStyle)style withAppDelegate:(MapExplorationAppDelegate*)delegate{
+- (id)initWithAppDelegate: (MapExplorationAppDelegate*) delegate { //WithStyle:(UITableViewStyle)style withAppDelegate:(MapExplorationAppDelegate*)delegate{
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
+    if (self = [super init]) {//WithStyle:style]) {
 		m_indoor = [[[UISwitch alloc] init] retain];
 		m_backboard = [[[UISwitch alloc] init] retain];
 		m_lights = [[[UISwitch alloc] init] retain];
+		self.tableViewStyle = UITableViewStyleGrouped;
+		self.autoresizesForKeyboard = YES;
+		self.variableHeightRows = YES;
+		[TTStyleSheet setGlobalStyleSheet:[[TTDefaultStyleSheet alloc] init]];
+		TTTableControlItem *lightControl = [TTTableControlItem itemWithCaption:@"Lights" control:m_lights];
+		TTTableControlItem *indoorControl = [TTTableControlItem itemWithCaption:@"Indoor" control:m_indoor];
+		TTTableControlItem *backboardControl = [TTTableControlItem itemWithCaption:@"Backboard" control:m_backboard];
+		self.dataSource = [TTListDataSource dataSourceWithObjects:
+						   lightControl,
+						   indoorControl,
+						   backboardControl,
+						   nil];
+		m_delegate = delegate;
     }
     return self;
 }
 
+- (bool) lights {
+	return m_lights.on;
+}
+
+- (bool) backboard {
+	return m_backboard.on;
+}
+
+- (bool) indoor {
+	return m_indoor.on;
+}
 
 /*
 - (void)viewDidLoad {
@@ -32,11 +56,15 @@
 }
 */
 
-/*
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	self.tableView.editing = NO;
+	self.title = @"Filter";
+	[m_delegate showNavigationBar];
+	[m_delegate hideToolbar];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -76,7 +104,7 @@
 
 #pragma mark Table view methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
@@ -90,18 +118,22 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    /*static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }*/
 	UITableViewCell *cell;
-	
-	
-    
+	int index = [indexPath indexAtPosition:1];
+	switch (index) {
+		case 0:
+			cell = [TTTableControlItem itemWithCaption:@"Lights" control:m_lights];
+			break;
+		case 1:
+			cell = [TTTableControlItem itemWithCaption:@"Indoor" control:m_indoor];
+			break;
+		case 2:
+			cell = [TTTableControlItem itemWithCaption:@"Indoor" control:m_backboard];
+		default:
+			break;
+	}
     // Set up the cell...
-	
     return cell;
 }
 
@@ -113,7 +145,7 @@
 	// [anotherViewController release];
 }
 
-
+*/
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

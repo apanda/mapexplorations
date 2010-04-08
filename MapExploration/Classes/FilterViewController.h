@@ -10,14 +10,16 @@
 #import <Three20/Three20.h>
 #import "MapExplorationAppDelegate.h"
 
+
 @class MapExplorationAppDelegate;
-@interface FilterViewController : UITableViewController {
+@interface FilterViewController : TTTableViewController {
 	UISwitch *m_lights;
 	UISwitch *m_backboard;
 	UISwitch *m_indoor;
 	MapExplorationAppDelegate *m_delegate;
 }
+@property (nonatomic, readonly) bool lights;
 
--(id)initWithStyle:(UITableViewStyle)style withAppDelegate:(MapExplorationAppDelegate*)delegate;
+-(id)initWithAppDelegate: (MapExplorationAppDelegate*) delegate;//WithStyle:(UITableViewStyle)style withAppDelegate:(MapExplorationAppDelegate*)delegate;
 
 @end

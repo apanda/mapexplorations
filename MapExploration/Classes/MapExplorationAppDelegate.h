@@ -11,6 +11,7 @@
 #import "InformationViewController.h"
 #import "TennisDatabase.h"
 #import "TennisFilter.h"
+#import "FilterViewController.h"
 
 @class TennisDatabase;
 @class InformationViewController;
@@ -18,6 +19,7 @@
 @class LocationDelegate;
 @class PinAnnotation;
 @class TennisFilter;
+@class FilterViewController;
 @interface MapExplorationAppDelegate : NSObject <UIApplicationDelegate> {
 
     NSManagedObjectModel *managedObjectModel;
@@ -30,6 +32,7 @@
 	NSString *m_dbFilePath;
 	NSString *m_writableDbFilePath;
 	InformationViewController *m_informationView;
+	FilterViewController *m_filterView;
 	bool m_locationSet;
 	TennisDatabase *m_database;
 	TennisFilter *m_filter;
@@ -57,6 +60,7 @@
 - (void) showToolbar;
 - (void) hideToolbar;
 - (void) updateRatingForAnnotation: (PinAnnotation*) annotation;
+- (void) showFilterSelector;
 
 @end
 
