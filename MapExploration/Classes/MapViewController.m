@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 
+static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 @implementation MapViewController
 
@@ -63,14 +64,21 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
+	[m_appDelegate hideNavigationBar];
+	[m_appDelegate showToolbar];
+  
 	CGRect rect = [UIScreen mainScreen].applicationFrame;
 	self.view = [[UIView alloc] initWithFrame:rect];
 	self.view.autoresizesSubviews = YES;
+  
+	float screenHeight = [UIScreen mainScreen].applicationFrame.size.height;
+	float toolbarHeight = self.navigationController.toolbarHidden ? 0 : self.navigationController.toolbar.frame.size.height;
+	float navBarHeight = self.navigationController.navigationBarHidden ? 0 : self.navigationController.navigationBar.frame.size.height;
 	
 	m_mapViewDelegate = [[MapViewDelegate alloc] initWithMapView:self appDelegate: m_appDelegate];
 	
 	
-	m_mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 470)];
+	m_mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, screenHeight - toolbarHeight - navBarHeight)];
 	m_mapView.showsUserLocation = YES;
 	m_mapView.zoomEnabled = YES;
 	m_mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -80,9 +88,6 @@
   
 	// Filter toast
 	float toastHeight = 235;
-	float screenHeight = [UIScreen mainScreen].applicationFrame.size.height;
-	float toolbarHeight = self.navigationController.toolbarHidden ? 0 : self.navigationController.toolbar.frame.size.height;
-	float navBarHeight = self.navigationController.navigationBarHidden ? 0 : self.navigationController.navigationBar.frame.size.height;
   
 	float filterToastHiddenY = screenHeight;
 	float filterToastVisibleY = screenHeight - navBarHeight - toolbarHeight - toastHeight;
@@ -91,7 +96,13 @@
 	m_filterToast = [[[PBToastView alloc] initWithHiddenFrame:filterToastHiddenFrame visibleFrame:filterToastVisibleFrame] autorelease];
 	m_filterToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
-	
+  float infoToastHeight = 100;
+	float infoToastHiddenY = -infoToastHeight;
+	float infoToastVisibleY = 0 + navBarHeight;
+	CGRect infoToastHiddenFrame = CGRectMake(0, infoToastHiddenY, 320, infoToastHeight);
+	CGRect infoToastVisibleFrame = CGRectMake(0, infoToastVisibleY, 320, infoToastHeight);
+	m_infoToast = [[[PBToastView alloc] initWithHiddenFrame:infoToastHiddenFrame visibleFrame:infoToastVisibleFrame] autorelease];
+	m_infoToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
 	// Filter view
 	m_filterView = [[[PBFilterView alloc] initWithFrame:CGRectMake(0, 0, 320, toastHeight)] autorelease];
@@ -99,10 +110,19 @@
 	[m_filterToast addSubview:m_filterView];
 	
 	[self createPinsFromDB];
-	[self.view addSubview:m_mapView];
+  
+  PBTouchOverlayView* touchView = [[PBTouchOverlayView alloc] initWithFrame:CGRectMake(0, 0, 320, screenHeight - toolbarHeight - navBarHeight)];
+  touchView.delegate = self;
+  [touchView addSubview:m_mapView];
+  
+  [self.view addSubview:touchView];
   
 	[self.view addSubview:m_filterToast];
-	
+	[self.view addSubview:m_infoToast];
+  
+  [self.view sendSubviewToBack:touchView];
+  
+  [touchView release];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -145,6 +165,43 @@
 	m_filter.backboard = m_filterView.backboard;
 	[self createPinsFromDB];
 }
+
+- (void)overlayTouched
+{
+  if (!m_filterToast.hidden) {
+    [m_filterToast hide];
+  }
+}
+
+- (void)annotationTouched
+{
+  m_annotationTouched = YES;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context{
+  
+  NSString *action = (NSString*)context;
+  
+  if([action isEqualToString:GMAP_ANNOTATION_SELECTED]){
+    BOOL annotationAppeared = [[change valueForKey:@"new"] boolValue]; 
+    
+    if (annotationAppeared) {
+      NSLog(@"Showing info toast");
+      [m_infoToast show];
+    } else {
+      if (!m_annotationTouched) {
+        NSLog(@"Hiding info toast");
+        [m_infoToast hide]; 
+      }
+    }
+    
+    m_annotationTouched = NO;
+  }
+}
+
 #pragma mark -
 
 

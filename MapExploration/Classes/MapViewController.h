@@ -14,13 +14,14 @@
 #import "TennisFilter.h"
 #import "PBToastView.h"
 #import "PBFilterView.h"
+#import "PBTouchOverlayView.h"
 
 @class PBFilterView;
 @class MapExplorationAppDelegate;
 @class MapViewDelegate;
 @class TennisDatabase;
 @class TennisFilter;
-@interface MapViewController : UIViewController {
+@interface MapViewController : UIViewController <PBTouchOverlayDelegate> {
 	MKMapView *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
 	MapViewDelegate *m_mapViewDelegate;
@@ -28,8 +29,11 @@
 	TennisDatabase *m_database;
 	TennisFilter *m_filter;
 	PBToastView* m_filterToast;
+  PBToastView* m_infoToast;
 	PBFilterView* m_filterView;
 	NSArray* m_annotations;
+  
+  BOOL m_annotationTouched;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;
@@ -39,6 +43,8 @@
 - (void) gearClicked;
 - (void) targetClicked;
 - (void) recalculateFilter;
+
+- (void)annotationTouched;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic) bool changeView;
 

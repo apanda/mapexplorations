@@ -46,6 +46,8 @@
 		57CC6426116C5D650087F7EA /* 13-target.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6424116C5D650087F7EA /* 13-target.png */; };
 		57CC6427116C5D650087F7EA /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6425116C5D650087F7EA /* 19-gear.png */; };
 		57CC64FE116D7BB50087F7EA /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CC64F9116D7B6C0087F7EA /* libThree20.a */; };
+		660465D9116EF5B000EBDC85 /* PBTouchOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 660465D8116EF5B000EBDC85 /* PBTouchOverlayView.m */; };
+		6604664B116F031E00EBDC85 /* PBPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604664A116F031E00EBDC85 /* PBPinAnnotationView.m */; };
 		66C279EF116DAC3000B4F7D5 /* PBFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EC116DAC3000B4F7D5 /* PBFilterView.m */; };
 		66C279F0116DAC3000B4F7D5 /* PBToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EE116DAC3000B4F7D5 /* PBToastView.m */; };
 /* End PBXBuildFile section */
@@ -139,6 +141,10 @@
 		57CC6424116C5D650087F7EA /* 13-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "13-target.png"; path = "Resources/Images/13-target.png"; sourceTree = "<group>"; };
 		57CC6425116C5D650087F7EA /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "19-gear.png"; path = "Resources/Images/19-gear.png"; sourceTree = "<group>"; };
 		57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../external/Three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
+		660465D7116EF5B000EBDC85 /* PBTouchOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTouchOverlayView.h; sourceTree = "<group>"; };
+		660465D8116EF5B000EBDC85 /* PBTouchOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTouchOverlayView.m; sourceTree = "<group>"; };
+		66046649116F031E00EBDC85 /* PBPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPinAnnotationView.h; sourceTree = "<group>"; };
+		6604664A116F031E00EBDC85 /* PBPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBPinAnnotationView.m; sourceTree = "<group>"; };
 		66C279EB116DAC3000B4F7D5 /* PBFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFilterView.h; sourceTree = "<group>"; };
 		66C279EC116DAC3000B4F7D5 /* PBFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFilterView.m; sourceTree = "<group>"; };
 		66C279ED116DAC3000B4F7D5 /* PBToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBToastView.h; sourceTree = "<group>"; };
@@ -195,6 +201,10 @@
 				57512991116B007C001BF241 /* TennisDatabase.m */,
 				57CC6329116C2CA60087F7EA /* TennisFilter.h */,
 				57CC632A116C2CA60087F7EA /* TennisFilter.m */,
+				660465D7116EF5B000EBDC85 /* PBTouchOverlayView.h */,
+				660465D8116EF5B000EBDC85 /* PBTouchOverlayView.m */,
+				66046649116F031E00EBDC85 /* PBPinAnnotationView.h */,
+				6604664A116F031E00EBDC85 /* PBPinAnnotationView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -405,6 +415,8 @@
 				57B858E9116D802600F81F9B /* FilterViewController.m in Sources */,
 				66C279EF116DAC3000B4F7D5 /* PBFilterView.m in Sources */,
 				66C279F0116DAC3000B4F7D5 /* PBToastView.m in Sources */,
+				660465D9116EF5B000EBDC85 /* PBTouchOverlayView.m in Sources */,
+				6604664B116F031E00EBDC85 /* PBPinAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

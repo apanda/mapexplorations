@@ -7,7 +7,9 @@
 //
 
 #import "MapViewDelegate.h"
+#import "PBPinAnnotationView.h"
 
+static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 @implementation MapViewDelegate
 
@@ -23,7 +25,9 @@
 		PinAnnotation* pinAnnotation = (PinAnnotation*) annotation;
 		annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
 		if (annotationView == nil) {
-			annotationView = [[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pin"] autorelease];
+			annotationView = [[[PBPinAnnotationView alloc] initWithAnnotation:annotation 
+                                                        reuseIdentifier:@"pin"
+                                                               delegate:m_mapView] autorelease];
 			UIButton* button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 			button.frame = CGRectMake(0,0,23,23);
 			annotationView.rightCalloutAccessoryView = button;
@@ -43,6 +47,13 @@
 		[annotationView setPinColor:color];
 		[annotationView setCanShowCallout: YES];
 		[annotationView setEnabled:YES];
+    
+    [annotationView addObserver:m_mapView
+              forKeyPath:@"selected"
+                 options:NSKeyValueObservingOptionNew
+                 context:GMAP_ANNOTATION_SELECTED]; 
+    annotationView.calloutOffset = CGPointMake(10000.0, 10000.0);
+    
 		return (MKAnnotationView*)annotationView;
 
 	}
