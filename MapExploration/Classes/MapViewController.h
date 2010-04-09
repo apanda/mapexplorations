@@ -29,6 +29,7 @@
 	TennisFilter *m_filter;
 	PBToastView* m_filterToast;
 	PBFilterView* m_filterView;
+	NSArray* m_annotations;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;

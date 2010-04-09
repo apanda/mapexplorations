@@ -70,4 +70,12 @@
 - (NSString*) city {
 	return m_city;
 }
+
+- (void) dealloc {
+	[m_city release];
+	[m_address release];
+	[m_neighborhood release];
+	[m_name release];
+	[super dealloc];
+}
 @end

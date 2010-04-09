@@ -39,7 +39,7 @@
 	[self setToolbarItems:buttonArray];
 	m_filter = [[TennisFilter alloc] init];
 	self.title = @"Map View";
-	
+	m_annotations = nil;
 	
 	return self;
 }
@@ -129,9 +129,12 @@
 }
 
 - (void) createPinsFromDB {
-
-	[m_mapView removeAnnotations: m_mapView.annotations];
-	[m_mapView addAnnotations: [m_database getAnnotationsWithFilter:m_filter]];
+	if (m_annotations != nil) {
+		[m_mapView removeAnnotations: m_annotations];
+		[m_annotations release];
+	}
+	m_annotations = [m_database getAnnotationsWithFilter:m_filter];
+	[m_mapView addAnnotations: m_annotations];
 }
 
 - (void) recalculateFilter {

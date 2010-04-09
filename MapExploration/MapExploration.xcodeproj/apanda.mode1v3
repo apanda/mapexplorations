@@ -275,7 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>13</integer>
+									<integer>15</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -318,7 +318,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapViewDelegate.m</string>
+								<string>MapViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MapViewDelegate.m</string>
+										<string>MapViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>578E66A4116DCA76004B80F7</string>
+										<string>578E66AF116EC6CE004B80F7</string>
 										<key>history</key>
 										<array>
 											<string>571DBC6C1131E8CB00D17167</string>
@@ -356,7 +356,6 @@
 											<string>575129B2116B0518001BF241</string>
 											<string>578E6497116D9E0D004B80F7</string>
 											<string>578E64C7116DA009004B80F7</string>
-											<string>578E64EE116DA26E004B80F7</string>
 											<string>578E6517116DA351004B80F7</string>
 											<string>578E656A116DB924004B80F7</string>
 											<string>578E656E116DB924004B80F7</string>
@@ -370,14 +369,15 @@
 											<string>578E667C116DC5CF004B80F7</string>
 											<string>578E6688116DC6B6004B80F7</string>
 											<string>578E6689116DC6B6004B80F7</string>
-											<string>578E668A116DC6B6004B80F7</string>
 											<string>578E6693116DC906004B80F7</string>
-											<string>578E6694116DC906004B80F7</string>
 											<string>578E6695116DC906004B80F7</string>
-											<string>578E6696116DC906004B80F7</string>
 											<string>578E6697116DC906004B80F7</string>
-											<string>578E6698116DC906004B80F7</string>
-											<string>578E6699116DC906004B80F7</string>
+											<string>578E66A9116EC6CE004B80F7</string>
+											<string>578E66AA116EC6CE004B80F7</string>
+											<string>578E66AB116EC6CE004B80F7</string>
+											<string>578E66AC116EC6CE004B80F7</string>
+											<string>578E66AD116EC6CE004B80F7</string>
+											<string>578E66AE116EC6CE004B80F7</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
