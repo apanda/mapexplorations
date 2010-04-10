@@ -14,6 +14,9 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28C3AD8A0F43EF2300507BA6 /* MapExploration.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 28C3AD890F43EF2300507BA6 /* MapExploration.xcdatamodel */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		5718E72B117105DE0071C7D8 /* smallball.png in Resources */ = {isa = PBXBuildFile; fileRef = 5718E728117105DE0071C7D8 /* smallball.png */; };
+		5718E72C117105DE0071C7D8 /* smallball3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5718E729117105DE0071C7D8 /* smallball3.png */; };
+		5718E72D117105DE0071C7D8 /* smallball4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5718E72A117105DE0071C7D8 /* smallball4.png */; };
 		571DBA0311311A3000D17167 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571DBA0211311A3000D17167 /* MapViewController.m */; };
 		571DBA0511311A4E00D17167 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBA0411311A4E00D17167 /* MapKit.framework */; };
 		571DBA9211311FCF00D17167 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571DBA9111311FCF00D17167 /* CoreLocation.framework */; };
@@ -101,6 +104,9 @@
 		28D801B30F44B63D00FB423F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MapExploration_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapExploration_Prefix.pch; sourceTree = "<group>"; };
+		5718E728117105DE0071C7D8 /* smallball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallball.png; path = Resources/Images/smallball.png; sourceTree = "<group>"; };
+		5718E729117105DE0071C7D8 /* smallball3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallball3.png; path = Resources/Images/smallball3.png; sourceTree = "<group>"; };
+		5718E72A117105DE0071C7D8 /* smallball4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallball4.png; path = Resources/Images/smallball4.png; sourceTree = "<group>"; };
 		571DBA0111311A3000D17167 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		571DBA0211311A3000D17167 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		571DBA0411311A4E00D17167 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -242,6 +248,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5718E728117105DE0071C7D8 /* smallball.png */,
+				5718E729117105DE0071C7D8 /* smallball3.png */,
+				5718E72A117105DE0071C7D8 /* smallball4.png */,
 				57CC6424116C5D650087F7EA /* 13-target.png */,
 				57CC6425116C5D650087F7EA /* 19-gear.png */,
 				57512959116AF58C001BF241 /* BallandCourtSmall.png */,
@@ -392,6 +401,9 @@
 				5751295A116AF58C001BF241 /* BallandCourtSmall.png in Resources */,
 				57CC6426116C5D650087F7EA /* 13-target.png in Resources */,
 				57CC6427116C5D650087F7EA /* 19-gear.png in Resources */,
+				5718E72B117105DE0071C7D8 /* smallball.png in Resources */,
+				5718E72C117105DE0071C7D8 /* smallball3.png in Resources */,
+				5718E72D117105DE0071C7D8 /* smallball4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "TennisDatabase.h"
 #import "TennisFilter.h"
 #import "FilterViewController.h"
+#include "TargetConditionals.h"
 
 @class TennisDatabase;
 @class InformationViewController;

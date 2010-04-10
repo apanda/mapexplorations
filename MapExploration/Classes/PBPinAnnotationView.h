@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MapViewController.h"
 
-@interface PBPinAnnotationView : MKPinAnnotationView {
+@interface PBPinAnnotationView : MKAnnotationView {
   MapViewController* m_delegate;
 }
 

@@ -17,6 +17,9 @@
 @interface MapViewDelegate : NSObject <MKMapViewDelegate> {
 	MapViewController *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
+	UIImage *m_fewPin;
+	UIImage *m_mediumPin;
+	UIImage *m_manyPin;
 }
 
 - (id) initWithMapView: (MapViewController*) mapView appDelegate: (MapExplorationAppDelegate*)appDelegate;
