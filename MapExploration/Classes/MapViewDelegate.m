@@ -21,6 +21,10 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_fewPin = [[UIImage imageNamed:@"smallball.png"] retain];
 	m_mediumPin = [[UIImage imageNamed:@"smallball3.png"] retain];
 	m_manyPin = [[UIImage imageNamed:@"smallball4.png"] retain];
+	m_fewPinLarge = [[UIImage imageNamed:@"smallball_large.png"] retain];
+	m_mediumPinLarge = [[UIImage imageNamed:@"smallball3_large.png"] retain];
+	m_manyPinLarge = [[UIImage imageNamed:@"smallball4_large.png"] retain];
+	m_largePins = false;
 	
 	return self;
 }
@@ -39,15 +43,30 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 			
 		}
 		UIImage *annotationImage;
-		if (pinAnnotation.numCourts > 7) {
-			annotationImage = m_manyPin;
-		}
-		else if (pinAnnotation.numCourts > 3) {
-			annotationImage = m_mediumPin;
+		if (m_largePins) {
+			if (pinAnnotation.numCourts > 7) {
+				annotationImage = m_manyPinLarge;
+			}
+			else if (pinAnnotation.numCourts > 3) {
+				annotationImage = m_mediumPinLarge;
+			}
+			else {
+				annotationImage = m_fewPinLarge;
+			}
+			
 		}
 		else {
-			annotationImage = m_fewPin;
+			if (pinAnnotation.numCourts > 7) {
+				annotationImage = m_manyPin;
+			}
+			else if (pinAnnotation.numCourts > 3) {
+				annotationImage = m_mediumPin;
+			}
+			else {
+				annotationImage = m_fewPin;
+			}
 		}
+
 		
 		annotationView.image = annotationImage;
 		[annotationView setCanShowCallout: YES];
@@ -78,6 +97,18 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+	NSLog(@"New region latitude %f", mapView.region.span.latitudeDelta);
+	NSLog(@"New region longitude %f", mapView.region.span.longitudeDelta);
+	
+	if (m_largePins && mapView.region.span.latitudeDelta > 0.08 && mapView.region.span.longitudeDelta > 0.08) {
+		m_largePins = FALSE;
+		
+		[m_mapView recalculateFilter];
+	}
+	else if (!m_largePins && mapView.region.span.latitudeDelta <= 0.08 && mapView.region.span.longitudeDelta <= 0.08) {
+		m_largePins = TRUE;
+		[m_mapView recalculateFilter];
+	}
 	//m_mapView.changeView = false;
 }
 
@@ -85,6 +116,9 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	[m_fewPin release];
 	[m_mediumPin release];
 	[m_manyPin release];
+	[m_fewPinLarge release]; 
+	[m_mediumPinLarge release];
+	[m_manyPinLarge release];
 	[super dealloc];
 }
 @end

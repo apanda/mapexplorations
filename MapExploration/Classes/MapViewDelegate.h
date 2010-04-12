@@ -20,6 +20,10 @@
 	UIImage *m_fewPin;
 	UIImage *m_mediumPin;
 	UIImage *m_manyPin;
+	UIImage *m_fewPinLarge;
+	UIImage *m_mediumPinLarge;
+	UIImage *m_manyPinLarge;
+	bool m_largePins;
 }
 
 - (id) initWithMapView: (MapViewController*) mapView appDelegate: (MapExplorationAppDelegate*)appDelegate;

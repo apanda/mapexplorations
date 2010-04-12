@@ -111,18 +111,18 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	
 	[self createPinsFromDB];
   
-  PBTouchOverlayView* touchView = [[PBTouchOverlayView alloc] initWithFrame:CGRectMake(0, 0, 320, screenHeight - toolbarHeight - navBarHeight)];
-  touchView.delegate = self;
-  [touchView addSubview:m_mapView];
+	PBTouchOverlayView* touchView = [[PBTouchOverlayView alloc] initWithFrame:CGRectMake(0, 0, 320, screenHeight - toolbarHeight - navBarHeight)];
+	touchView.delegate = self;
+	[touchView addSubview:m_mapView];
   
-  [self.view addSubview:touchView];
+	[self.view addSubview:touchView];
   
 	[self.view addSubview:m_filterToast];
 	[self.view addSubview:m_infoToast];
   
-  [self.view sendSubviewToBack:touchView];
+	[self.view sendSubviewToBack:touchView];
   
-  [touchView release];
+	[touchView release];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
