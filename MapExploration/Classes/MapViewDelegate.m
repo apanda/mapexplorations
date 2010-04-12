@@ -69,7 +69,8 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 	PinAnnotation* annotation = (PinAnnotation*) view.annotation;
-	[m_appDelegate showDetailsForAnnotation:annotation];
+	//[m_appDelegate showDetailsForAnnotation:annotation];
+  [m_mapView showDetailsForAnnotation:annotation];
 	NSLog(@"Clicked on  %@, at address %@, in %@ with %d courts", 
 		  annotation.name,
 		  annotation.address,
