@@ -23,7 +23,14 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+  NSLog(@"Touched!");
   [m_delegate annotationTouched];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+  NSLog(@"Selected: %d", selected);
+  [super setSelected:selected animated:animated];
 }
 
 - (void)dealloc

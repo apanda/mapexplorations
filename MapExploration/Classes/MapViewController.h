@@ -50,6 +50,7 @@
 
 - (void)annotationTouched;
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
+-(void)deseletAnnotations;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic) bool changeView;
 

@@ -50,6 +50,10 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
   
   if (m_filterToast.hidden) {
     [m_filterToast show];
+    
+    // Now, we have to deselect all annotations and hide the info toast
+    [m_infoToast hide];
+    [self deseletAnnotations];
   } else {
     [m_filterToast hide];
   }
@@ -60,6 +64,13 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	if (m_appDelegate.location != nil) {
 		[self setNewLocation: m_appDelegate.location];
 	}
+}
+
+-(void)deseletAnnotations
+{
+  for(PinAnnotation* annotation in m_mapView.selectedAnnotations) {
+    [m_mapView deselectAnnotation:annotation animated:NO];
+  }
 }
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
