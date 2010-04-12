@@ -18,6 +18,7 @@
 	
 	UIView* returnMe =  [super hitTest:point withEvent:event];
   
+  NSLog(@"Hit!");
   [m_delegate overlayTouched];
   
   return returnMe;

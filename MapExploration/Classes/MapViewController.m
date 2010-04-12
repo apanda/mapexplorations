@@ -50,6 +50,10 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
   
   if (m_filterToast.hidden) {
     [m_filterToast show];
+    
+    // Now, we have to deselect all annotations and hide the info toast
+    [m_infoToast hide];
+    [self deseletAnnotations];
   } else {
     [m_filterToast hide];
   }
@@ -60,6 +64,13 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	if (m_appDelegate.location != nil) {
 		[self setNewLocation: m_appDelegate.location];
 	}
+}
+
+-(void)deseletAnnotations
+{
+  for(PinAnnotation* annotation in m_mapView.selectedAnnotations) {
+    [m_mapView deselectAnnotation:annotation animated:NO];
+  }
 }
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -96,7 +107,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_filterToast = [[[PBToastView alloc] initWithHiddenFrame:filterToastHiddenFrame visibleFrame:filterToastVisibleFrame] autorelease];
 	m_filterToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
-	float infoToastHeight = 100;
+	float infoToastHeight = 200;
 	float infoToastHiddenY = -infoToastHeight;
 	float infoToastVisibleY = 0 + navBarHeight;
 	CGRect infoToastHiddenFrame = CGRectMake(0, infoToastHiddenY, 320, infoToastHeight);
@@ -105,9 +116,15 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_infoToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
 	// Filter view
-	m_filterView = [[[PBFilterView alloc] initWithFrame:CGRectMake(0, 0, 320, toastHeight)] autorelease];
+	m_filterView = [[PBFilterView alloc] initWithFrame:CGRectMake(0, 0, 320, toastHeight)];
 	m_filterView.mapView = self;
 	[m_filterToast addSubview:m_filterView];
+  
+  // Information view
+  m_informationView = [[PBInformationView alloc] initWithStyle:UITableViewStyleGrouped 
+                                                   appDelegate:m_appDelegate];
+  m_informationView.view.frame = CGRectMake(0, 0, 320, infoToastHeight);
+  [m_infoToast addSubview:m_informationView.view];
 	
 	[self createPinsFromDB];
   
@@ -187,9 +204,11 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
   
   if([action isEqualToString:GMAP_ANNOTATION_SELECTED]){
     BOOL annotationAppeared = [[change valueForKey:@"new"] boolValue]; 
+    PBPinAnnotationView* annotationView = (PBPinAnnotationView*)object;
     
     if (annotationAppeared) {
       NSLog(@"Showing info toast");
+      [self showDetailsForAnnotation:annotationView.annotation];
       [m_infoToast show];
     } else {
       if (!m_annotationTouched) {
@@ -200,6 +219,12 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
     
     m_annotationTouched = NO;
   }
+}
+
+- (void) showDetailsForAnnotation: (PinAnnotation*) annotation
+{
+  m_informationView.currentAnnotation = annotation;
+  [m_informationView viewWillAppear:NO];
 }
 
 #pragma mark -

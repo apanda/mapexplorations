@@ -6,42 +6,43 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "InformationViewController.h"
+#import "PBInformationView.h"
 
 
-@implementation InformationViewController
+@implementation PBInformationView
 @synthesize currentAnnotation = m_annotation;
 
 - (id)initWithStyle:(UITableViewStyle)style appDelegate: (MapExplorationAppDelegate*) appDelegate {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    self = [super initWithStyle:style];
+  // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+  self = [super initWithStyle:style];
 	[TTStyleSheet setGlobalStyleSheet:[[TTDefaultStyleSheet alloc] init]];
 	m_appDelegate = appDelegate;
 	
-		
-    return self;
+  self.tableView.scrollEnabled = NO;
+  self.tableView.sectionHeaderHeight = 2.0;
+  self.tableView.sectionFooterHeight = 2.0;
+  
+  return self;
 }
 
 
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
 }
 
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+  [super viewWillAppear:animated];
+  
 	[self.tableView reloadData];
 	self.tableView.editing = NO;
-	self.title = self.currentAnnotation.name;
-	[m_appDelegate showNavigationBar];
-	[m_appDelegate hideToolbar];
 }
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+  [super didReceiveMemoryWarning];
 	
 	// Release any cached data, images, etc that aren't in use.
 }
@@ -55,7 +56,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+  return 2;
 }
 
 
@@ -67,13 +68,12 @@
 	else {
 		return 1;
 	}
-
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+  
 	int section = [indexPath indexAtPosition:0];
 	UITableViewCell *cell = nil;
 	if (section == 0) {
@@ -109,22 +109,22 @@
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
-			m_ratingView = [[SCRatingView alloc] initWithFrame: cell.frame];
+			m_ratingView = [[SCRatingView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
 			[m_ratingView setDelegate:self];
 			m_ratingView.rating = 2;
 			//m_ratingView.userInteractionEnabled = FALSE;
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-halfselected.png"]
-								 forState:kSCRatingViewHalfSelected];
+                        forState:kSCRatingViewHalfSelected];
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-highlighted.png"]
-								 forState:kSCRatingViewHighlighted];
+                        forState:kSCRatingViewHighlighted];
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-hot.png"]
-								 forState:kSCRatingViewHot];
+                        forState:kSCRatingViewHot];
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-nonselected.png"]
-								 forState:kSCRatingViewNonSelected];
+                        forState:kSCRatingViewNonSelected];
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-selected.png"]
-								 forState:kSCRatingViewSelected];
+                        forState:kSCRatingViewSelected];
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-userselected.png"]
-								 forState:kSCRatingViewUserSelected];
+                        forState:kSCRatingViewUserSelected];
 			
 			[cell.contentView addSubview:m_ratingView];
 			UIView *transparentBackground = [[UIView alloc] initWithFrame:CGRectZero];
@@ -133,14 +133,12 @@
 		}
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;	
 		m_ratingView.rating = self.currentAnnotation.rating;
-		//cell.textLabel.text = @"Rating";
-		//cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", self.currentAnnotation.rating];
 		
 	}
-    // Set up the cell...
+  // Set up the cell...
 	
 	
-    return cell;
+  return cell;
 }
 
 
@@ -148,7 +146,7 @@
 	// return [super tableView: tableView heightForRowAtIndexPath: indexPath];
 	if ([indexPath indexAtPosition:1] != 1) {
 		return tableView.rowHeight;
-	
+    
 	}
 	CGSize maxSize;
 	float height = 2009;
@@ -177,13 +175,13 @@
 		//NSLog(@"%@", address);
 		//NSLog(@"%@", self.currentAnnotation.neighborhood);
 		NSString* encodedAddress = (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
-														   (CFStringRef)address,
-														   NULL,
-														   (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
-														  kCFStringEncodingUTF8);
+                                                                                   (CFStringRef)address,
+                                                                                   NULL,
+                                                                                   (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
+                                                                                   kCFStringEncodingUTF8);
 		
 		NSString* urlString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", 
-							   encodedAddress];
+                           encodedAddress];
 		
 		//NSLog(@"%@",urlString);
 		[app openURL:[NSURL URLWithString: urlString]];
@@ -191,7 +189,7 @@
 }
 
 - (void)dealloc {
-    [super dealloc];
+  [super dealloc];
 }
 
 - (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating
@@ -205,4 +203,3 @@
 {
 }
 @end
-

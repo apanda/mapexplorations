@@ -54,6 +54,7 @@
 		57CC64FE116D7BB50087F7EA /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CC64F9116D7B6C0087F7EA /* libThree20.a */; };
 		660465D9116EF5B000EBDC85 /* PBTouchOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 660465D8116EF5B000EBDC85 /* PBTouchOverlayView.m */; };
 		6604664B116F031E00EBDC85 /* PBPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604664A116F031E00EBDC85 /* PBPinAnnotationView.m */; };
+		66AA1DEE1172F80B00FDB03B /* PBInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA1DED1172F80B00FDB03B /* PBInformationView.m */; };
 		66C279EF116DAC3000B4F7D5 /* PBFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EC116DAC3000B4F7D5 /* PBFilterView.m */; };
 		66C279F0116DAC3000B4F7D5 /* PBToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EE116DAC3000B4F7D5 /* PBToastView.m */; };
 /* End PBXBuildFile section */
@@ -157,6 +158,8 @@
 		660465D8116EF5B000EBDC85 /* PBTouchOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTouchOverlayView.m; sourceTree = "<group>"; };
 		66046649116F031E00EBDC85 /* PBPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPinAnnotationView.h; sourceTree = "<group>"; };
 		6604664A116F031E00EBDC85 /* PBPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBPinAnnotationView.m; sourceTree = "<group>"; };
+		66AA1DEC1172F80B00FDB03B /* PBInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBInformationView.h; sourceTree = "<group>"; };
+		66AA1DED1172F80B00FDB03B /* PBInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBInformationView.m; sourceTree = "<group>"; };
 		66C279EB116DAC3000B4F7D5 /* PBFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFilterView.h; sourceTree = "<group>"; };
 		66C279EC116DAC3000B4F7D5 /* PBFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFilterView.m; sourceTree = "<group>"; };
 		66C279ED116DAC3000B4F7D5 /* PBToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBToastView.h; sourceTree = "<group>"; };
@@ -195,9 +198,11 @@
 				66C279EC116DAC3000B4F7D5 /* PBFilterView.m */,
 				66C279ED116DAC3000B4F7D5 /* PBToastView.h */,
 				66C279EE116DAC3000B4F7D5 /* PBToastView.m */,
-				577FE3C211328FE100072027 /* InformationViewController.h */,
+				66AA1DEC1172F80B00FDB03B /* PBInformationView.h */,
+				66AA1DED1172F80B00FDB03B /* PBInformationView.m */,
 				57B858E7116D802600F81F9B /* FilterViewController.h */,
 				57B858E8116D802600F81F9B /* FilterViewController.m */,
+				577FE3C211328FE100072027 /* InformationViewController.h */,
 				577FE3C311328FE100072027 /* InformationViewController.m */,
 				1D3623240D0F684500981E51 /* MapExplorationAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MapExplorationAppDelegate.m */,
@@ -441,6 +446,7 @@
 				66C279F0116DAC3000B4F7D5 /* PBToastView.m in Sources */,
 				660465D9116EF5B000EBDC85 /* PBTouchOverlayView.m in Sources */,
 				6604664B116F031E00EBDC85 /* PBPinAnnotationView.m in Sources */,
+				66AA1DEE1172F80B00FDB03B /* PBInformationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
