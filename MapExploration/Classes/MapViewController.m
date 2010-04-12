@@ -120,11 +120,11 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_filterView.mapView = self;
 	[m_filterToast addSubview:m_filterView];
   
-  // Information view
-  m_informationView = [[PBInformationView alloc] initWithStyle:UITableViewStyleGrouped 
+	// Information view
+	m_informationView = [[PBInformationView alloc] initWithStyle:UITableViewStyleGrouped 
                                                    appDelegate:m_appDelegate];
-  m_informationView.view.frame = CGRectMake(0, 0, 320, infoToastHeight);
-  [m_infoToast addSubview:m_informationView.view];
+	m_informationView.view.frame = CGRectMake(0, 0, 320, infoToastHeight);
+	[m_infoToast addSubview:m_informationView.view];
 	
 	[self createPinsFromDB];
   
@@ -185,14 +185,14 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 - (void)overlayTouched
 {
-  if (!m_filterToast.hidden) {
-    [m_filterToast hide];
-  }
+	if (!m_filterToast.hidden) {
+		[m_filterToast hide];
+	}
 }
 
 - (void)annotationTouched
 {
-  m_annotationTouched = YES;
+	m_annotationTouched = YES;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -223,8 +223,8 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation
 {
-  m_informationView.currentAnnotation = annotation;
-  [m_informationView viewWillAppear:NO];
+	m_informationView.currentAnnotation = annotation;
+	[m_informationView viewWillAppear:NO];
 }
 
 #pragma mark -

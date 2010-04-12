@@ -32,9 +32,9 @@
 	TennisDatabase *m_database;
 	TennisFilter *m_filter;
 	PBToastView* m_filterToast;
-  PBToastView* m_infoToast;
+	PBToastView* m_infoToast;
 	PBFilterView* m_filterView;
-  PBInformationView* m_informationView;
+	PBInformationView* m_informationView;
 	NSArray* m_annotations;
   
   BOOL m_annotationTouched;
