@@ -65,7 +65,7 @@
 }
 
 - (void) setWritableDbFilePath {
-	NSString *DB_RESOURCE_NAME = @"tennis.0.db";
+	NSString *DB_RESOURCE_NAME = @"tennis.1.db";
 	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];

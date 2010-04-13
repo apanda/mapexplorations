@@ -21,10 +21,6 @@
 	return self;
 }
 
--(PinAnnotation*) pinAnnotation {
-	return m_annotation;
-}
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	NSLog(@"Touched!");

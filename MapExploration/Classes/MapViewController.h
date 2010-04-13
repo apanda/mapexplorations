@@ -37,7 +37,7 @@
 	PBInformationView* m_informationView;
 	NSArray* m_annotations;
   
-  BOOL m_annotationTouched;
+	BOOL m_annotationTouched;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;
@@ -47,12 +47,10 @@
 - (void) gearClicked;
 - (void) targetClicked;
 - (void) recalculateFilter;
-- (void) refreshAnnotations;
-
 - (void)annotationTouched;
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
 -(void)deselectAnnotations;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic) bool changeView;
-
+@property (nonatomic, readonly) NSArray *currentAnnotations;
 @end

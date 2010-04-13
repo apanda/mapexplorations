@@ -42,31 +42,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 			annotationView.rightCalloutAccessoryView = button;
 			
 		}
-		UIImage *annotationImage;
-		if (m_largePins) {
-			if (pinAnnotation.numCourts > 7) {
-				annotationImage = m_manyPinLarge;
-			}
-			else if (pinAnnotation.numCourts > 3) {
-				annotationImage = m_mediumPinLarge;
-			}
-			else {
-				annotationImage = m_fewPinLarge;
-			}
-			
-		}
-		else {
-			if (pinAnnotation.numCourts > 7) {
-				annotationImage = m_manyPin;
-			}
-			else if (pinAnnotation.numCourts > 3) {
-				annotationImage = m_mediumPin;
-			}
-			else {
-				annotationImage = m_fewPin;
-			}
-		}
-
+		UIImage *annotationImage = [self pinForAnnotation:pinAnnotation];
 		
 		annotationView.image = annotationImage;
 		[annotationView setCanShowCallout: YES];
@@ -134,15 +110,25 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 		m_largePins = FALSE;
 		//[m_mapView refreshAnnotations];
 		[m_mapView deselectAnnotations];
-		[m_mapView recalculateFilter];
+		//[m_mapView recalculateFilter];
+		[self refreshAnnotations];
 	}
 	else if (!m_largePins && mapView.region.span.latitudeDelta <= 0.08 && mapView.region.span.longitudeDelta <= 0.08) {
 		m_largePins = TRUE;
 		//[m_mapView refreshAnnotations];
 		[m_mapView deselectAnnotations];
-		[m_mapView recalculateFilter];
+		//[m_mapView recalculateFilter];
+		[self refreshAnnotations];
 	}
 	//m_mapView.changeView = false;
+}
+
+- (void) refreshAnnotations {
+	NSArray* annotations = m_mapView.currentAnnotations;
+	for (PinAnnotation* annotation in annotations) {
+		PBPinAnnotationView* annotationView = (PBPinAnnotationView*)[m_mapView.mapView viewForAnnotation: annotation];
+		annotationView.image = [self pinForAnnotation:annotation];
+	}
 }
 
 - (void) dealloc {

@@ -73,6 +73,10 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
   }
 }
 
+- (NSArray*) currentAnnotations {
+	return m_annotations;
+}
+
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 	[m_appDelegate hideNavigationBar];
@@ -256,12 +260,6 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
-
-- (void) refreshAnnotations {
-	CLLocationCoordinate2D loc = m_mapView.centerCoordinate;
-	m_mapView.centerCoordinate = loc;
-}
-
 
 - (void)dealloc {
 	[m_database release];

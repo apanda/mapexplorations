@@ -28,6 +28,7 @@
 
 - (UIImage*) pinForAnnotation: (PinAnnotation*) annotation;
 - (id) initWithMapView: (MapViewController*) mapView appDelegate: (MapExplorationAppDelegate*)appDelegate;
+- (void) refreshAnnotations;
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated;
 //- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated;
 //
