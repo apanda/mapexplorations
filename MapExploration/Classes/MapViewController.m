@@ -66,7 +66,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	}
 }
 
--(void)deseletAnnotations
+-(void)deselectAnnotations
 {
   for(PinAnnotation* annotation in m_mapView.selectedAnnotations) {
     [m_mapView deselectAnnotation:annotation animated:NO];
