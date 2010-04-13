@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MapViewController.h"
+#import "PinAnnotation.h"
 
+@class PinAnnotation;
 @interface PBPinAnnotationView : MKAnnotationView {
-  MapViewController* m_delegate;
+	MapViewController* m_delegate;
+	PinAnnotation* m_annotation;
 }
 
-- (id)initWithAnnotation:(id <MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate;
-
+- (id)initWithAnnotation:(PinAnnotation*)annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate;
+@property (readonly) PinAnnotation* annotation;
 @end

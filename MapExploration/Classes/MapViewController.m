@@ -257,6 +257,11 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	// e.g. self.myOutlet = nil;
 }
 
+- (void) refreshAnnotations {
+	CLLocationCoordinate2D loc = m_mapView.centerCoordinate;
+	m_mapView.centerCoordinate = loc;
+}
+
 
 - (void)dealloc {
 	[m_database release];

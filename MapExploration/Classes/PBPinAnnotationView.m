@@ -11,20 +11,24 @@
 
 @implementation PBPinAnnotationView
 
-- (id)initWithAnnotation:(id <MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate
+- (id)initWithAnnotation:(PinAnnotation*) annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate
 {
-  if (self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]) {
-    m_delegate = [delegate retain];
-  }
+	if (self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]) {
+	  m_delegate = [delegate retain];
+		m_annotation = annotation;
+	}
   
-  return self;
+	return self;
 }
 
+-(PinAnnotation*) annotation {
+	return m_annotation;
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  NSLog(@"Touched!");
-  [m_delegate annotationTouched];
+	NSLog(@"Touched!");
+	[m_delegate annotationTouched];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

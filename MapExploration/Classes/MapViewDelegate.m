@@ -29,10 +29,10 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	return self;
 }
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-	MKAnnotationView *annotationView = nil;
+	PBPinAnnotationView *annotationView = nil;
 	if ([annotation isKindOfClass: [PinAnnotation class]]) {
 		PinAnnotation* pinAnnotation = (PinAnnotation*) annotation;
-		annotationView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
+		annotationView = (PBPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pin"];
 		if (annotationView == nil) {
 			annotationView = [[[PBPinAnnotationView alloc] initWithAnnotation:annotation 
                                                         reuseIdentifier:@"pin"
@@ -85,6 +85,35 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 		return nil;
 	}
 }
+- (UIImage*) pinForAnnotation: (PinAnnotation*) annotation {
+	
+	UIImage *annotationImage;
+	if (m_largePins) {
+		if (annotation.numCourts > 7) {
+			annotationImage = m_manyPinLarge;
+		}
+		else if (annotation.numCourts > 3) {
+			annotationImage = m_mediumPinLarge;
+		}
+		else {
+			annotationImage = m_fewPinLarge;
+		}
+		
+	}
+	else {
+		if (annotation.numCourts > 7) {
+			annotationImage = m_manyPin;
+		}
+		else if (annotation.numCourts > 3) {
+			annotationImage = m_mediumPin;
+		}
+		else {
+			annotationImage = m_fewPin;
+		}
+	}
+	return annotationImage;
+	
+}
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 	PinAnnotation* annotation = (PinAnnotation*) view.annotation;
@@ -103,11 +132,14 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	
 	if (m_largePins && mapView.region.span.latitudeDelta > 0.08 && mapView.region.span.longitudeDelta > 0.08) {
 		m_largePins = FALSE;
-		
+		//[m_mapView refreshAnnotations];
+		[m_mapView deseletAnnotations];
 		[m_mapView recalculateFilter];
 	}
 	else if (!m_largePins && mapView.region.span.latitudeDelta <= 0.08 && mapView.region.span.longitudeDelta <= 0.08) {
 		m_largePins = TRUE;
+		//[m_mapView refreshAnnotations];
+		[m_mapView deseletAnnotations];
 		[m_mapView recalculateFilter];
 	}
 	//m_mapView.changeView = false;

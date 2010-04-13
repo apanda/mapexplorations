@@ -26,6 +26,7 @@
 	bool m_largePins;
 }
 
+- (UIImage*) pinForAnnotation: (PinAnnotation*) annotation;
 - (id) initWithMapView: (MapViewController*) mapView appDelegate: (MapExplorationAppDelegate*)appDelegate;
 //- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated;
 //- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated;

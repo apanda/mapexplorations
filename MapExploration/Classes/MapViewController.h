@@ -47,6 +47,7 @@
 - (void) gearClicked;
 - (void) targetClicked;
 - (void) recalculateFilter;
+- (void) refreshAnnotations;
 
 - (void)annotationTouched;
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
