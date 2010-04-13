@@ -133,13 +133,13 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	if (m_largePins && mapView.region.span.latitudeDelta > 0.08 && mapView.region.span.longitudeDelta > 0.08) {
 		m_largePins = FALSE;
 		//[m_mapView refreshAnnotations];
-		[m_mapView deseletAnnotations];
+		[m_mapView deselectAnnotations];
 		[m_mapView recalculateFilter];
 	}
 	else if (!m_largePins && mapView.region.span.latitudeDelta <= 0.08 && mapView.region.span.longitudeDelta <= 0.08) {
 		m_largePins = TRUE;
 		//[m_mapView refreshAnnotations];
-		[m_mapView deseletAnnotations];
+		[m_mapView deselectAnnotations];
 		[m_mapView recalculateFilter];
 	}
 	//m_mapView.changeView = false;

@@ -53,7 +53,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
     
     // Now, we have to deselect all annotations and hide the info toast
     [m_infoToast hide];
-    [self deseletAnnotations];
+    [self deselectAnnotations];
   } else {
     [m_filterToast hide];
   }

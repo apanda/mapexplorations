@@ -21,7 +21,7 @@
 	return self;
 }
 
--(PinAnnotation*) annotation {
+-(PinAnnotation*) pinAnnotation {
 	return m_annotation;
 }
 

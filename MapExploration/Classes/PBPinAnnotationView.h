@@ -17,5 +17,5 @@
 }
 
 - (id)initWithAnnotation:(PinAnnotation*)annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate;
-@property (readonly) PinAnnotation* annotation;
+@property (readonly) PinAnnotation* pinAnnotation;
 @end
