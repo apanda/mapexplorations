@@ -184,6 +184,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_filter.lights = m_filterView.lights;
 	m_filter.indoor = m_filterView.indoor;
 	m_filter.backboard = m_filterView.backboard;
+        [self deselectAnnotations];
 	[self createPinsFromDB];
 }
 
