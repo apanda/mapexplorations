@@ -45,13 +45,9 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 		UIImage *annotationImage = [self pinForAnnotation:pinAnnotation];
 		
 		annotationView.image = annotationImage;
-		[annotationView setCanShowCallout: YES];
+		[annotationView setCanShowCallout:YES];
 		[annotationView setEnabled:YES];
     
-		[annotationView addObserver:m_mapView
-              forKeyPath:@"selected"
-                 options:NSKeyValueObservingOptionNew
-                 context:GMAP_ANNOTATION_SELECTED]; 
 		annotationView.calloutOffset = CGPointMake(10000.0, 10000.0);
     
 		return (MKAnnotationView*)annotationView;

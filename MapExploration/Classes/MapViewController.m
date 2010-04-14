@@ -200,30 +200,23 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_annotationTouched = YES;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context{
-  
-  NSString *action = (NSString*)context;
-  
-  if([action isEqualToString:GMAP_ANNOTATION_SELECTED]){
-    BOOL annotationAppeared = [[change valueForKey:@"new"] boolValue]; 
-    PBPinAnnotationView* annotationView = (PBPinAnnotationView*)object;
+- (void) selectedAnnotation:(id)annotation
+{
+    MKAnnotationView* annotationView = [m_mapView viewForAnnotation:annotation];
+    [self showDetailsForAnnotation:annotationView.annotation];
+    [m_infoToast show];
     
-    if (annotationAppeared) {
-      NSLog(@"Showing info toast");
-      [self showDetailsForAnnotation:annotationView.annotation];
-      [m_infoToast show];
-    } else {
-      if (!m_annotationTouched) {
+    m_annotationTouched = NO;
+}
+
+- (void) deselectedAnnotation:(id)annotation
+{
+    if (!m_annotationTouched) {
         NSLog(@"Hiding info toast");
         [m_infoToast hide]; 
-      }
     }
     
     m_annotationTouched = NO;
-  }
 }
 
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation

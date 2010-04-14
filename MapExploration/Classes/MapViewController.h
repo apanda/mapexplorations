@@ -43,13 +43,15 @@
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;
 - (void) setNewLocation: (CLLocation*) location;
 - (void) createPinsFromDB;
-- (void)viewWillAppear:(BOOL)animated;
+- (void) viewWillAppear:(BOOL)animated;
 - (void) gearClicked;
 - (void) targetClicked;
 - (void) recalculateFilter;
-- (void)annotationTouched;
+- (void) annotationTouched;
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
--(void)deselectAnnotations;
+- (void) deselectAnnotations;
+- (void) selectedAnnotation:(id)annotation;
+- (void) deselectedAnnotation:(id)annotation;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic) bool changeView;
 @property (nonatomic, readonly) NSArray *currentAnnotations;

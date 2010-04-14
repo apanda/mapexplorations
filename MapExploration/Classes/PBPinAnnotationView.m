@@ -14,10 +14,10 @@
 - (id)initWithAnnotation:(PinAnnotation*) annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate
 {
 	if (self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]) {
-	  m_delegate = [delegate retain];
+        m_delegate = [delegate retain];
 		m_annotation = annotation;
 	}
-  
+    
 	return self;
 }
 
@@ -29,14 +29,20 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-  NSLog(@"Selected: %d", selected);
-  [super setSelected:selected animated:animated];
+    NSLog(@"Selected: %d", selected);
+    if (selected) {
+        [m_delegate selectedAnnotation:self.annotation];
+    } else {
+        [m_delegate deselectedAnnotation:self.annotation];
+    }
+    
+    [super setSelected:selected animated:animated];
 }
 
 - (void)dealloc
 {
-  [m_delegate release];
-  [super dealloc];
+    [m_delegate release];
+    [super dealloc];
 }
 
 @end
