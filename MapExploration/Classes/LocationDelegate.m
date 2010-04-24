@@ -38,10 +38,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+	/*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
 													message:[error description] delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
 	[alert show];
-	[alert release];
+	[alert release];*/
+	NSLog(@"Failed to find location");
 }
 
 @end

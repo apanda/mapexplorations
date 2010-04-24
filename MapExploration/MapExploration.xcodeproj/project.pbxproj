@@ -52,6 +52,7 @@
 		57CC6426116C5D650087F7EA /* 13-target.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6424116C5D650087F7EA /* 13-target.png */; };
 		57CC6427116C5D650087F7EA /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CC6425116C5D650087F7EA /* 19-gear.png */; };
 		57CC64FE116D7BB50087F7EA /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57CC64F9116D7B6C0087F7EA /* libThree20.a */; };
+		57FD4AD01183A53E0099DDCD /* Enlistments.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57FD4ACF1183A53E0099DDCD /* Enlistments.plist */; };
 		660465D9116EF5B000EBDC85 /* PBTouchOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 660465D8116EF5B000EBDC85 /* PBTouchOverlayView.m */; };
 		6604664B116F031E00EBDC85 /* PBPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6604664A116F031E00EBDC85 /* PBPinAnnotationView.m */; };
 		66AA1DEE1172F80B00FDB03B /* PBInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA1DED1172F80B00FDB03B /* PBInformationView.m */; };
@@ -154,6 +155,7 @@
 		57CC6424116C5D650087F7EA /* 13-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "13-target.png"; path = "Resources/Images/13-target.png"; sourceTree = "<group>"; };
 		57CC6425116C5D650087F7EA /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "19-gear.png"; path = "Resources/Images/19-gear.png"; sourceTree = "<group>"; };
 		57CC64F3116D7B6C0087F7EA /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../external/Three20/src/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
+		57FD4ACF1183A53E0099DDCD /* Enlistments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Enlistments.plist; sourceTree = "<group>"; };
 		660465D7116EF5B000EBDC85 /* PBTouchOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTouchOverlayView.h; sourceTree = "<group>"; };
 		660465D8116EF5B000EBDC85 /* PBTouchOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTouchOverlayView.m; sourceTree = "<group>"; };
 		66046649116F031E00EBDC85 /* PBPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBPinAnnotationView.h; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57FD4ACF1183A53E0099DDCD /* Enlistments.plist */,
 				5718E7791172FBD80071C7D8 /* smallball_large.png */,
 				5718E77A1172FBD80071C7D8 /* smallball3_large.png */,
 				5718E77B1172FBD80071C7D8 /* smallball4_large.png */,
@@ -421,6 +424,7 @@
 				5718E77C1172FBD80071C7D8 /* smallball_large.png in Resources */,
 				5718E77D1172FBD80071C7D8 /* smallball3_large.png in Resources */,
 				5718E77E1172FBD80071C7D8 /* smallball4_large.png in Resources */,
+				57FD4AD01183A53E0099DDCD /* Enlistments.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +524,46 @@
 			};
 			name = Release;
 		};
+		57FD4AC71183A45E0099DDCD /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Distribution;
+		};
+		57FD4AC81183A45E0099DDCD /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Enlistments.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aurojit Panda";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Volumes/Skiiing2/CD/ViewBased/Unknown Path/System/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MapExploration_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					../external/Three20/src,
+					"../external/TouchCustoms/Classes/**",
+				);
+				INFOPLIST_FILE = "MapExploration-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = MapExploration;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CB39AE06-08CB-4817-B8E3-A8862CDA795E";
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -554,6 +598,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				57FD4AC81183A45E0099DDCD /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -563,6 +608,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				57FD4AC71183A45E0099DDCD /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>Seattle Tennis Map</string>
+	<string>PBTennis</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>BallandCourtSmall.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>me.apanda.SeattleTennis</string>
+	<string>com.pandabits.pbtennis</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

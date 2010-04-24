@@ -110,8 +110,8 @@
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
 			m_ratingView = [[SCRatingView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
 			[m_ratingView setDelegate:self];
-			m_ratingView.rating = 2;
-			//m_ratingView.userInteractionEnabled = FALSE;
+			m_ratingView.rating = self.currentAnnotation.rating;
+			m_ratingView.userInteractionEnabled = true;
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-halfselected.png"]
                         forState:kSCRatingViewHalfSelected];
 			[m_ratingView setStarImage:[UIImage imageNamed:@"star-highlighted.png"]

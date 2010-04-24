@@ -102,7 +102,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	self.changeView = true;
   
 	// Filter toast
-	float toastHeight = 235;
+	float toastHeight = 200;
   
 	float filterToastHiddenY = screenHeight;
 	float filterToastVisibleY = screenHeight - navBarHeight - toolbarHeight - toastHeight;

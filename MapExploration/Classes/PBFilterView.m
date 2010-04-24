@@ -40,13 +40,13 @@
 		
     [TTStyleSheet setGlobalStyleSheet:[[TTDefaultStyleSheet alloc] init]];
     TTTableControlItem *lightControl = [TTTableControlItem itemWithCaption:@"Lights" control:m_lights];
-    TTTableControlItem *indoorControl = [TTTableControlItem itemWithCaption:@"Indoor" control:m_indoor];
+    //TTTableControlItem *indoorControl = [TTTableControlItem itemWithCaption:@"Indoor" control:m_indoor];
     TTTableControlItem *backboardControl = [TTTableControlItem itemWithCaption:@"Backboard" control:m_backboard];
-	  TTTableControlItem *courtsControl = [TTTableControlItem itemWithCaption:@"Courts" control:m_courts];
-	  TTTableControlItem *ratingControl = [TTTableControlItem itemWithCaption:@"Rating" control:m_rating];
+	TTTableControlItem *courtsControl = [TTTableControlItem itemWithCaption:@"Courts" control:m_courts];
+	TTTableControlItem *ratingControl = [TTTableControlItem itemWithCaption:@"Rating" control:m_rating];
     tableView.dataSource = [[TTListDataSource dataSourceWithObjects:
                              lightControl,
-                             indoorControl,
+                             //indoorControl,
                              backboardControl,
                              courtsControl,
                              ratingControl,
@@ -71,7 +71,7 @@
 }
 
 - (bool) indoor {
-	return m_indoor.on;
+	return false;
 }
 
 - (bool) backboard {
