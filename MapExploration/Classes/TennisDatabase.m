@@ -40,7 +40,7 @@
 {
 	NSMutableArray *array = [[NSMutableArray alloc] init];
 	sqlite3_stmt *sqlite_stmt;
-	NSString* sqlstatement = @"select courtname, address, latitude, longitude, courts, city, rating, key, neighborhood from tenniscourts";
+	NSString* sqlstatement = @"select courtname, address, latitude, longitude, courts, city, rating, key, neighborhood, lights from tenniscourts";
 	NSString* whereClause = [filter whereClause];
 	NSLog(@"where clause: %@", whereClause);
 	sqlstatement = [sqlstatement stringByAppendingFormat:@" %@", whereClause];
@@ -64,6 +64,7 @@
 		int courts = sqlite3_column_int(sqlite_stmt, 4);
 		int rating = sqlite3_column_int(sqlite_stmt, 6);
 		int key = sqlite3_column_int(sqlite_stmt, 7);
+		int lights = sqlite3_column_int(sqlite_stmt, 9);
 		CLLocationCoordinate2D coordinate;
 		coordinate.latitude = sqlite3_column_double(sqlite_stmt, 2);
 		coordinate.longitude = sqlite3_column_double(sqlite_stmt, 3);
@@ -75,7 +76,8 @@
 																			city: city 
 																	   numCourts: courts
 																	neighborhood: neighborhood
-																		  rating: rating] autorelease];
+																		  rating: rating
+																		  lights: lights] autorelease];
 		[name release];
 		[address release];
 		[city release];

@@ -17,6 +17,7 @@
 	NSString* m_city;
 	int m_rating;
 	int m_key;
+	bool m_lights;
 	NSString* m_neighborhood;
 }
 
@@ -28,6 +29,7 @@
 @property (nonatomic, readonly) NSString* city;
 @property (nonatomic, readonly) NSString* neighborhood;
 @property (nonatomic, readonly) int key;
+@property (nonatomic, readonly) bool lights;
 
 - (id) initWithCoordinate: (CLLocationCoordinate2D) coordinate
 					  key:(int) key 
@@ -36,6 +38,7 @@
 					 city: (NSString*) city
 					numCourts: (int) numCourts
 			     neighborhood: (NSString*) neighborhood
-				    rating: (int) rating;
+				    rating: (int) rating
+                    lights: (int) lights;
 
 @end

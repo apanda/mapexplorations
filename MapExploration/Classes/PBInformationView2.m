@@ -196,7 +196,7 @@
     m_ratingView.rating = m_currentAnnotation.rating;
     
     // Handle has lights/doesn't have lights
-    if (false) { 
+    if (m_currentAnnotation.lights) { 
         // has lights
         m_lightImageView.image = m_lightOnImage;
         m_lightInfoLabel.text = @"Lights";

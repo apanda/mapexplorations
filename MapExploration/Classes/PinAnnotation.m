@@ -22,7 +22,8 @@
 					 city: (NSString*) city 
 				numCourts: (int) numCourts  
 			 neighborhood: (NSString*) neighborhood 
-				   rating: (int) rating{
+				   rating: (int) rating
+                   lights: (int) lights {
 	self = [super init];
 	m_coordinate = coordinate;
 	m_name = [name retain];
@@ -31,8 +32,13 @@
 	m_city = [city retain];
 	m_rating = rating;
 	m_key = key;
+	m_lights = (lights == 1);
 	m_neighborhood = [neighborhood retain];
 	return self;
+}
+
+- (bool) lights {
+	return m_lights;
 }
 
 - (NSString*) neighborhood {
