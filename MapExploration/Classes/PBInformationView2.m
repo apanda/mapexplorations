@@ -200,11 +200,15 @@
         // has lights
         m_lightImageView.image = m_lightOnImage;
         m_lightInfoLabel.text = @"Lights";
+        TTTextStyle* textStyle = (TTTextStyle*)m_lightInfoLabel.style;
+        textStyle.color = [UIColor whiteColor];
     }
     else {
         // doesn't have lights
         m_lightImageView.image = m_lightOffImage;
         m_lightInfoLabel.text = @"No Lights";
+        TTTextStyle* textStyle = (TTTextStyle*)m_lightInfoLabel.style;
+        textStyle.color = [UIColor darkGrayColor];
     }
     
     m_courtsInfoLabel.text = [NSString stringWithFormat:@"%d Courts", m_currentAnnotation.numCourts];

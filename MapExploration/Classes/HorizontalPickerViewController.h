@@ -14,7 +14,5 @@
 
 }
 
-- (void)createPicker;
-
 @end
 
