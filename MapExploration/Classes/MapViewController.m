@@ -111,7 +111,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_filterToast = [[[PBToastView alloc] initWithHiddenFrame:filterToastHiddenFrame visibleFrame:filterToastVisibleFrame] autorelease];
 	m_filterToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
-	float infoToastHeight = 200;
+	float infoToastHeight = 130;
 	float infoToastHiddenY = -infoToastHeight;
 	float infoToastVisibleY = 0 + navBarHeight;
 	CGRect infoToastHiddenFrame = CGRectMake(0, infoToastHiddenY, 320, infoToastHeight);
@@ -125,8 +125,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	[m_filterToast addSubview:m_filterView];
   
 	// Information view
-	m_informationView = [[PBInformationView alloc] initWithStyle:UITableViewStyleGrouped 
-                                                   appDelegate:m_appDelegate];
+	m_informationView = [[PBInformationView2 alloc] init];
 	m_informationView.view.frame = CGRectMake(0, 0, 320, infoToastHeight);
 	[m_infoToast addSubview:m_informationView.view];
 	

@@ -274,7 +274,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
+									<integer>3</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>6693DE2C11BF4ACD000A56B9</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PBHorizontalPicker.m</string>
+								<string>HorizontalPickerAppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>6693DE2D11BF4ACD000A56B9</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PBHorizontalPicker.m</string>
+										<string>HorizontalPickerAppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>6693E93611C22A7A000A56B9</string>
+										<string>6693EABC11C340E9000A56B9</string>
 										<key>history</key>
 										<array>
 											<string>6693E15311BF7472000A56B9</string>
@@ -345,8 +345,11 @@
 											<string>6693E83811C220E9000A56B9</string>
 											<string>6693E90611C22A1F000A56B9</string>
 											<string>6693E90711C22A1F000A56B9</string>
-											<string>6693E90811C22A1F000A56B9</string>
-											<string>6693E90911C22A1F000A56B9</string>
+											<string>6693EAB511C340E9000A56B9</string>
+											<string>6693EAB711C340E9000A56B9</string>
+											<string>6693EAB911C340E9000A56B9</string>
+											<string>6693EABA11C340E9000A56B9</string>
+											<string>6693EABB11C340E9000A56B9</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -360,18 +363,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1283, 570}}</string>
+								<string>{{0, 0}, {1283, 564}}</string>
 								<key>RubberWindowFrame</key>
 								<string>243 180 1523 861 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>570pt</string>
+							<string>564pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>245pt</string>
+							<string>251pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -385,7 +388,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1200, 456}}</string>
+										<string>{{10, 27}, {1283, 224}}</string>
+										<key>RubberWindowFrame</key>
+										<string>243 180 1523 861 0 0 1920 1058 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -402,8 +407,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {1283, 218}}</string>
-										<key>RubberWindowFrame</key>
-										<string>243 180 1523 861 0 0 1920 1058 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXProjectFindModule</string>
@@ -469,11 +472,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>6693DE3311BF4ACD000A56B9</string>
+				<string>6693EAAC11C3402D000A56B9</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>6693DE3411BF4ACD000A56B9</string>
+				<string>6693EAAD11C3402D000A56B9</string>
 				<string>6693DE2C11BF4ACD000A56B9</string>
-				<string>6693DE3511BF4ACD000A56B9</string>
+				<string>6693EAAE11C3402D000A56B9</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -622,14 +625,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>6693DE3611BF4ACD000A56B9</string>
+				<string>6693EABD11C340E9000A56B9</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>6693DE3711BF4ACD000A56B9</string>
-				<string>6693DE3811BF4ACD000A56B9</string>
-				<string>6693DE3911BF4ACD000A56B9</string>
-				<string>6693DE3A11BF4ACD000A56B9</string>
-				<string>6693DE3B11BF4ACD000A56B9</string>
+				<string>6693EABE11C340E9000A56B9</string>
+				<string>6693EABF11C340E9000A56B9</string>
+				<string>6693EAC011C340E9000A56B9</string>
+				<string>6693EAC111C340E9000A56B9</string>
+				<string>6693EAC211C340E9000A56B9</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
 			<string>2</string>
@@ -663,10 +666,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>6693E38511C0B527000A56B9</string>
-		<string>6693DE3E11BF4ACD000A56B9</string>
-		<string>6693DE3F11BF4ACD000A56B9</string>
-		<string>/Users/itay/Work/HorizontalPicker/HorizontalPicker.xcodeproj</string>
+		<string>/Users/itay/Work/mapexplorations/HorizontalPicker/HorizontalPicker.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>243 180 1523 861 0 0 1920 1058 </string>

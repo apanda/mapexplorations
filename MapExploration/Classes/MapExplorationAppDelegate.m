@@ -7,7 +7,7 @@
 //
 
 #import "MapExplorationAppDelegate.h"
-
+#import "HorizontalPickerViewController.h"
 
 @implementation MapExplorationAppDelegate
 
@@ -26,11 +26,12 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
-	
+- (void)applicationDidFinishLaunching:(UIApplication *)application {        
 	UIWindow *appWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = appWindow;
-	[self setDbFilePath];
+	
+    
+    [self setDbFilePath];
 	[self setWritableDbFilePath];
 	m_filter = [[[TennisFilter alloc] init] retain];
 	m_database = [[TennisDatabase alloc]initWithWritableDbWithAppDelegate:self];
@@ -48,6 +49,11 @@
 	m_currentLocation = nil;
 	
 	[self.window addSubview:m_navigationCountroller.view];
+    
+    
+    /*HorizontalPickerViewController* testViewController = [[[HorizontalPickerViewController alloc] init] autorelease];
+    [self.window addSubview:testViewController.view];*/
+    
 	[self.window makeKeyAndVisible];
 }
 
