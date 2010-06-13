@@ -11,7 +11,7 @@
 #import "SCRatingView.h"
 #import "PinAnnotation.h"
 
-@interface PBInformationView2 : UIViewController {
+@interface PBInformationViewController2 : UIViewController {
     
     // Info labels
     TTLabel* m_nameLabel;

@@ -16,13 +16,13 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 @synthesize changeView = m_changeView;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+ - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+ if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+ // Custom initialization
+ }
+ return self;
+ }
+ */
 
 - (id) initWithAppDelegate:(MapExplorationAppDelegate *)appDelegate tennisDatabase: (TennisDatabase*) database{
 	self = [super initWithNibName:nil bundle:nil];
@@ -47,16 +47,16 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 -(void) gearClicked
 {
 	//[m_appDelegate showFilterSelector];
-  
-  if (m_filterToast.hidden) {
-    [m_filterToast show];
     
-    // Now, we have to deselect all annotations and hide the info toast
-    [m_infoToast hide];
-    [self deselectAnnotations];
-  } else {
-    [m_filterToast hide];
-  }
+    if (m_filterToast.hidden) {
+        [m_filterToast show];
+        
+        // Now, we have to deselect all annotations and hide the info toast
+        [m_infoToast hide];
+        [self deselectAnnotations];
+    } else {
+        [m_filterToast hide];
+    }
 }
 
 - (void) targetClicked
@@ -68,9 +68,9 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 -(void)deselectAnnotations
 {
-  for(PinAnnotation* annotation in m_mapView.selectedAnnotations) {
-    [m_mapView deselectAnnotation:annotation animated:NO];
-  }
+    for(PinAnnotation* annotation in m_mapView.selectedAnnotations) {
+        [m_mapView deselectAnnotation:annotation animated:NO];
+    }
 }
 
 - (NSArray*) currentAnnotations {
@@ -81,11 +81,11 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 - (void)loadView {
 	[m_appDelegate hideNavigationBar];
 	[m_appDelegate showToolbar];
-  
+    
 	CGRect rect = [UIScreen mainScreen].applicationFrame;
 	self.view = [[UIView alloc] initWithFrame:rect];
 	self.view.autoresizesSubviews = YES;
-  
+    
 	float screenHeight = [UIScreen mainScreen].applicationFrame.size.height;
 	float toolbarHeight = self.navigationController.toolbarHidden ? 0 : self.navigationController.toolbar.frame.size.height;
 	float navBarHeight = self.navigationController.navigationBarHidden ? 0 : self.navigationController.navigationBar.frame.size.height;
@@ -100,10 +100,10 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_mapView.scrollEnabled = YES;
 	[m_mapView setDelegate:m_mapViewDelegate];
 	self.changeView = true;
-  
+    
 	// Filter toast
-	float toastHeight = 200;
-  
+	float toastHeight = 145;
+    
 	float filterToastHiddenY = screenHeight;
 	float filterToastVisibleY = screenHeight - navBarHeight - toolbarHeight - toastHeight;
 	CGRect filterToastHiddenFrame = CGRectMake(0, filterToastHiddenY, 320, toastHeight);
@@ -120,35 +120,36 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_infoToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
 	// Filter view
-	m_filterView = [[PBFilterView alloc] initWithFrame:CGRectMake(0, 0, 320, toastHeight)];
+	m_filterView = [[PBFilterViewController2 alloc] init];
+    m_filterView.view.frame = CGRectMake(0, 0, 320, toastHeight);
 	m_filterView.mapView = self;
-	[m_filterToast addSubview:m_filterView];
-  
+	[m_filterToast addSubview:m_filterView.view];
+    
 	// Information view
-	m_informationView = [[PBInformationView2 alloc] init];
+	m_informationView = [[PBInformationViewController2 alloc] init];
 	m_informationView.view.frame = CGRectMake(0, 0, 320, infoToastHeight);
 	[m_infoToast addSubview:m_informationView.view];
 	
 	[self createPinsFromDB];
-  
+    
 	PBTouchOverlayView* touchView = [[PBTouchOverlayView alloc] initWithFrame:CGRectMake(0, 0, 320, screenHeight - toolbarHeight - navBarHeight)];
 	touchView.delegate = self;
 	[touchView addSubview:m_mapView];
-  
+    
 	[self.view addSubview:touchView];
-  
+    
 	[self.view addSubview:m_filterToast];
 	[self.view addSubview:m_infoToast];
-  
+    
 	[self.view sendSubviewToBack:touchView];
-  
+    
 	[touchView release];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[m_appDelegate hideNavigationBar];
 	[m_appDelegate showToolbar];
-
+    
 }
 
 #pragma mark location stuff
@@ -181,9 +182,8 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_filter.rating = m_filterView.rating;
 	m_filter.numberOfCourts = m_filterView.courts;
 	m_filter.lights = m_filterView.lights;
-	m_filter.indoor = m_filterView.indoor;
 	m_filter.backboard = m_filterView.backboard;
-        [self deselectAnnotations];
+    [self deselectAnnotations];
 	[self createPinsFromDB];
 }
 
@@ -228,19 +228,19 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 
 /*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
+ // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+ - (void)viewDidLoad {
+ [super viewDidLoad];
+ }
+ */
 
 /*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
+ // Override to allow orientations other than the default portrait orientation.
+ - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+ // Return YES for supported orientations
+ return (interfaceOrientation == UIInterfaceOrientationPortrait);
+ }
+ */
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

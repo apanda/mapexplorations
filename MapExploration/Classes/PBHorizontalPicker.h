@@ -13,18 +13,40 @@
 
 static const int kLabelItemSpacing = 20;
 
+@interface PBHorizontalScrollView : UIScrollView {
+    
+}
+
+@end
+
+@class PBHorizontalPicker;
+@protocol PBHorizontalPickerDelegate
+
+- (void)picker:(PBHorizontalPicker*)picker didSelectItemWithIndex:(int)index;
+
+@end
+
 @interface PBHorizontalPicker : UIView <UIScrollViewDelegate> {
-    UIScrollView* m_scrollView;
+    PBHorizontalScrollView* m_scrollView;
     NSArray* m_labels;
     
     int m_labelWidth;
     CGPoint m_startDecelerationPoint;
     
-    UILabel* m_selectedLabel;
+    int m_selectedIndex;
+    
+    id<PBHorizontalPickerDelegate> m_delegate;
 }
+
+@property (nonatomic, assign, readonly) int selectedIndex;
+@property (nonatomic, retain) id<PBHorizontalPickerDelegate> delegate;
+
 - (id)initWithFrame:(CGRect)frame labels:(NSArray*)labels;
 - (CGPoint)pointToScrollTo:(int)labelIndex;
 - (int)labelIndexToScrollTo:(CGPoint)contentOffset;
 - (CAGradientLayer*)selectionBoundaryLayerWithFrame:(CGRect)frame;
+- (void)scrollToLabelIndex:(int)index;
 
 @end
+
+

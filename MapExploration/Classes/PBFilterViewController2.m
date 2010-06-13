@@ -1,45 +1,19 @@
 //
-//  HorizontalPickerViewController.m
-//  HorizontalPicker
+//  PBFilterViewController2.m
+//  MapExploration
 //
-//  Created by Itay Neeman on 6/8/10.
-//  Copyright Mighty Panda 2010. All rights reserved.
+//  Created by Itay Neeman on 6/12/10.
+//  Copyright 2010 Mighty Panda. All rights reserved.
 //
 
-#import "HorizontalPickerViewController.h"
-#import <QuartzCore/QuartzCore.h>
-#import "PBHorizontalPicker.h"
-
-@implementation PBTennisStyleSheet
-
-- (TTStyle*)filterButton:(UIControlState)state {
-    return
-    [TTPartStyle styleWithName:@"image" style:TTSTYLESTATE(filterButtonImage:, state) next:
-     [TTBoxStyle styleWithMargin:UIEdgeInsetsMake(10, 0, 0, 0) next:
-      [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] color:[UIColor whiteColor]
-                 minimumFontSize:12 shadowColor:nil
-                    shadowOffset:CGSizeZero next:nil]]];
-}
-
-- (TTStyle*)filterButtonImage:(UIControlState)state {
-    TTStyle* style =
-    [TTBoxStyle styleWithMargin:UIEdgeInsetsMake(-7, 0, 11, 0) next:
-     [TTImageStyle styleWithImageURL:nil defaultImage:nil contentMode:UIViewContentModeCenter
-                                 size:CGSizeZero next:nil]];
-    
-    if (state == UIControlStateHighlighted || state == UIControlStateSelected) {
-        [style addStyle:
-         [TTBlendStyle styleWithBlend:kCGBlendModeSourceAtop next:
-          [TTSolidFillStyle styleWithColor:RGBACOLOR(0,0,0,0.5) next:nil]]];
-    }
-    
-    return style;
-}
-
-@end
+#import "PBFilterViewController2.h"
 
 
-@implementation HorizontalPickerViewController
+@implementation PBFilterViewController2
+
+@synthesize mapView = m_mapView;
+
+#pragma mark Private Functions
 
 - (void)createRatingViewWithParentView:(UIView*)parentView
 {
@@ -50,16 +24,16 @@
     UIImage* selectedStar = [UIImage imageNamed:@"star_large_on.png"];
     UIImage* nonselectedStar = [UIImage imageNamed:@"star_large_off.png"];
     
-    SCRatingView* ratingView = [[[SCRatingView alloc] initWithFrame:CGRectMake(9, 10, selectedStar.size.width * 5, selectedStar.size.height)] autorelease];
-    [ratingView setStarImage:selectedStar forState:kSCRatingViewSelected];
-    [ratingView setStarImage:selectedStar forState:kSCRatingViewUserSelected];
-    [ratingView setStarImage:selectedStar forState:kSCRatingViewHot];
-    [ratingView setStarImage:nonselectedStar forState:kSCRatingViewNonSelected];
+    m_ratingView = [[SCRatingView alloc] initWithFrame:CGRectMake(9, 10, selectedStar.size.width * 5, selectedStar.size.height)];
+    [m_ratingView setStarImage:selectedStar forState:kSCRatingViewSelected];
+    [m_ratingView setStarImage:selectedStar forState:kSCRatingViewUserSelected];
+    [m_ratingView setStarImage:selectedStar forState:kSCRatingViewHot];
+    [m_ratingView setStarImage:nonselectedStar forState:kSCRatingViewNonSelected];
     
-    ratingView.userRating = 2;
-    ratingView.delegate = self;
+    m_ratingView.userRating = 2;
+    m_ratingView.delegate = self;
     
-    [containerView addSubview:ratingView];
+    [containerView addSubview:m_ratingView];
     
     TTLabel* ratingLabel = [[[TTLabel alloc] initWithFrame:CGRectZero] autorelease];
     ratingLabel.backgroundColor = [UIColor clearColor];
@@ -90,14 +64,14 @@
     int pickerHeight = 48;
     
     m_pickerSelections = [[NSArray arrayWithObjects:
-                          [NSNumber numberWithInt:1],
-                          [NSNumber numberWithInt:2],
-                          [NSNumber numberWithInt:4],
-                          [NSNumber numberWithInt:8],
-                          [NSNumber numberWithInt:12],
-                          [NSNumber numberWithInt:16],
-                          [NSNumber numberWithInt:20],
-                          nil] retain];
+                           [NSNumber numberWithInt:1],
+                           [NSNumber numberWithInt:2],
+                           [NSNumber numberWithInt:4],
+                           [NSNumber numberWithInt:8],
+                           [NSNumber numberWithInt:12],
+                           [NSNumber numberWithInt:16],
+                           [NSNumber numberWithInt:20],
+                           nil] retain];
     
     NSMutableArray* strings = [[[NSMutableArray alloc] initWithCapacity:[m_pickerSelections count]] autorelease];
     [strings addObject:[NSString stringWithFormat:@"%d+", [[m_pickerSelections objectAtIndex:0] intValue]]];
@@ -112,7 +86,7 @@
         
         [strings addObject:string];
     }
-                          
+    
     NSMutableArray* labels = [[NSMutableArray alloc] initWithCapacity:[strings count]];
     for(int i = 0; i < [strings count]; i++) {
         NSString* string = [strings objectAtIndex:i];
@@ -130,28 +104,28 @@
     containerView.backgroundColor = [UIColor clearColor];
     containerView.style = [TTFourBorderStyle styleWithTop:[UIColor grayColor] width:1.0 next:nil];
     
-    PBHorizontalPicker* picker = [[PBHorizontalPicker alloc] initWithFrame:CGRectMake(5, 6, pickerWidth, pickerHeight) labels:labels];
-    picker.layer.borderWidth = 1;
-    [containerView addSubview:picker];
+    m_courtsPicker = [[PBHorizontalPicker alloc] initWithFrame:CGRectMake(5, 6, pickerWidth, pickerHeight) labels:labels];
+    m_courtsPicker.layer.borderWidth = 1;
+    [containerView addSubview:m_courtsPicker];
     
     TTLabel* courtsLabel = [[[TTLabel alloc] initWithFrame:CGRectZero] autorelease];
     courtsLabel.backgroundColor = [UIColor clearColor];
     courtsLabel.text = @"Courts";
     courtsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
-                                                  color:[UIColor whiteColor] 
-                                        minimumFontSize:12 
-                                            shadowColor:[UIColor clearColor] 
-                                           shadowOffset:CGSizeMake(0, 0) 
-                                          textAlignment:UITextAlignmentCenter
-                                      verticalAlignment:UIControlContentVerticalAlignmentTop 
-                                          lineBreakMode:UILineBreakModeTailTruncation 
-                                          numberOfLines:1 
-                                                   next:nil];
+                                             color:[UIColor whiteColor] 
+                                   minimumFontSize:12 
+                                       shadowColor:[UIColor clearColor] 
+                                      shadowOffset:CGSizeMake(0, 0) 
+                                     textAlignment:UITextAlignmentCenter
+                                 verticalAlignment:UIControlContentVerticalAlignmentTop 
+                                     lineBreakMode:UILineBreakModeTailTruncation 
+                                     numberOfLines:1 
+                                              next:nil];
     [courtsLabel sizeToFit];
-    courtsLabel.origin = CGPointMake(CGRectGetMidX(picker.bounds) - courtsLabel.size.width / 2, CGRectGetMaxY(picker.bounds) - courtsLabel.size.height);
-    [picker addSubview:courtsLabel];
+    courtsLabel.origin = CGPointMake(CGRectGetMidX(m_courtsPicker.bounds) - courtsLabel.size.width / 2, CGRectGetMaxY(m_courtsPicker.bounds) - courtsLabel.size.height);
+    [m_courtsPicker addSubview:courtsLabel];
     
-    picker.delegate = self;
+    m_courtsPicker.delegate = self;
     
     [parentView addSubview:containerView];
 }
@@ -176,15 +150,15 @@
     m_lightsLabel.backgroundColor = [UIColor clearColor];
     m_lightsLabel.text = @"Lights";
     m_lightsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
-                                             color:[UIColor whiteColor] 
-                                   minimumFontSize:12 
-                                       shadowColor:[UIColor clearColor] 
-                                      shadowOffset:CGSizeMake(0, 0) 
-                                     textAlignment:UITextAlignmentCenter
-                                 verticalAlignment:UIControlContentVerticalAlignmentTop 
-                                     lineBreakMode:UILineBreakModeTailTruncation 
-                                     numberOfLines:1 
-                                              next:nil];
+                                               color:[UIColor whiteColor] 
+                                     minimumFontSize:12 
+                                         shadowColor:[UIColor clearColor] 
+                                        shadowOffset:CGSizeMake(0, 0) 
+                                       textAlignment:UITextAlignmentCenter
+                                   verticalAlignment:UIControlContentVerticalAlignmentTop 
+                                       lineBreakMode:UILineBreakModeTailTruncation 
+                                       numberOfLines:1 
+                                                next:nil];
     [m_lightsLabel sizeToFit];
     m_lightsLabel.size = CGSizeMake(lightsButton.width, m_lightsLabel.size.height);
     m_lightsLabel.origin = CGPointMake(0, CGRectGetMaxY(lightsButton.frame) - 10 - m_lightsLabel.size.height);
@@ -217,15 +191,15 @@
     m_backboardLabel.backgroundColor = [UIColor clearColor];
     m_backboardLabel.text = @"Backboard";
     m_backboardLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
-                                             color:[UIColor whiteColor] 
-                                   minimumFontSize:12 
-                                       shadowColor:[UIColor clearColor] 
-                                      shadowOffset:CGSizeMake(0, 0) 
-                                     textAlignment:UITextAlignmentCenter
-                                 verticalAlignment:UIControlContentVerticalAlignmentTop 
-                                     lineBreakMode:UILineBreakModeTailTruncation 
-                                     numberOfLines:1 
-                                              next:nil];
+                                                  color:[UIColor whiteColor] 
+                                        minimumFontSize:12 
+                                            shadowColor:[UIColor clearColor] 
+                                           shadowOffset:CGSizeMake(0, 0) 
+                                          textAlignment:UITextAlignmentCenter
+                                      verticalAlignment:UIControlContentVerticalAlignmentTop 
+                                          lineBreakMode:UILineBreakModeTailTruncation 
+                                          numberOfLines:1 
+                                                   next:nil];
     [m_backboardLabel sizeToFit];
     m_backboardLabel.size = CGSizeMake(backboardButton.width, m_backboardLabel.size.height);
     m_backboardLabel.origin = CGPointMake(0, CGRectGetMaxY(backboardButton.frame) - 10 - m_backboardLabel.size.height);
@@ -239,14 +213,35 @@
     [parentView addSubview:containerView];
 }
 
+- (void)createFilterView
+{    
+    TTView* parentView = [[[TTView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
+    parentView.backgroundColor = [UIColor clearColor];
+    parentView.style = [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithTopLeft:10.0 topRight:10.0 bottomRight:10.0 bottomLeft:10.0] next:
+                        [TTLinearGradientFillStyle styleWithColor1:[UIColor darkGrayColor] color2:[UIColor blackColor] next:
+                         [TTSolidBorderStyle styleWithColor:[UIColor grayColor] width:1.0 next:nil]]];
+    
+    //////
+    
+    [self createRatingViewWithParentView:parentView];
+    [self createPickerWithParentView:parentView];
+    [self createLightsButtonWithParentView:parentView];
+    [self createBackboardButtonWithParentView:parentView];    
+    //////
+    
+    [self.view addSubview:parentView];
+}
+
+#pragma mark Callbacks
+
 - (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating
 {
-    NSLog(@"Changed Rating From %d to %d", previousUserRating, userRating);
+    [self updateFilter];
 }  
 
 - (void)picker:(PBHorizontalPicker*)picker didSelectItemWithIndex:(int)index
 {
-    NSLog(@"Changed selected court minimum: %d", [[m_pickerSelections objectAtIndex:index] intValue]);
+    [self updateFilter];
 }
 
 - (IBAction)lightsButtonPressed:(id)sender
@@ -259,12 +254,14 @@
         textStyle.color = [UIColor whiteColor];
     }
     else { // if it is currently on, set it as off
-        // doesn't have lights
+           // doesn't have lights
         m_lightsImageView.image = m_lightsOffImage;
         m_lightsLabel.text = @"No Lights";
         TTTextStyle* textStyle = (TTTextStyle*)m_lightsLabel.style;
         textStyle.color = [UIColor darkGrayColor];
     }
+    
+    [self updateFilter];
 }
 
 - (IBAction)backboardButtonPressed:(id)sender
@@ -283,44 +280,47 @@
         TTTextStyle* textStyle = (TTTextStyle*)m_backboardLabel.style;
         textStyle.color = [UIColor darkGrayColor];
     }
+    
+    [self updateFilter];
 }
 
-- (void)createFilterView
+- (void) updateFilter 
 {
-    const int borderViewHeight = 145;
-    
-    UIView* borderView = [[[TTView alloc] initWithFrame:CGRectMake(0, 460 - borderViewHeight, 320, borderViewHeight)] autorelease];
-    borderView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
-    
-    TTView* parentView = [[[TTView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
-    parentView.backgroundColor = [UIColor clearColor];
-    parentView.style = [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithTopLeft:10.0 topRight:10.0 bottomRight:10.0 bottomLeft:10.0] next:
-                           [TTLinearGradientFillStyle styleWithColor1:[UIColor darkGrayColor] color2:[UIColor blackColor] next:
-                            [TTSolidBorderStyle styleWithColor:[UIColor grayColor] width:1.0 next:nil]]];
-    
-    //////
-    
-    [self createRatingViewWithParentView:parentView];
-    [self createPickerWithParentView:parentView];
-    [self createLightsButtonWithParentView:parentView];
-    [self createBackboardButtonWithParentView:parentView];    
-    //////
-    
-    [borderView addSubview:parentView];
-    [self.view addSubview:borderView];
+	[m_mapView recalculateFilter];
+	
 }
 
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-    self.view = [[[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame] autorelease];
+#pragma mark Property Setters
 
-    [TTDefaultStyleSheet setGlobalStyleSheet:[[[PBTennisStyleSheet alloc] init] autorelease]];
+
+- (bool) lights {
+	return m_lightsImageView.image == m_lightsOnImage;
+}
+
+- (bool) backboard {
+	return m_backboardImageView.image == m_backboardOnImage;
+}
+
+- (int) rating {
+	return m_ratingView.userRating;
+}
+
+- (int) courts {
+	return [[m_pickerSelections objectAtIndex:m_courtsPicker.selectedIndex] intValue];
+}
+
+#pragma mark UIViewController Functions
+
+ // Implement loadView to create a view hierarchy programmatically, without using a nib.
+ - (void)loadView 
+{
+    self.view = [[[UIView alloc] init] autorelease];
     
-    //[self createPicker];
+    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+    
     [self createFilterView];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
 }
+ 
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -338,5 +338,6 @@
 - (void)dealloc {
     [super dealloc];
 }
+
 
 @end

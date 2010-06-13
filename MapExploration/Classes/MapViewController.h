@@ -13,17 +13,17 @@
 #import "TennisDatabase.h"
 #import "TennisFilter.h"
 #import "PBToastView.h"
-#import "PBFilterView.h"
+#import "PBFilterViewController2.h"
 #import "PBTouchOverlayView.h"
-#import "PBInformationView2.h"
+#import "PBInformationViewController2.h"
 #import "PBPinAnnotationView.h"
 
-@class PBFilterView;
+@class PBFilterViewController2;
 @class MapExplorationAppDelegate;
 @class MapViewDelegate;
 @class TennisDatabase;
 @class TennisFilter;
-@class PBInformationView2;
+@class PBInformationViewController2;
 @interface MapViewController : UIViewController <PBTouchOverlayDelegate> {
 	MKMapView *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
@@ -33,8 +33,8 @@
 	TennisFilter *m_filter;
 	PBToastView* m_filterToast;
 	PBToastView* m_infoToast;
-	PBFilterView* m_filterView;
-	PBInformationView2* m_informationView;
+	PBFilterViewController2* m_filterView;
+	PBInformationViewController2* m_informationView;
 	NSArray* m_annotations;
   
 	BOOL m_annotationTouched;

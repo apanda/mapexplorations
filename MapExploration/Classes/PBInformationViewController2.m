@@ -6,10 +6,10 @@
 //  Copyright 2010 Mighty Panda. All rights reserved.
 //
 
-#import "PBInformationView2.h"
+#import "PBInformationViewController2.h"
 
 
-@implementation PBInformationView2
+@implementation PBInformationViewController2
 
 @synthesize currentAnnotation = m_currentAnnotation;
 
@@ -99,7 +99,6 @@
                                           numberOfLines:1 
                                                    next:nil];
     [m_lightView addSubview:m_lightInfoLabel];
-    
     
     [parentView addSubview:m_lightView];
 }

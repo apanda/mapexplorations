@@ -8,13 +8,20 @@
 
 #import "PBHorizontalPicker.h"
 
+@implementation PBHorizontalScrollView
+
+@end
+
 
 @implementation PBHorizontalPicker
 
+@synthesize delegate = m_delegate, selectedIndex = m_selectedIndex;
 
 - (id)initWithFrame:(CGRect)frame labels:(NSArray*)labels 
 {
     if (self = [super initWithFrame:frame]) {
+        self.userInteractionEnabled = YES;
+        
         // First, get our size and height
         int viewWidth = frame.size.width;
         int viewHeight = frame.size.height;
@@ -26,10 +33,9 @@
         self.layer.borderWidth = 1.8;
         self.layer.cornerRadius = 10.0;
         self.layer.masksToBounds = YES;
-        //        self.layer.edgeAntialiasingMask = 0;
                         
         // Create the scroll view
-        m_scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];        
+        m_scrollView = [[PBHorizontalScrollView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];        
         m_scrollView.pagingEnabled = NO;
         m_scrollView.showsHorizontalScrollIndicator = NO;
         m_scrollView.showsVerticalScrollIndicator = NO;
@@ -200,7 +206,7 @@
     // First, get the label we would scroll to
     int labelIndexToScrollTo = [self labelIndexToScrollTo:scrollView.contentOffset];
     
-    m_selectedLabel = [m_labels objectAtIndex:labelIndexToScrollTo];
+    m_selectedIndex = labelIndexToScrollTo;
     
     // Now, we want to find out if it is the same label if we had continued in the
     // same direction of the deceleration for just a little bit more
@@ -227,6 +233,8 @@
     CGRect rectToScrollTo = scrollView.frame;
     rectToScrollTo.origin = pointToScrollTo;
     [scrollView scrollRectToVisible:rectToScrollTo animated:YES];
+    
+    [m_delegate picker:self didSelectItemWithIndex:labelIndexToScrollTo];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -235,16 +243,30 @@
         int labelIndexToScrollTo = [self labelIndexToScrollTo:scrollView.contentOffset];
         CGPoint pointToScrollTo = [self pointToScrollTo:labelIndexToScrollTo];
         
-        m_selectedLabel = [m_labels objectAtIndex:labelIndexToScrollTo];
+        m_selectedIndex = labelIndexToScrollTo;
         
         // snap us to the right place
         CGRect rectToScrollTo = scrollView.frame;
         rectToScrollTo.origin = pointToScrollTo;
         [scrollView scrollRectToVisible:rectToScrollTo animated:YES];
+        
+        [m_delegate picker:self didSelectItemWithIndex:labelIndexToScrollTo];
     }
     else {
         m_startDecelerationPoint = scrollView.contentOffset;
     }
+}
+
+- (void)scrollToLabelIndex:(int)index
+{
+    CGPoint pointToScrollTo = [self pointToScrollTo:index];
+    
+    // snap us to the right place
+    CGRect rectToScrollTo = m_scrollView.frame;
+    rectToScrollTo.origin = pointToScrollTo;
+    [m_scrollView scrollRectToVisible:rectToScrollTo animated:YES];
+    
+    [m_delegate picker:self didSelectItemWithIndex:index];
 }
 
 - (void)dealloc {
@@ -252,6 +274,5 @@
     [m_scrollView release];
     [super dealloc];
 }
-
 
 @end

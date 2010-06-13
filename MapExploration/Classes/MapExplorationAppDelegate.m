@@ -51,7 +51,7 @@
 	[self.window addSubview:m_navigationCountroller.view];
     
     
-    /*HorizontalPickerViewController* testViewController = [[[HorizontalPickerViewController alloc] init] autorelease];
+    /*HorizontalPickerViewController* testViewController = [[HorizontalPickerViewController alloc] init];
     [self.window addSubview:testViewController.view];*/
     
 	[self.window makeKeyAndVisible];
