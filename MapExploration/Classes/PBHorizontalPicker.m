@@ -28,11 +28,7 @@
         
         m_labels = [labels retain];
         
-        self.backgroundColor = [UIColor blackColor];
-        self.layer.borderColor = [UIColor grayColor].CGColor;
-        self.layer.borderWidth = 1.8;
-        self.layer.cornerRadius = 10.0;
-        self.layer.masksToBounds = YES;
+        self.backgroundColor = [UIColor clearColor];
                         
         // Create the scroll view
         m_scrollView = [[PBHorizontalScrollView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)];        
@@ -78,8 +74,8 @@
         m_scrollView.contentSize = CGSizeMake(currentLocationX + contentPadding, viewHeight);
         
         // Now that we know the widths, create the selection boundaries
-        CGRect rightBoundaryFrame = CGRectMake(viewWidth / 2 - m_labelWidth / 2 - kLabelItemSpacing / 2, 0, 1, viewHeight);
-        CGRect leftBoundaryFrame = CGRectMake(viewWidth / 2 + m_labelWidth / 2 + kLabelItemSpacing / 2, 0, 1, viewHeight);
+        CGRect rightBoundaryFrame = CGRectMake(viewWidth / 2 - m_labelWidth / 2 - kLabelItemSpacing / 2, 1, 1, viewHeight - 2);
+        CGRect leftBoundaryFrame = CGRectMake(viewWidth / 2 + m_labelWidth / 2 + kLabelItemSpacing / 2, 1, 1, viewHeight - 2);
         CAGradientLayer* rightBoundary = [self selectionBoundaryLayerWithFrame:rightBoundaryFrame];
         CAGradientLayer* leftBoundary = [self selectionBoundaryLayerWithFrame:leftBoundaryFrame];
         

@@ -17,20 +17,20 @@
 
 - (void)createRatingViewWithParentView:(UIView*)parentView
 {
-    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(0, 0, 141, 65)] autorelease];
+    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(0, 0, 136, 65)] autorelease];
     containerView.backgroundColor = [UIColor clearColor];
     containerView.style = [TTFourBorderStyle styleWithRight:[UIColor grayColor] width:1.0 next:nil];
     
     UIImage* selectedStar = [UIImage imageNamed:@"star_large_on.png"];
     UIImage* nonselectedStar = [UIImage imageNamed:@"star_large_off.png"];
     
-    m_ratingView = [[SCRatingView alloc] initWithFrame:CGRectMake(9, 10, selectedStar.size.width * 5, selectedStar.size.height)];
+    m_ratingView = [[SCRatingView alloc] initWithFrame:CGRectMake(containerView.width / 2 - selectedStar.size.width * 5 / 2, 10, selectedStar.size.width * 5, selectedStar.size.height)];
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewSelected];
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewUserSelected];
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewHot];
     [m_ratingView setStarImage:nonselectedStar forState:kSCRatingViewNonSelected];
     
-    m_ratingView.userRating = 2;
+    m_ratingView.userRating = 1;
     m_ratingView.delegate = self;
     
     [containerView addSubview:m_ratingView];
@@ -60,7 +60,7 @@
 
 - (void)createPickerWithParentView:(UIView*)parentView
 {
-    int pickerWidth = 290;
+    int pickerWidth = 298;
     int pickerHeight = 48;
     
     m_pickerSelections = [[NSArray arrayWithObjects:
@@ -104,9 +104,17 @@
     containerView.backgroundColor = [UIColor clearColor];
     containerView.style = [TTFourBorderStyle styleWithTop:[UIColor grayColor] width:1.0 next:nil];
     
-    m_courtsPicker = [[PBHorizontalPicker alloc] initWithFrame:CGRectMake(5, 6, pickerWidth, pickerHeight) labels:labels];
-    m_courtsPicker.layer.borderWidth = 1;
-    [containerView addSubview:m_courtsPicker];
+    m_courtsPicker = [[PBHorizontalPicker alloc] initWithFrame:CGRectMake(0, 0, pickerWidth, pickerHeight) labels:labels];
+    
+    TTView* pickerContainerView = [[[TTView alloc] initWithFrame:CGRectMake(1, 3, pickerWidth, pickerHeight)] autorelease];
+    pickerContainerView.style = [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:10] next:
+                                 [TTSolidFillStyle styleWithColor:[UIColor clearColor] next:
+                                  [TTSolidBorderStyle styleWithColor:[UIColor darkGrayColor] width:1 next:nil]]];
+    pickerContainerView.backgroundColor = [UIColor clearColor];
+    
+    [pickerContainerView addSubview:m_courtsPicker];
+    
+    [containerView addSubview:pickerContainerView];
     
     TTLabel* courtsLabel = [[[TTLabel alloc] initWithFrame:CGRectZero] autorelease];
     courtsLabel.backgroundColor = [UIColor clearColor];
@@ -132,7 +140,7 @@
 
 - (void)createLightsButtonWithParentView:(UIView*)parentView
 {
-    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(141, 0, 80, 65)] autorelease];
+    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(136, 0, 80, 65)] autorelease];
     containerView.backgroundColor = [UIColor clearColor];
     containerView.style = [TTFourBorderStyle styleWithRight:[UIColor grayColor] width:1.0 next:nil];
     
@@ -141,16 +149,16 @@
     
     m_lightsOnImage = [[UIImage imageNamed:@"light_on.png"] retain];
     m_lightsOffImage = [[UIImage imageNamed:@"light_off.png"] retain];
-    m_lightsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(lightsButton.width / 2 - m_lightsOnImage.size.width / 2, 13, m_lightsOnImage.size.width, m_lightsOnImage.size.height)];
-    m_lightsImageView.image = m_lightsOnImage;
+    m_lightsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(lightsButton.width / 2 - m_lightsOffImage.size.width / 2, 13, m_lightsOffImage.size.width, m_lightsOffImage.size.height)];
+    m_lightsImageView.image = m_lightsOffImage;
     
     [lightsButton addSubview:m_lightsImageView];
     
     m_lightsLabel = [[TTLabel alloc] initWithFrame:CGRectZero];
     m_lightsLabel.backgroundColor = [UIColor clearColor];
-    m_lightsLabel.text = @"Lights";
+    m_lightsLabel.text = @"No Lights";
     m_lightsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
-                                               color:[UIColor whiteColor] 
+                                               color:[UIColor darkGrayColor]  
                                      minimumFontSize:12 
                                          shadowColor:[UIColor clearColor] 
                                         shadowOffset:CGSizeMake(0, 0) 
@@ -174,7 +182,7 @@
 
 - (void)createBackboardButtonWithParentView:(UIView*)parentView
 {
-    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(221, 0, 80, 65)] autorelease];
+    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(216, 0, 80, 65)] autorelease];
     containerView.backgroundColor = [UIColor clearColor];
     
     UIButton* backboardButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 65)] autorelease];;
@@ -182,16 +190,16 @@
     
     m_backboardOnImage = [[UIImage imageNamed:@"backboard_on.png"] retain];
     m_backboardOffImage = [[UIImage imageNamed:@"backboard_off.png"] retain];
-    m_backboardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(backboardButton.width / 2 - m_backboardOnImage.size.width / 2, 13, m_backboardOnImage.size.width, m_backboardOnImage.size.height)];
-    m_backboardImageView.image = m_backboardOnImage;
+    m_backboardImageView = [[UIImageView alloc] initWithFrame:CGRectMake(backboardButton.width / 2 - m_backboardOffImage.size.width / 2, 13, m_backboardOffImage.size.width, m_backboardOffImage.size.height)];
+    m_backboardImageView.image = m_backboardOffImage;
     
     [backboardButton addSubview:m_backboardImageView];
     
     m_backboardLabel = [[TTLabel alloc] initWithFrame:CGRectZero];
     m_backboardLabel.backgroundColor = [UIColor clearColor];
-    m_backboardLabel.text = @"Backboard";
+    m_backboardLabel.text = @"No Backboard";
     m_backboardLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
-                                                  color:[UIColor whiteColor] 
+                                                  color:[UIColor darkGrayColor] 
                                         minimumFontSize:12 
                                             shadowColor:[UIColor clearColor] 
                                            shadowOffset:CGSizeMake(0, 0) 
