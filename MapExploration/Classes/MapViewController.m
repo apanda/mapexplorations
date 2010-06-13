@@ -201,6 +201,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 - (void) selectedAnnotation:(id)annotation
 {
+	[m_mapViewDelegate refreshAnnotation: annotation];
     MKAnnotationView* annotationView = [m_mapView viewForAnnotation:annotation];
     [self showDetailsForAnnotation:annotationView.annotation];
     [m_infoToast show];
@@ -210,6 +211,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 - (void) deselectedAnnotation:(id)annotation
 {
+	[m_mapViewDelegate refreshAnnotation: annotation];
     if (!m_annotationTouched) {
         NSLog(@"Hiding info toast");
         [m_infoToast hide]; 

@@ -10,8 +10,8 @@
 
 
 @implementation PinAnnotation
-//@synthesize coordinate = m_coordinate;
 @synthesize rating=m_rating;
+@synthesize selected=m_selected;
 - (CLLocationCoordinate2D) coordinate {
 	return m_coordinate;
 }
@@ -34,6 +34,7 @@
 	m_key = key;
 	m_lights = (lights == 1);
 	m_neighborhood = [neighborhood retain];
+	self.selected = false;
 	return self;
 }
 
@@ -76,6 +77,7 @@
 - (NSString*) city {
 	return m_city;
 }
+
 
 - (void) dealloc {
 	[m_city release];
