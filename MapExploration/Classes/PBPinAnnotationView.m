@@ -30,6 +30,8 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     NSLog(@"Selected: %d", selected);
+	self.annotation.selected = selected;
+
     if (selected) {
         [m_delegate selectedAnnotation:self.annotation];
     } else {

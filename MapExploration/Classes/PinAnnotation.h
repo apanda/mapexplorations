@@ -18,6 +18,7 @@
 	int m_rating;
 	int m_key;
 	bool m_lights;
+	bool m_selected;
 	NSString* m_neighborhood;
 }
 
@@ -30,6 +31,7 @@
 @property (nonatomic, readonly) NSString* neighborhood;
 @property (nonatomic, readonly) int key;
 @property (nonatomic, readonly) bool lights;
+@property (nonatomic) bool selected;
 
 - (id) initWithCoordinate: (CLLocationCoordinate2D) coordinate
 					  key:(int) key 

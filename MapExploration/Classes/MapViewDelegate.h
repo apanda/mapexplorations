@@ -17,26 +17,15 @@
 @interface MapViewDelegate : NSObject <MKMapViewDelegate> {
 	MapViewController *m_mapView;
 	MapExplorationAppDelegate *m_appDelegate;
-	UIImage *m_fewPin;
-	UIImage *m_mediumPin;
-	UIImage *m_manyPin;
-	UIImage *m_fewPinLarge;
-	UIImage *m_mediumPinLarge;
-	UIImage *m_manyPinLarge;
+	UIImage *m_unselectedPin;
+	UIImage *m_selectedPin;
 	bool m_largePins;
 }
 
 - (UIImage*) pinForAnnotation: (PinAnnotation*) annotation;
 - (id) initWithMapView: (MapViewController*) mapView appDelegate: (MapExplorationAppDelegate*)appDelegate;
 - (void) refreshAnnotations;
-//- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated;
-//- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated;
-//
-//- (void)mapViewWillStartLoadingMap:(MKMapView *)mapView;
-//- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView;
-//- (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error;
-
-// mapView:viewForAnnotation: provides the view for each annotation.
+- (void) refreshAnnotation: (PinAnnotation*) annotation;
 // This method may be called for all or some of the added annotations.
 // For MapKit provided annotations (eg. MKUserLocation) return nil to use the MapKit provided annotation view.
 
