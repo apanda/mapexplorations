@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Three20/Three20.h"
 #import "SCRatingView.h"
 #import "PBHorizontalPicker.h"

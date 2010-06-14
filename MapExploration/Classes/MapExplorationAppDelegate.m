@@ -47,6 +47,8 @@
 	m_navigationCountroller = [[UINavigationController alloc] initWithRootViewController:mapView];
 	m_locationSet = FALSE;
 	m_currentLocation = nil;
+    
+    m_navigationCountroller.toolbar.tintColor = [UIColor blackColor];
 	
 	[self.window addSubview:m_navigationCountroller.view];
     

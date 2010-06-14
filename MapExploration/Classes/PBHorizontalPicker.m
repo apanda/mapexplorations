@@ -163,9 +163,9 @@
     layer.frame = frame;
     
     layer.colors = [NSArray arrayWithObjects:
-                    (id)[[UIColor blackColor] colorWithAlphaComponent:1.0].CGColor,
+                    (id)[UIColor clearColor].CGColor,
                     (id)[[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor,
-                    (id)[[UIColor blackColor] colorWithAlphaComponent:1.0].CGColor,
+                    (id)[UIColor clearColor].CGColor,
                     nil];
     
     layer.locations = [NSArray arrayWithObjects:

@@ -10,6 +10,7 @@
 #import "Three20/Three20.h"
 #import "SCRatingView.h"
 #import "PinAnnotation.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PBInformationViewController2 : UIViewController {
     

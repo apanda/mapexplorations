@@ -223,12 +223,44 @@
 
 - (void)createFilterView
 {    
-    TTView* parentView = [[[TTView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
+    UIImage* meshImage = [UIImage imageNamed:@"mesh.png"];
+    UIColor* meshColor = [[UIColor colorWithPatternImage:meshImage] colorWithAlphaComponent:0.8];
+    
+    UIView* parentView = [[[UIView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
+    parentView.backgroundColor = [UIColor colorWithRed:0.1294 green:0.1294 blue:0.1294 alpha:1.0];
+    parentView.layer.cornerRadius = 10;
+    parentView.layer.masksToBounds = YES;
+    parentView.layer.borderColor = [UIColor colorWithRed:0.1647 green:0.1647 blue:0.1647 alpha:1.0].CGColor;
+    parentView.layer.borderWidth = 1.5;
+    
+    UIView* meshBackgroundView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, parentView.size.width, parentView.size.height)] autorelease];
+    meshBackgroundView.backgroundColor = meshColor;
+    meshBackgroundView.opaque = NO;
+    
+    [parentView addSubview:meshBackgroundView];
+    
+    CAGradientLayer* gradient = [CAGradientLayer layer];
+    gradient.frame = CGRectMake(0, 0, meshBackgroundView.size.width, meshBackgroundView.size.height);
+    gradient.startPoint = CGPointMake(0.0, 0.0);
+    gradient.endPoint = CGPointMake(0.0, 1.0);
+    gradient.colors = [NSArray arrayWithObjects:
+                       (id)[UIColor clearColor].CGColor,
+                       (id)[[UIColor blackColor] colorWithAlphaComponent:0.8].CGColor,
+                       nil];
+    gradient.locations = [NSArray arrayWithObjects:
+                          [NSNumber numberWithFloat:0.0],
+                          [NSNumber numberWithFloat:1.0],
+                          nil];
+    gradient.opaque = NO;
+    
+    [meshBackgroundView.layer addSublayer:gradient];    
+    
+    /*TTView* parentView = [[[TTView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
     parentView.backgroundColor = [UIColor clearColor];
     parentView.style = [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithTopLeft:10.0 topRight:10.0 bottomRight:10.0 bottomLeft:10.0] next:
                         [TTLinearGradientFillStyle styleWithColor1:[UIColor darkGrayColor] color2:[UIColor blackColor] next:
                          [TTSolidBorderStyle styleWithColor:[UIColor grayColor] width:1.0 next:nil]]];
-    
+    */
     //////
     
     [self createRatingViewWithParentView:parentView];
