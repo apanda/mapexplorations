@@ -13,9 +13,12 @@
 
 static const int kLabelItemSpacing = 20;
 
+@class PBHorizontalPicker;
 @interface PBHorizontalScrollView : UIScrollView {
-    
+    PBHorizontalPicker* m_touchToScrollDelegate;
 }
+
+@property (nonatomic, retain) PBHorizontalPicker* touchToScrollDelegate;
 
 @end
 
@@ -45,6 +48,7 @@ static const int kLabelItemSpacing = 20;
 - (CGPoint)pointToScrollTo:(int)labelIndex;
 - (int)labelIndexToScrollTo:(CGPoint)contentOffset;
 - (CAGradientLayer*)selectionBoundaryLayerWithFrame:(CGRect)frame;
+- (void)scrollView:(UIScrollView*)scrollView touchedAtOffset:(CGPoint)offset;
 - (void)scrollToLabelIndex:(int)index;
 
 @end

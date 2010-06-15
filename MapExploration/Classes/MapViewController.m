@@ -33,9 +33,11 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	UIImage *gear = [UIImage imageNamed:@"settings_off.png"];
 	UIBarButtonItem *targetButton = [[[UIBarButtonItem alloc] initWithImage:target style:UIBarButtonItemStylePlain target:self 
 																	 action:@selector(targetClicked)] autorelease];
+    targetButton.title = @"Locate";
 	UIBarButtonItem *space = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil] autorelease];
 	UIBarButtonItem *gearButton = [[[UIBarButtonItem alloc] initWithImage:gear style:UIBarButtonItemStylePlain target:self 
 																   action:@selector(gearClicked)] autorelease];
+    gearButton.title = @"Filter";
 	NSArray *buttonArray = [[NSArray arrayWithObjects:targetButton, space, gearButton, nil] autorelease];
 	[self setToolbarItems:buttonArray];
 	m_filter = [[TennisFilter alloc] init];

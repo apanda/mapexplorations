@@ -10,6 +10,30 @@
 
 @implementation PBHorizontalScrollView
 
+@synthesize touchToScrollDelegate = m_touchToScrollDelegate;
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (self.dragging || self.decelerating) {
+        [super touchesEnded:touches withEvent:event];
+    }
+    else {
+        UITouch* touch = [touches anyObject];
+        CGPoint location = [touch locationInView:self];
+        
+        // content offset is at the middle for some reason, so adjust for that
+        int newXToScrollTo = location.x - self.frame.size.width / 2;
+        
+        [m_touchToScrollDelegate scrollView:self touchedAtOffset:CGPointMake(newXToScrollTo, self.contentOffset.y)];
+    }
+}
+
+- (void)dealloc
+{
+    [m_touchToScrollDelegate release];
+    [super dealloc];
+}
+
 @end
 
 
@@ -39,6 +63,7 @@
         m_scrollView.backgroundColor = [UIColor clearColor];
         m_scrollView.decelerationRate = 0.994;
         m_scrollView.delegate = self;    
+        m_scrollView.touchToScrollDelegate = self;
         [self addSubview:m_scrollView]; 
                 
         // Handle labels and add highlights and boundaries as necessary
@@ -250,6 +275,24 @@
     }
     else {
         m_startDecelerationPoint = scrollView.contentOffset;
+    }
+}
+
+- (void)scrollView:(UIScrollView*)scrollView touchedAtOffset:(CGPoint)offset;
+{        
+    int labelIndexToScrollTo = [self labelIndexToScrollTo:offset];
+    CGPoint pointToScrollTo = [self pointToScrollTo:labelIndexToScrollTo];
+    
+    // snap us to the right place
+    CGRect rectToScrollTo = scrollView.frame;
+    rectToScrollTo.origin = pointToScrollTo;
+    
+    // If this is a new selected label, scroll there.
+    if (labelIndexToScrollTo != m_selectedIndex) {
+        m_selectedIndex = labelIndexToScrollTo;
+        [scrollView scrollRectToVisible:rectToScrollTo animated:YES];
+        
+        [m_delegate picker:self didSelectItemWithIndex:labelIndexToScrollTo];
     }
 }
 
