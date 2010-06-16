@@ -11,7 +11,7 @@
 
 @implementation TennisFilter
 @synthesize lights = m_lights;
-@synthesize numberOfCourts = m_numberOfCourts;
+@synthesize minNumberOfCourts = m_minNumberOfCourts;
 @synthesize backboard = m_backboard;
 @synthesize rating = m_rating;
 @synthesize indoor = m_indoor;
@@ -33,13 +33,13 @@
 		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ lights = 1", joinClause];
 		joinClause = @" and";
 	}
-	if (self.numberOfCourts > 0) {
-		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ courts >= %d", joinClause, self.numberOfCourts];
+	if (self.minNumberOfCourts > 0) {
+		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ courts >= %d", joinClause, self.minNumberOfCourts];
 		joinClause = @" and";
 	}
 	
 	if (self.maxNumberOfCourts > 0) {
-		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ courts <= %d", joinClause, self.numberOfCourts];
+		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ courts <= %d", joinClause, self.maxNumberOfCourts];
 		joinClause = @" and";
 	}
 	
@@ -63,7 +63,7 @@
 	[m_defaults setBool:self.lights forKey:@"lights"];
 	[m_defaults setBool:self.backboard forKey:@"backboard"];
 	[m_defaults setInteger:self.rating forKey:@"rating"];
-	[m_defaults setInteger:self.numberOfCourts forKey:@"numberOfCourts"];
+	[m_defaults setInteger:self.minNumberOfCourts forKey:@"minNumberOfCourts"];
 	[m_defaults setInteger:self.maxNumberOfCourts forKey:@"maxNumberOfCourts"];
 	[m_defaults setBool:self.indoor forKey:@"indoor"];
 	
@@ -75,7 +75,7 @@
 	self.backboard = [m_defaults boolForKey:@"backboard"];
 	self.indoor = [m_defaults boolForKey:@"indoor"];
 	self.rating = [m_defaults integerForKey:@"rating"];
-	self.numberOfCourts = [m_defaults integerForKey:@"numberOfCourts"];
+	self.minNumberOfCourts = [m_defaults integerForKey:@"minNumberOfCourts"];
 	self.maxNumberOfCourts = [m_defaults integerForKey:@"maxNumberOfCourts"];
 }
 @end

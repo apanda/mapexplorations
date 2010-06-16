@@ -183,7 +183,8 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 
 - (void) recalculateFilter {
 	m_filter.rating = m_filterView.rating;
-	m_filter.numberOfCourts = m_filterView.minCourts;
+	m_filter.minNumberOfCourts = m_filterView.minCourts;
+	m_filter.maxNumberOfCourts = m_filterView.maxCourts;
 	m_filter.lights = m_filterView.lights;
 	m_filter.backboard = m_filterView.backboard;
 	[m_filter save];

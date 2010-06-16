@@ -296,7 +296,7 @@
 	}
 	
 	
-	if (m_initialFilter.numberOfCourts > 0) {
+	if (m_initialFilter.minNumberOfCourts > 0) {
         
         // Once we have both min and max, we can just compare it against
         // each of the values exactly and find the one that matches. Max for
@@ -305,9 +305,8 @@
             int min = [[m_pickerSelections objectAtIndex:i] intValue];
             int max = [[m_pickerSelections objectAtIndex:i + 1] intValue];
             
-            int numCourts = m_initialFilter.numberOfCourts;
             
-            if (numCourts >= min && numCourts < max) {
+            if (m_initialFilter.minNumberOfCourts == min && m_initialFilter.maxNumberOfCourts == max) {
                 m_courtsPicker.selectedIndex = i;
             }
         }
