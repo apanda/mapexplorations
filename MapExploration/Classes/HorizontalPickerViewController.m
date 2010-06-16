@@ -16,8 +16,8 @@
     return
     [TTPartStyle styleWithName:@"image" style:TTSTYLESTATE(filterButtonImage:, state) next:
      [TTBoxStyle styleWithMargin:UIEdgeInsetsMake(10, 0, 0, 0) next:
-      [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] color:[UIColor whiteColor]
-                 minimumFontSize:12 shadowColor:nil
+      [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] color:[UIColor whiteColor]
+                 minimumFontSize:11 shadowColor:nil
                     shadowOffset:CGSizeZero next:nil]]];
 }
 
@@ -64,9 +64,9 @@
     TTLabel* ratingLabel = [[[TTLabel alloc] initWithFrame:CGRectZero] autorelease];
     ratingLabel.backgroundColor = [UIColor clearColor];
     ratingLabel.text = @"Minimum Rating";
-    ratingLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    ratingLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                              color:[UIColor whiteColor] 
-                                   minimumFontSize:12 
+                                   minimumFontSize:11 
                                        shadowColor:[UIColor clearColor] 
                                       shadowOffset:CGSizeMake(0, 0) 
                                      textAlignment:UITextAlignmentCenter
@@ -94,7 +94,7 @@
                           [NSNumber numberWithInt:2],
                           [NSNumber numberWithInt:4],
                           [NSNumber numberWithInt:8],
-                          [NSNumber numberWithInt:12],
+                          [NSNumber numberWithInt:11],
                           [NSNumber numberWithInt:16],
                           [NSNumber numberWithInt:20],
                           nil] retain];
@@ -120,7 +120,7 @@
         label.text = string;
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor blackColor];
-        label.font = [UIFont fontWithName:@"Helvetica" size:20];
+        label.font = [UIFont fontWithName:@"Verdana" size:20];
         label.textAlignment = UITextAlignmentCenter;
         
         [labels addObject:label];
@@ -137,9 +137,9 @@
     TTLabel* courtsLabel = [[[TTLabel alloc] initWithFrame:CGRectZero] autorelease];
     courtsLabel.backgroundColor = [UIColor clearColor];
     courtsLabel.text = @"Courts";
-    courtsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    courtsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                                   color:[UIColor whiteColor] 
-                                        minimumFontSize:12 
+                                        minimumFontSize:11 
                                             shadowColor:[UIColor clearColor] 
                                            shadowOffset:CGSizeMake(0, 0) 
                                           textAlignment:UITextAlignmentCenter
@@ -175,9 +175,9 @@
     m_lightsLabel = [[TTLabel alloc] initWithFrame:CGRectZero];
     m_lightsLabel.backgroundColor = [UIColor clearColor];
     m_lightsLabel.text = @"Lights";
-    m_lightsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    m_lightsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                              color:[UIColor whiteColor] 
-                                   minimumFontSize:12 
+                                   minimumFontSize:11 
                                        shadowColor:[UIColor clearColor] 
                                       shadowOffset:CGSizeMake(0, 0) 
                                      textAlignment:UITextAlignmentCenter
@@ -216,9 +216,9 @@
     m_backboardLabel = [[TTLabel alloc] initWithFrame:CGRectZero];
     m_backboardLabel.backgroundColor = [UIColor clearColor];
     m_backboardLabel.text = @"Backboard";
-    m_backboardLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    m_backboardLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                              color:[UIColor whiteColor] 
-                                   minimumFontSize:12 
+                                   minimumFontSize:11 
                                        shadowColor:[UIColor clearColor] 
                                       shadowOffset:CGSizeMake(0, 0) 
                                      textAlignment:UITextAlignmentCenter

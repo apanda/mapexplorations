@@ -45,9 +45,9 @@
     TTLabel* ratingLabel = [[[TTLabel alloc] initWithFrame:CGRectZero] autorelease];
     ratingLabel.backgroundColor = [UIColor clearColor];
     ratingLabel.text = @"Minimum Rating";
-    ratingLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    ratingLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                              color:[UIColor whiteColor] 
-                                   minimumFontSize:12 
+                                   minimumFontSize:11 
                                        shadowColor:[UIColor clearColor] 
                                       shadowOffset:CGSizeMake(0, 0) 
                                      textAlignment:UITextAlignmentCenter
@@ -86,7 +86,6 @@
         
         curNumCourts += 4;
     }
-    
     [pickerSelections addObject:[NSNumber numberWithInt:maxCourts]];
     
     
@@ -94,14 +93,9 @@
     
     NSMutableArray* strings = [[[NSMutableArray alloc] initWithCapacity:[m_pickerSelections count]] autorelease];
     [strings addObject:[NSString stringWithFormat:@"%d+", [[m_pickerSelections objectAtIndex:0] intValue]]];
-    for(int i = 1; i < [m_pickerSelections count]; i++) {
+    for(int i = 1; i < [m_pickerSelections count] - 1; i++) {
         NSString* string;
-        if (i == ([m_pickerSelections count] - 1)) {
-            string = [NSString stringWithFormat:@"%d+", [[m_pickerSelections objectAtIndex:i] intValue]];
-        }
-        else {
-            string = [NSString stringWithFormat:@"%d-%d", [[m_pickerSelections objectAtIndex:i] intValue], [[m_pickerSelections objectAtIndex:i+1] intValue]];
-        }
+        string = [NSString stringWithFormat:@"%d-%d", [[m_pickerSelections objectAtIndex:i] intValue], [[m_pickerSelections objectAtIndex:i+1] intValue]];
         
         [strings addObject:string];
     }
@@ -113,7 +107,7 @@
         label.text = string;
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor blackColor];
-        label.font = [UIFont fontWithName:@"Helvetica" size:20];
+        label.font = [UIFont fontWithName:@"Verdana" size:20];
         label.textAlignment = UITextAlignmentCenter;
         
         [labels addObject:label];
@@ -176,9 +170,9 @@
     m_lightsLabel = [[TTLabel alloc] initWithFrame:CGRectZero];
     m_lightsLabel.backgroundColor = [UIColor clearColor];
     m_lightsLabel.text = @"No Lights";
-    m_lightsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    m_lightsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                                color:[UIColor darkGrayColor]  
-                                     minimumFontSize:12 
+                                     minimumFontSize:11 
                                          shadowColor:[UIColor clearColor] 
                                         shadowOffset:CGSizeMake(0, 0) 
                                        textAlignment:UITextAlignmentCenter
@@ -217,9 +211,9 @@
     m_backboardLabel = [[TTLabel alloc] initWithFrame:CGRectZero];
     m_backboardLabel.backgroundColor = [UIColor clearColor];
     m_backboardLabel.text = @"No Backboard";
-    m_backboardLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    m_backboardLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                                   color:[UIColor darkGrayColor] 
-                                        minimumFontSize:12 
+                                        minimumFontSize:11 
                                             shadowColor:[UIColor clearColor] 
                                            shadowOffset:CGSizeMake(0, 0) 
                                           textAlignment:UITextAlignmentCenter
@@ -303,19 +297,24 @@
 	
 	
 	if (m_initialFilter.numberOfCourts > 0) {
-		
-		// TODO itay fix up number of courts thing here
+        
+        // Once we have both min and max, we can just compare it against
+        // each of the values exactly and find the one that matches. Max for
+        // 1+ should always be infinity or something like that.
+		for (int i = 0; i < [m_pickerSelections count] - 1; i++) {
+            int min = [[m_pickerSelections objectAtIndex:i] intValue];
+            int max = [[m_pickerSelections objectAtIndex:i + 1] intValue];
+            
+            int numCourts = m_initialFilter.numberOfCourts;
+            
+            if (numCourts >= min && numCourts < max) {
+                m_courtsPicker.selectedIndex = i;
+            }
+        }
 	}
 }
 
 #pragma mark Callbacks
-
-- (id) initWithFilter:(TennisFilter *)filter
-{
-	self = [super init];
-	m_initialFilter = [filter retain];
-	return self;
-}
 
 - (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating
 {
@@ -388,11 +387,31 @@
 	return m_ratingView.userRating;
 }
 
-- (int) courts {
-	return [[m_pickerSelections objectAtIndex:m_courtsPicker.selectedIndex] intValue];
+- (int) minCourts {
+    int minCourts = [[m_pickerSelections objectAtIndex:m_courtsPicker.selectedIndex] intValue];
+    return minCourts;
+}
+
+- (int) maxCourts {
+    int maxCourts;
+    if (m_courtsPicker.selectedIndex == 0) {
+        maxCourts = 0;
+    }
+    else {
+        maxCourts = [[m_pickerSelections objectAtIndex:m_courtsPicker.selectedIndex + 1] intValue];
+    }
+    
+    return maxCourts;
 }
 
 #pragma mark UIViewController Functions
+
+- (id) initWithFilter:(TennisFilter *)filter
+{
+	self = [super init];
+	m_initialFilter = [filter retain];
+	return self;
+}
 
  // Implement loadView to create a view hierarchy programmatically, without using a nib.
  - (void)loadView 

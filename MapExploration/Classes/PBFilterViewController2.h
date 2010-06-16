@@ -44,7 +44,8 @@
 
 @property (nonatomic, readonly) bool lights;
 @property (nonatomic, readonly) bool backboard;
-@property (nonatomic, readonly) int courts;
+@property (nonatomic, readonly) int minCourts;
+@property (nonatomic, readonly) int maxCourts;
 @property (nonatomic, readonly) int rating;
 @property (nonatomic, retain) MapViewController *mapView;
 

@@ -26,9 +26,9 @@
     m_cityLabel.text = @"Seattle, WA";
     
     m_nameLabel.backgroundColor = [UIColor clearColor];       
-    CGSize tightSize = [m_nameLabel.text sizeWithFont:[UIFont fontWithName:@"Helvetica" size:17] constrainedToSize:CGSizeMake(250, 35)];
+    CGSize tightSize = [m_nameLabel.text sizeWithFont:[UIFont fontWithName:@"Verdana" size:17] constrainedToSize:CGSizeMake(250, 35)];
     m_nameLabel.size = CGSizeMake(250, tightSize.height);
-    m_nameLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:17] 
+    m_nameLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:17] 
                                              color:[UIColor whiteColor] 
                                    minimumFontSize:17 
                                        shadowColor:[UIColor clearColor] 
@@ -40,9 +40,9 @@
                                               next:nil];
     
     m_addressLabel.backgroundColor = [UIColor clearColor];       
-    m_addressLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    m_addressLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                                 color:[UIColor whiteColor] 
-                                      minimumFontSize:12 
+                                      minimumFontSize:11 
                                           shadowColor:[UIColor clearColor] 
                                          shadowOffset:CGSizeMake(0, 0) 
                                         textAlignment:UITextAlignmentLeft 
@@ -52,9 +52,9 @@
                                                  next:nil];
     
     m_cityLabel.backgroundColor = [UIColor clearColor];       
-    m_cityLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:12] 
+    m_cityLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
                                              color:[UIColor whiteColor] 
-                                   minimumFontSize:12 
+                                   minimumFontSize:11 
                                        shadowColor:[UIColor clearColor] 
                                       shadowOffset:CGSizeMake(0, 0) 
                                      textAlignment:UITextAlignmentLeft 
@@ -88,7 +88,7 @@
     m_lightInfoLabel = [[TTLabel alloc] initWithFrame:CGRectMake(0, 35, 55, 18)];
     m_lightInfoLabel.text = @"Lights";
     m_lightInfoLabel.backgroundColor = [UIColor clearColor];       
-    m_lightInfoLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:10] 
+    m_lightInfoLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:10] 
                                                   color:[UIColor whiteColor] 
                                         minimumFontSize:10 
                                             shadowColor:[UIColor clearColor] 
@@ -118,7 +118,7 @@
     m_courtsInfoLabel = [[TTLabel alloc] initWithFrame:CGRectMake(0, 35, 55, 18)];
     m_courtsInfoLabel.text = @"3 Courts";
     m_courtsInfoLabel.backgroundColor = [UIColor clearColor];       
-    m_courtsInfoLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Helvetica" size:10] 
+    m_courtsInfoLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:10] 
                                                    color:[UIColor whiteColor] 
                                          minimumFontSize:10 
                                              shadowColor:[UIColor clearColor] 
