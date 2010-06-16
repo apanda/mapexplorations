@@ -86,7 +86,7 @@
         [m_currentLocation release];
     }
     
-#ifdef TARGET_IPHONE_SIMULATOR
+#if TARGET_IPHONE_SIMULATOR
     location = [[CLLocation alloc] initWithLatitude:47.678839 longitude:-122.328837];
     m_currentLocation = location;
 #else
