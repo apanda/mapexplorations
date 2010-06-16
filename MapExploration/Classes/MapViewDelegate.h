@@ -15,11 +15,11 @@
 @class PinAnnotation;
 @class MapExplorationAppDelegate;
 @interface MapViewDelegate : NSObject <MKMapViewDelegate> {
-	MapViewController *m_mapView;
-	MapExplorationAppDelegate *m_appDelegate;
-	UIImage *m_unselectedPin;
-	UIImage *m_selectedPin;
-	bool m_largePins;
+    MapViewController *m_mapView;
+    MapExplorationAppDelegate *m_appDelegate;
+    UIImage *m_unselectedPin;
+    UIImage *m_selectedPin;
+    bool m_largePins;
 }
 
 - (UIImage*) pinForAnnotation: (PinAnnotation*) annotation;

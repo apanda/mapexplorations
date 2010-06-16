@@ -12,8 +12,8 @@
 
 @class PinAnnotation;
 @interface PBPinAnnotationView : MKAnnotationView {
-	MapViewController* m_delegate;
-	PinAnnotation* m_annotation;
+    MapViewController* m_delegate;
+    PinAnnotation* m_annotation;
 }
 
 - (id)initWithAnnotation:(PinAnnotation*)annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate;

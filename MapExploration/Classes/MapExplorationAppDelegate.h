@@ -24,20 +24,20 @@
 @interface MapExplorationAppDelegate : NSObject <UIApplicationDelegate> {
 
     NSManagedObjectModel *managedObjectModel;
-    NSManagedObjectContext *managedObjectContext;	    
+    NSManagedObjectContext *managedObjectContext;        
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
-	UINavigationController *m_navigationCountroller;
+    UINavigationController *m_navigationCountroller;
     UIWindow *window;
-	MapViewController *mapView;
-	LocationDelegate *locationDelegate;
-	NSString *m_dbFilePath;
-	NSString *m_writableDbFilePath;
-	InformationViewController *m_informationView;
-	FilterViewController *m_filterView;
-	bool m_locationSet;
-	TennisDatabase *m_database;
-	TennisFilter *m_filter;
-	CLLocation *m_currentLocation;
+    MapViewController *mapView;
+    LocationDelegate *locationDelegate;
+    NSString *m_dbFilePath;
+    NSString *m_writableDbFilePath;
+    InformationViewController *m_informationView;
+    FilterViewController *m_filterView;
+    bool m_locationSet;
+    TennisDatabase *m_database;
+    TennisFilter *m_filter;
+    CLLocation *m_currentLocation;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

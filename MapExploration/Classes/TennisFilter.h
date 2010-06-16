@@ -10,13 +10,13 @@
 
 
 @interface TennisFilter : NSObject {
-	bool m_lights;
-	int m_minNumberOfCourts;
-	int m_maxNumberOfCourts;
-	bool m_backboard;
-	int m_rating;
-	bool m_indoor;
-	NSUserDefaults *m_defaults;
+    bool m_lights;
+    int m_minNumberOfCourts;
+    int m_maxNumberOfCourts;
+    bool m_backboard;
+    int m_rating;
+    bool m_indoor;
+    NSUserDefaults *m_defaults;
 }
 
 @property (nonatomic) bool lights;

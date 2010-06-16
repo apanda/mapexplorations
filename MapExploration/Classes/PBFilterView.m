@@ -71,29 +71,29 @@
 }
 
 - (bool) indoor {
-	return false;
+    return false;
 }
 
 - (bool) backboard {
-	return m_backboard.on;
+    return m_backboard.on;
 }
 
 - (int) rating {
-	return m_rating.value;
+    return m_rating.value;
 }
 
 - (int) courts {
-	return m_courts.value;
+    return m_courts.value;
 }
 
 - (void)dealloc {
-	[m_indoor release];
-	[m_backboard release];
-	[m_lights release];
-	[m_rating release];
-	[m_courts release];
+    [m_indoor release];
+    [m_backboard release];
+    [m_lights release];
+    [m_rating release];
+    [m_courts release];
   
-	[super dealloc];
+    [super dealloc];
 }
 
 @end

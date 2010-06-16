@@ -13,24 +13,24 @@
 
 - (id)initWithAnnotation:(PinAnnotation*) annotation reuseIdentifier:(NSString *)reuseIdentifier delegate:(MapViewController*)delegate
 {
-	if (self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]) {
+    if (self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]) {
         m_delegate = [delegate retain];
-		m_annotation = annotation;
-	}
+        m_annotation = annotation;
+    }
     
-	return self;
+    return self;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	NSLog(@"Touched!");
-	[m_delegate annotationTouched];
+    NSLog(@"Touched!");
+    [m_delegate annotationTouched];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     NSLog(@"Selected: %d", selected);
-	PinAnnotation* annotation = (PinAnnotation*)self.annotation;
+    PinAnnotation* annotation = (PinAnnotation*)self.annotation;
     annotation.selected = selected;
 
     if (selected) {

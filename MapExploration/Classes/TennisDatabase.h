@@ -16,7 +16,7 @@
 @class PinAnnotation;
 @class TennisFilter;
 @interface TennisDatabase : NSObject {
-	sqlite3 *m_db;
+    sqlite3 *m_db;
 }
 @property (readonly, nonatomic) int MinCourts;
 @property (readonly, nonatomic) int MaxCourts;

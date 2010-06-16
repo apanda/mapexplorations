@@ -15,15 +15,15 @@
 
 
 @interface LocationDelegate : NSObject <CLLocationManagerDelegate> {
-	CLLocationManager* m_locationManager;
-	MapExplorationAppDelegate* m_appDelegate;
+    CLLocationManager* m_locationManager;
+    MapExplorationAppDelegate* m_appDelegate;
 }
 
 @property (nonatomic, retain) CLLocationManager* locationManager;
 
 - (void) locationManager: (CLLocationManager*) manager
-	 didUpdateToLocation: (CLLocation *) newLocation
-			fromLocation: (CLLocation *) oldLocation;
+     didUpdateToLocation: (CLLocation *) newLocation
+            fromLocation: (CLLocation *) oldLocation;
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error;

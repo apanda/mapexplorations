@@ -13,9 +13,9 @@
 
 
 @interface PBInformationView : UITableViewController <SCRatingDelegate> {
-	PinAnnotation* m_annotation;
-	MapExplorationAppDelegate *m_appDelegate;
-	SCRatingView *m_ratingView;
+    PinAnnotation* m_annotation;
+    MapExplorationAppDelegate *m_appDelegate;
+    SCRatingView *m_ratingView;
 }
 @property (nonatomic, retain)PinAnnotation* currentAnnotation;
 

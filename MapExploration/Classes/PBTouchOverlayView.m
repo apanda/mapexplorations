@@ -15,8 +15,8 @@
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
   
-	
-	UIView* returnMe =  [super hitTest:point withEvent:event];
+    
+    UIView* returnMe =  [super hitTest:point withEvent:event];
   
   NSLog(@"Hit!");
   [m_delegate overlayTouched];

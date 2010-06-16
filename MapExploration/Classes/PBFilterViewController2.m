@@ -30,13 +30,13 @@
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewHot];
     [m_ratingView setStarImage:nonselectedStar forState:kSCRatingViewNonSelected];
     
-	// We take care of initial filter here because setting it in setStartingView doesn't work
+    // We take care of initial filter here because setting it in setStartingView doesn't work
     if (m_initialFilter.rating > 0) {
-		m_ratingView.userRating = m_initialFilter.rating;
-	}
-	else {
-		m_ratingView.userRating = 1;
-	}
+        m_ratingView.userRating = m_initialFilter.rating;
+    }
+    else {
+        m_ratingView.userRating = 1;
+    }
 
     m_ratingView.delegate = self;
     
@@ -289,20 +289,20 @@
 {
     // Cause the handler to invert us to the right setting
     if (m_initialFilter.lights) {
-		[self toggleLightsButton];
-	}
+        [self toggleLightsButton];
+    }
     
     // Cause the handler to invert us to the right setting
-	if (m_initialFilter.backboard) {
-		[self toggleBackboardButton];
-	}
-	
-	if (m_initialFilter.minNumberOfCourts > 0) {
+    if (m_initialFilter.backboard) {
+        [self toggleBackboardButton];
+    }
+    
+    if (m_initialFilter.minNumberOfCourts > 0) {
         
         // Once we have both min and max, we can just compare it against
         // each of the values exactly and find the one that matches. Max for
         // 1+ should always be infinity or something like that.
-		for (int i = 0; i < [m_pickerSelections count] - 1; i++) {
+        for (int i = 0; i < [m_pickerSelections count] - 1; i++) {
             int min = [[m_pickerSelections objectAtIndex:i] intValue];
             int max = [[m_pickerSelections objectAtIndex:i + 1] intValue];
             
@@ -311,7 +311,7 @@
                 m_courtsPicker.selectedIndex = i;
             }
         }
-	}
+    }
 }
 
 #pragma mark Callbacks
@@ -328,14 +328,14 @@
 
 - (IBAction)lightsButtonPressed:(id)sender
 {        
-	
+    
     [self toggleLightsButton];
     [self updateFilter];
 }
 
 - (void) toggleLightsButton
 {
-	// Handle toggle of lights
+    // Handle toggle of lights
     if (m_lightsImageView.image == m_lightsOffImage) { // if it is currently off, set it as on
         m_lightsImageView.image = m_lightsOnImage;
         m_lightsLabel.text = @"Lights";
@@ -343,7 +343,7 @@
         textStyle.color = [UIColor whiteColor];
     }
     else { // if it is currently on, set it as off
-		// doesn't have lights
+        // doesn't have lights
         m_lightsImageView.image = m_lightsOffImage;
         m_lightsLabel.text = @"No Lights";
         TTTextStyle* textStyle = (TTTextStyle*)m_lightsLabel.style;
@@ -360,7 +360,7 @@
 
 - (void) toggleBackboardButton
 {
-	// Handle backboard of lights
+    // Handle backboard of lights
     if (m_backboardImageView.image == m_backboardOffImage) { // if it is currently off, set it as on
         m_backboardImageView.image = m_backboardOnImage;
         m_backboardLabel.text = @"Backboard";
@@ -368,7 +368,7 @@
         textStyle.color = [UIColor whiteColor];
     }
     else { // if it is currently on, set it as off
-		// doesn't have lights
+        // doesn't have lights
         m_backboardImageView.image = m_backboardOffImage;
         m_backboardLabel.text = @"No Backboard";
         TTTextStyle* textStyle = (TTTextStyle*)m_backboardLabel.style;
@@ -378,23 +378,23 @@
 
 - (void) updateFilter 
 {
-	[m_mapView recalculateFilter];
-	
+    [m_mapView recalculateFilter];
+    
 }
 
 #pragma mark Property Setters
 
 
 - (bool) lights {
-	return m_lightsImageView.image == m_lightsOnImage;
+    return m_lightsImageView.image == m_lightsOnImage;
 }
 
 - (bool) backboard {
-	return m_backboardImageView.image == m_backboardOnImage;
+    return m_backboardImageView.image == m_backboardOnImage;
 }
 
 - (int) rating {
-	return m_ratingView.userRating;
+    return m_ratingView.userRating;
 }
 
 - (int) minCourts {
@@ -418,9 +418,9 @@
 
 - (id) initWithFilter:(TennisFilter *)filter
 {
-	self = [super init];
-	m_initialFilter = [filter retain];
-	return self;
+    self = [super init];
+    m_initialFilter = [filter retain];
+    return self;
 }
 
  // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -431,21 +431,21 @@
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     
     [self createFilterView];
-	
-	[self setStartingView];
+    
+    [self setStartingView];
 }
  
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
+    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
+    
+    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
 

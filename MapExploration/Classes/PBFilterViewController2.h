@@ -37,9 +37,9 @@
     NSArray* m_pickerSelections;
     
     // Delegate
-	MapViewController* m_mapView;
+    MapViewController* m_mapView;
 	
-	TennisFilter *m_initialFilter;
+    TennisFilter *m_initialFilter;
 }
 
 @property (nonatomic, readonly) bool lights;

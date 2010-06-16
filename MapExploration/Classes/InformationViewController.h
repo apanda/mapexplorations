@@ -15,9 +15,9 @@
 @class MapExplorationAppDelegate;
 
 @interface InformationViewController : UITableViewController <SCRatingDelegate>{
-	PinAnnotation* m_annotation;
-	MapExplorationAppDelegate *m_appDelegate;
-	SCRatingView *m_ratingView;
+    PinAnnotation* m_annotation;
+    MapExplorationAppDelegate *m_appDelegate;
+    SCRatingView *m_ratingView;
 }
 - (id)initWithStyle:(UITableViewStyle)style appDelegate: (MapExplorationAppDelegate*) appDelegate;
 - (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating;

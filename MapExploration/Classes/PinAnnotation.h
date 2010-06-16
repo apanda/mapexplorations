@@ -10,16 +10,16 @@
 
 
 @interface PinAnnotation : NSObject <MKAnnotation> {
-	CLLocationCoordinate2D m_coordinate;
-	NSString* m_name;
-	NSString* m_address;
-	int m_numCourts;
-	NSString* m_city;
-	int m_rating;
-	int m_key;
-	bool m_lights;
-	bool m_selected;
-	NSString* m_neighborhood;
+    CLLocationCoordinate2D m_coordinate;
+    NSString* m_name;
+    NSString* m_address;
+    int m_numCourts;
+    NSString* m_city;
+    int m_rating;
+    int m_key;
+    bool m_lights;
+    bool m_selected;
+    NSString* m_neighborhood;
 }
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
@@ -34,13 +34,13 @@
 @property (nonatomic) bool selected;
 
 - (id) initWithCoordinate: (CLLocationCoordinate2D) coordinate
-					  key:(int) key 
-					name:(NSString*) name 
-				    address:(NSString*) address
-					 city: (NSString*) city
-					numCourts: (int) numCourts
-			     neighborhood: (NSString*) neighborhood
-				    rating: (int) rating
+                      key:(int) key 
+                    name:(NSString*) name 
+                    address:(NSString*) address
+                     city: (NSString*) city
+                    numCourts: (int) numCourts
+                 neighborhood: (NSString*) neighborhood
+                    rating: (int) rating
                     lights: (int) lights;
 
 @end

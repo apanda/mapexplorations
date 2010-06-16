@@ -25,19 +25,19 @@
 @class TennisFilter;
 @class PBInformationViewController2;
 @interface MapViewController : UIViewController <PBTouchOverlayDelegate> {
-	MKMapView *m_mapView;
-	MapExplorationAppDelegate *m_appDelegate;
-	MapViewDelegate *m_mapViewDelegate;
-	bool m_changeView;
-	TennisDatabase *m_database;
-	TennisFilter *m_filter;
-	PBToastView* m_filterToast;
-	PBToastView* m_infoToast;
-	PBFilterViewController2* m_filterView;
-	PBInformationViewController2* m_informationView;
-	NSArray* m_annotations;
+    MKMapView *m_mapView;
+    MapExplorationAppDelegate *m_appDelegate;
+    MapViewDelegate *m_mapViewDelegate;
+    bool m_changeView;
+    TennisDatabase *m_database;
+    TennisFilter *m_filter;
+    PBToastView* m_filterToast;
+    PBToastView* m_infoToast;
+    PBFilterViewController2* m_filterView;
+    PBInformationViewController2* m_informationView;
+    NSArray* m_annotations;
   
-	BOOL m_annotationTouched;
+    BOOL m_annotationTouched;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;
