@@ -15,6 +15,7 @@
 @synthesize backboard = m_backboard;
 @synthesize rating = m_rating;
 @synthesize indoor = m_indoor;
+@synthesize maxNumberOfCourts = m_maxNumberOfCourts;
 
 - (id) init
 {
@@ -36,6 +37,12 @@
 		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ courts >= %d", joinClause, self.numberOfCourts];
 		joinClause = @" and";
 	}
+	
+	if (self.maxNumberOfCourts > 0) {
+		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ courts <= %d", joinClause, self.numberOfCourts];
+		joinClause = @" and";
+	}
+	
 	if (self.rating > 0) {
 		stringToReturn = [stringToReturn stringByAppendingFormat:@"%@ rating >= %d", joinClause, self.rating];
 		joinClause = @" and";
@@ -57,6 +64,7 @@
 	[m_defaults setBool:self.backboard forKey:@"backboard"];
 	[m_defaults setInteger:self.rating forKey:@"rating"];
 	[m_defaults setInteger:self.numberOfCourts forKey:@"numberOfCourts"];
+	[m_defaults setInteger:self.maxNumberOfCourts forKey:@"maxNumberOfCourts"];
 	[m_defaults setBool:self.indoor forKey:@"indoor"];
 	
 }
@@ -68,5 +76,6 @@
 	self.indoor = [m_defaults boolForKey:@"indoor"];
 	self.rating = [m_defaults integerForKey:@"rating"];
 	self.numberOfCourts = [m_defaults integerForKey:@"numberOfCourts"];
+	self.maxNumberOfCourts = [m_defaults integerForKey:@"maxNumberOfCourts"];
 }
 @end

@@ -12,6 +12,7 @@
 @interface TennisFilter : NSObject {
 	bool m_lights;
 	int m_numberOfCourts;
+	int m_maxNumberOfCourts;
 	bool m_backboard;
 	int m_rating;
 	bool m_indoor;
@@ -20,9 +21,11 @@
 
 @property (nonatomic) bool lights;
 @property (nonatomic) int numberOfCourts;
+@property (nonatomic) int maxNumberOfCourts;
 @property (nonatomic) bool backboard;
 @property (nonatomic) int rating;
 @property (nonatomic) bool indoor;
+
 
 - (NSString*) whereClause;
 - (id) init;
