@@ -308,6 +308,14 @@
     [m_delegate picker:self didSelectItemWithIndex:index];
 }
 
+- (void)setSelectedIndex:(int)newSelectedIndex
+{
+    m_selectedIndex = newSelectedIndex;
+    
+    [self scrollToLabelIndex:newSelectedIndex];
+    
+}
+
 - (void)dealloc {
     [m_labels release];
     [m_scrollView release];

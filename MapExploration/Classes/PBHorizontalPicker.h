@@ -41,7 +41,7 @@ static const int kLabelItemSpacing = 20;
     id<PBHorizontalPickerDelegate> m_delegate;
 }
 
-@property (nonatomic, assign, readonly) int selectedIndex;
+@property (nonatomic, assign, setter=setSelectedIndex) int selectedIndex;
 @property (nonatomic, retain) id<PBHorizontalPickerDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame labels:(NSArray*)labels;
@@ -50,6 +50,7 @@ static const int kLabelItemSpacing = 20;
 - (CAGradientLayer*)selectionBoundaryLayerWithFrame:(CGRect)frame;
 - (void)scrollView:(UIScrollView*)scrollView touchedAtOffset:(CGPoint)offset;
 - (void)scrollToLabelIndex:(int)index;
+- (void)setSelectedIndex:(int)newSelectedIndex;
 
 @end
 

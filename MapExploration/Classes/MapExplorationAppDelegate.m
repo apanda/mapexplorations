@@ -48,10 +48,9 @@
 	m_locationSet = FALSE;
 	m_currentLocation = nil;
     
-    m_navigationCountroller.toolbar.tintColor = [UIColor blackColor];
+    m_navigationCountroller.toolbar.barStyle = UIBarStyleBlack;
 	
 	[self.window addSubview:m_navigationCountroller.view];
-    
     
     /*HorizontalPickerViewController* testViewController = [[HorizontalPickerViewController alloc] init];
     [self.window addSubview:testViewController.view];*/

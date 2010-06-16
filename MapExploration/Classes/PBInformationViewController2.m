@@ -236,7 +236,8 @@
         textStyle.color = [UIColor darkGrayColor];
     }
     
-    m_courtsInfoLabel.text = [NSString stringWithFormat:@"%d Courts", m_currentAnnotation.numCourts];
+    NSString* formatString = m_currentAnnotation.numCourts == 1 ? @"%d Court" : @"%d Courts";
+    m_courtsInfoLabel.text = [NSString stringWithFormat:formatString, m_currentAnnotation.numCourts];
 }
 
 #pragma mark Callacks
