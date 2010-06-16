@@ -49,7 +49,7 @@
 - (void)createRatingViewWithParentView:(UIView*)parentView;
 - (void)createPickerWithParentView:(UIView*)parentView;
 - (void)createLightsButtonWithParentView:(UIView*)parentView;
-- (void)createBackboardButtonWithParentView:(UIView*)parentView;    
+- (void)createBackboardButtonWithParentView:(UIView*)parentView;
 - (IBAction)lightsButtonPressed:(id)sender;
 - (IBAction)backboardButtonPressed:(id)sender;
 - (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating;

@@ -120,12 +120,12 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	CGRect infoToastHiddenFrame = CGRectMake(0, infoToastHiddenY, 320, infoToastHeight);
 	CGRect infoToastVisibleFrame = CGRectMake(0, infoToastVisibleY, 320, infoToastHeight);
 	m_infoToast = [[[PBToastView alloc] initWithHiddenFrame:infoToastHiddenFrame visibleFrame:infoToastVisibleFrame] autorelease];
-	//m_infoToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
+	m_infoToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
 	// Filter view
 	m_filterView = [[PBFilterViewController2 alloc] init];
-    m_filterView.view.frame = CGRectMake(0, 0, 320, toastHeight);
 	m_filterView.mapView = self;
+    m_filterView.view.frame = CGRectMake(0, 0, 320, toastHeight);
 	[m_filterToast addSubview:m_filterView.view];
     
 	// Information view

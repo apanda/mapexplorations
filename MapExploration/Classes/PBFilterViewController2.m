@@ -63,15 +63,27 @@
     int pickerWidth = 298;
     int pickerHeight = 48;
     
-    m_pickerSelections = [[NSArray arrayWithObjects:
-                           [NSNumber numberWithInt:1],
-                           [NSNumber numberWithInt:2],
-                           [NSNumber numberWithInt:4],
-                           [NSNumber numberWithInt:8],
-                           [NSNumber numberWithInt:12],
-                           [NSNumber numberWithInt:16],
-                           [NSNumber numberWithInt:20],
-                           nil] retain];
+    MapExplorationAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
+    int minCourts = appDelegate.database.MinCourts;
+    int maxCourts = appDelegate.database.MaxCourts;
+     
+    NSMutableArray* pickerSelections = [[[NSMutableArray alloc] init] autorelease];
+    
+    [pickerSelections addObject:[NSNumber numberWithInt:minCourts]];
+    [pickerSelections addObject:[NSNumber numberWithInt:minCourts+1]];
+    
+    int curNumCourts = minCourts+1 + 4;
+    while (curNumCourts < maxCourts) {
+        [pickerSelections addObject:[NSNumber numberWithInt:curNumCourts]];
+        
+        curNumCourts += 4;
+    }
+    
+    [pickerSelections addObject:[NSNumber numberWithInt:maxCourts]];
+    
+    
+    m_pickerSelections = [[NSArray arrayWithArray:pickerSelections] retain];
     
     NSMutableArray* strings = [[[NSMutableArray alloc] initWithCapacity:[m_pickerSelections count]] autorelease];
     [strings addObject:[NSString stringWithFormat:@"%d+", [[m_pickerSelections objectAtIndex:0] intValue]]];
