@@ -153,11 +153,14 @@
 
 - (void)createLightsButtonWithParentView:(UIView*)parentView
 {
-    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(136, 0, 80, 65)] autorelease];
+    int viewWidth = 70;
+    int viewHeight = 65;
+    
+    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(136, 0, viewWidth, viewHeight)] autorelease];
     containerView.backgroundColor = [UIColor clearColor];
     containerView.style = [TTFourBorderStyle styleWithRight:[UIColor grayColor] width:1.0 next:nil];
     
-    UIButton* lightsButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 65)] autorelease];;
+    UIButton* lightsButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)] autorelease];;
     lightsButton.backgroundColor = [UIColor clearColor];
     
     m_lightsOnImage = [[UIImage imageNamed:@"light_on.png"] retain];
@@ -195,10 +198,13 @@
 
 - (void)createBackboardButtonWithParentView:(UIView*)parentView
 {
-    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(216, 0, 80, 65)] autorelease];
+    int viewWidth = 90;
+    int viewHeight = 65;
+    
+    TTView* containerView = [[[TTView alloc] initWithFrame:CGRectMake(206, 0, viewWidth, viewHeight)] autorelease];
     containerView.backgroundColor = [UIColor clearColor];
     
-    UIButton* backboardButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 65)] autorelease];;
+    UIButton* backboardButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewHeight)] autorelease];;
     backboardButton.backgroundColor = [UIColor clearColor];
     
     m_backboardOnImage = [[UIImage imageNamed:@"backboard_on.png"] retain];
