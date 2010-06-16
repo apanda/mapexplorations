@@ -233,7 +233,7 @@
         m_lightImageView.image = m_lightOffImage;
         m_lightInfoLabel.text = @"No Lights";
         TTTextStyle* textStyle = (TTTextStyle*)m_lightInfoLabel.style;
-        textStyle.color = [UIColor darkGrayColor];
+        textStyle.color = [UIColor grayColor];
     }
     
     NSString* formatString = m_currentAnnotation.numCourts == 1 ? @"%d Court" : @"%d Courts";

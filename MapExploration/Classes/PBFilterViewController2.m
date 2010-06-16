@@ -171,7 +171,7 @@
     m_lightsLabel.backgroundColor = [UIColor clearColor];
     m_lightsLabel.text = @"No Lights";
     m_lightsLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
-                                               color:[UIColor darkGrayColor]  
+                                               color:[UIColor grayColor]  
                                      minimumFontSize:11 
                                          shadowColor:[UIColor clearColor] 
                                         shadowOffset:CGSizeMake(0, 0) 
@@ -212,7 +212,7 @@
     m_backboardLabel.backgroundColor = [UIColor clearColor];
     m_backboardLabel.text = @"No Backboard";
     m_backboardLabel.style = [TTTextStyle styleWithFont:[UIFont fontWithName:@"Verdana" size:11] 
-                                                  color:[UIColor darkGrayColor] 
+                                                  color:[UIColor grayColor] 
                                         minimumFontSize:11 
                                             shadowColor:[UIColor clearColor] 
                                            shadowOffset:CGSizeMake(0, 0) 
@@ -281,20 +281,13 @@
 
 - (void) setStartingView
 {
-	if (m_initialFilter.lights) {
-		m_lightsImageView.image = m_lightsOnImage;
-        m_lightsLabel.text = @"Lights";
-        TTTextStyle* textStyle = (TTTextStyle*)m_lightsLabel.style;
-        textStyle.color = [UIColor whiteColor];
-	}
-	
-	if (m_initialFilter.backboard) {
-		m_backboardImageView.image = m_backboardOnImage;
-        m_backboardLabel.text = @"Backboard";
-        TTTextStyle* textStyle = (TTTextStyle*)m_backboardLabel.style;
-        textStyle.color = [UIColor whiteColor];
-	}
-	
+    // Cause the handler to invert us to the right setting
+    m_lightsImageView.image = m_initialFilter.lights ? m_lightsOffImage : m_lightsOnImage;
+    [self lightsButtonPressed:nil];
+    
+    // Cause the handler to invert us to the right setting
+    m_backboardImageView.image = m_initialFilter.backboard ? m_backboardOffImage : m_backboardOnImage;
+	[self backboardButtonPressed:nil];
 	
 	if (m_initialFilter.minNumberOfCourts > 0) {
         
@@ -339,7 +332,7 @@
         m_lightsImageView.image = m_lightsOffImage;
         m_lightsLabel.text = @"No Lights";
         TTTextStyle* textStyle = (TTTextStyle*)m_lightsLabel.style;
-        textStyle.color = [UIColor darkGrayColor];
+        textStyle.color = [UIColor grayColor];
     }
     
     [self updateFilter];
@@ -359,7 +352,7 @@
         m_backboardImageView.image = m_backboardOffImage;
         m_backboardLabel.text = @"No Backboard";
         TTTextStyle* textStyle = (TTTextStyle*)m_backboardLabel.style;
-        textStyle.color = [UIColor darkGrayColor];
+        textStyle.color = [UIColor grayColor];
     }
     
     [self updateFilter];
