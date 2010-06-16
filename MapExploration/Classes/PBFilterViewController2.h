@@ -55,7 +55,9 @@
 - (void)createLightsButtonWithParentView:(UIView*)parentView;
 - (void)createBackboardButtonWithParentView:(UIView*)parentView;
 - (IBAction)lightsButtonPressed:(id)sender;
+- (void) toggleLightsButton;
 - (IBAction)backboardButtonPressed:(id)sender;
+- (void) toggleBackboardButton;
 - (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating;
 - (void)picker:(PBHorizontalPicker*)picker didSelectItemWithIndex:(int)index;
 - (void)updateFilter;

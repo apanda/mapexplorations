@@ -288,12 +288,14 @@
 - (void) setStartingView
 {
     // Cause the handler to invert us to the right setting
-    m_lightsImageView.image = m_initialFilter.lights ? m_lightsOffImage : m_lightsOnImage;
-    [self lightsButtonPressed:nil];
+    if (m_initialFilter.lights) {
+		[self toggleLightsButton];
+	}
     
     // Cause the handler to invert us to the right setting
-    m_backboardImageView.image = m_initialFilter.backboard ? m_backboardOffImage : m_backboardOnImage;
-	[self backboardButtonPressed:nil];
+	if (m_initialFilter.backboard) {
+		[self toggleBackboardButton];
+	}
 	
 	if (m_initialFilter.minNumberOfCourts > 0) {
         
@@ -326,7 +328,14 @@
 
 - (IBAction)lightsButtonPressed:(id)sender
 {        
-    // Handle toggle of lights
+	
+    [self toggleLightsButton];
+    [self updateFilter];
+}
+
+- (void) toggleLightsButton
+{
+	// Handle toggle of lights
     if (m_lightsImageView.image == m_lightsOffImage) { // if it is currently off, set it as on
         m_lightsImageView.image = m_lightsOnImage;
         m_lightsLabel.text = @"Lights";
@@ -334,19 +343,24 @@
         textStyle.color = [UIColor whiteColor];
     }
     else { // if it is currently on, set it as off
-           // doesn't have lights
+		// doesn't have lights
         m_lightsImageView.image = m_lightsOffImage;
         m_lightsLabel.text = @"No Lights";
         TTTextStyle* textStyle = (TTTextStyle*)m_lightsLabel.style;
         textStyle.color = [UIColor grayColor];
     }
-    
-    [self updateFilter];
 }
 
 - (IBAction)backboardButtonPressed:(id)sender
 {    
-    // Handle backboard of lights
+    
+    [self toggleBackboardButton];
+    [self updateFilter];
+}
+
+- (void) toggleBackboardButton
+{
+	// Handle backboard of lights
     if (m_backboardImageView.image == m_backboardOffImage) { // if it is currently off, set it as on
         m_backboardImageView.image = m_backboardOnImage;
         m_backboardLabel.text = @"Backboard";
@@ -354,14 +368,12 @@
         textStyle.color = [UIColor whiteColor];
     }
     else { // if it is currently on, set it as off
-           // doesn't have lights
+		// doesn't have lights
         m_backboardImageView.image = m_backboardOffImage;
         m_backboardLabel.text = @"No Backboard";
         TTTextStyle* textStyle = (TTTextStyle*)m_backboardLabel.style;
         textStyle.color = [UIColor grayColor];
     }
-    
-    [self updateFilter];
 }
 
 - (void) updateFilter 
