@@ -109,7 +109,7 @@
     TTView* pickerContainerView = [[[TTView alloc] initWithFrame:CGRectMake(1, 3, pickerWidth, pickerHeight)] autorelease];
     pickerContainerView.style = [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithRadius:10] next:
                                  [TTSolidFillStyle styleWithColor:[UIColor clearColor] next:
-                                  [TTSolidBorderStyle styleWithColor:[UIColor darkGrayColor] width:1 next:nil]]];
+                                  [TTFourBorderStyle styleWithBottom:[UIColor darkGrayColor] width:1 next:nil]]];
     pickerContainerView.backgroundColor = [UIColor clearColor];
     
     [pickerContainerView addSubview:m_courtsPicker];
@@ -130,7 +130,7 @@
                                      numberOfLines:1 
                                               next:nil];
     [courtsLabel sizeToFit];
-    courtsLabel.origin = CGPointMake(CGRectGetMidX(m_courtsPicker.bounds) - courtsLabel.size.width / 2, CGRectGetMaxY(m_courtsPicker.bounds) - courtsLabel.size.height);
+    courtsLabel.origin = CGPointMake(CGRectGetMidX(m_courtsPicker.bounds) - courtsLabel.size.width / 2, CGRectGetMaxY(m_courtsPicker.bounds) - courtsLabel.size.height - 1);
     [m_courtsPicker addSubview:courtsLabel];
     
     m_courtsPicker.delegate = self;
@@ -255,12 +255,6 @@
     
     [meshBackgroundView.layer addSublayer:gradient];    
     
-    /*TTView* parentView = [[[TTView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
-    parentView.backgroundColor = [UIColor clearColor];
-    parentView.style = [TTShapeStyle styleWithShape:[TTRoundedRectangleShape shapeWithTopLeft:10.0 topRight:10.0 bottomRight:10.0 bottomLeft:10.0] next:
-                        [TTLinearGradientFillStyle styleWithColor1:[UIColor darkGrayColor] color2:[UIColor blackColor] next:
-                         [TTSolidBorderStyle styleWithColor:[UIColor grayColor] width:1.0 next:nil]]];
-    */
     //////
     
     [self createRatingViewWithParentView:parentView];

@@ -84,6 +84,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	[m_appDelegate hideNavigationBar];
 	[m_appDelegate showToolbar];
     
+    
 	CGRect rect = [UIScreen mainScreen].applicationFrame;
 	self.view = [[UIView alloc] initWithFrame:rect];
 	self.view.autoresizesSubviews = YES;
