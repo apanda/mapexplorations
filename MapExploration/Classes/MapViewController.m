@@ -122,7 +122,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	//m_infoToast.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
 	
 	// Filter view
-	m_filterView = [[PBFilterViewController2 alloc] init];
+	m_filterView = [[PBFilterViewController2 alloc] initWithFilter:m_filter];
     m_filterView.view.frame = CGRectMake(0, 0, 320, toastHeight);
 	m_filterView.mapView = self;
 	[m_filterToast addSubview:m_filterView.view];
@@ -185,6 +185,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 	m_filter.numberOfCourts = m_filterView.courts;
 	m_filter.lights = m_filterView.lights;
 	m_filter.backboard = m_filterView.backboard;
+	[m_filter save];
     [self deselectAnnotations];
 	[self createPinsFromDB];
 }

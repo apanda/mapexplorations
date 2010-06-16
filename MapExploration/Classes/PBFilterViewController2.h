@@ -38,6 +38,8 @@
     
     // Delegate
 	MapViewController* m_mapView;
+	
+	TennisFilter *m_initialFilter;
 }
 
 @property (nonatomic, readonly) bool lights;
@@ -46,6 +48,7 @@
 @property (nonatomic, readonly) int rating;
 @property (nonatomic, retain) MapViewController *mapView;
 
+- (id) initWithFilter: (TennisFilter*) filter;
 - (void)createRatingViewWithParentView:(UIView*)parentView;
 - (void)createPickerWithParentView:(UIView*)parentView;
 - (void)createLightsButtonWithParentView:(UIView*)parentView;

@@ -19,11 +19,8 @@
 - (id) init
 {
 	self = [super init];
-	self.lights = false;
-	self.numberOfCourts = 0;
-	self.backboard = false;
-	self.rating = 0;
-	self.indoor = false;
+	m_defaults = [[NSUserDefaults standardUserDefaults] retain];
+	[self loadSettings];
 	return self;
 }
 
@@ -54,4 +51,22 @@
 	return stringToReturn;
 }
 
+- (void) save
+{
+	[m_defaults setBool:self.lights forKey:@"lights"];
+	[m_defaults setBool:self.backboard forKey:@"backboard"];
+	[m_defaults setInteger:self.rating forKey:@"rating"];
+	[m_defaults setInteger:self.numberOfCourts forKey:@"numberOfCourts"];
+	[m_defaults setBool:self.indoor forKey:@"indoor"];
+	
+}
+
+- (void) loadSettings
+{
+	self.lights = [m_defaults boolForKey:@"lights"];
+	self.backboard = [m_defaults boolForKey:@"backboard"];
+	self.indoor = [m_defaults boolForKey:@"indoor"];
+	self.rating = [m_defaults integerForKey:@"rating"];
+	self.numberOfCourts = [m_defaults integerForKey:@"numberOfCourts"];
+}
 @end

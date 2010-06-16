@@ -30,7 +30,14 @@
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewHot];
     [m_ratingView setStarImage:nonselectedStar forState:kSCRatingViewNonSelected];
     
-    m_ratingView.userRating = 1;
+	// We take care of initial filter here because setting it in setStartingView doesn't work
+    if (m_initialFilter.rating > 0) {
+		m_ratingView.userRating = m_initialFilter.rating;
+	}
+	else {
+		m_ratingView.userRating = 1;
+	}
+
     m_ratingView.delegate = self;
     
     [containerView addSubview:m_ratingView];
@@ -272,7 +279,37 @@
     [self.view addSubview:parentView];
 }
 
+- (void) setStartingView
+{
+	if (m_initialFilter.lights) {
+		m_lightsImageView.image = m_lightsOnImage;
+        m_lightsLabel.text = @"Lights";
+        TTTextStyle* textStyle = (TTTextStyle*)m_lightsLabel.style;
+        textStyle.color = [UIColor whiteColor];
+	}
+	
+	if (m_initialFilter.backboard) {
+		m_backboardImageView.image = m_backboardOnImage;
+        m_backboardLabel.text = @"Backboard";
+        TTTextStyle* textStyle = (TTTextStyle*)m_backboardLabel.style;
+        textStyle.color = [UIColor whiteColor];
+	}
+	
+	
+	if (m_initialFilter.numberOfCourts > 0) {
+		
+		// TODO itay fix up number of courts thing here
+	}
+}
+
 #pragma mark Callbacks
+
+- (id) initWithFilter:(TennisFilter *)filter
+{
+	self = [super init];
+	m_initialFilter = [filter retain];
+	return self;
+}
 
 - (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating
 {
@@ -359,6 +396,8 @@
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     
     [self createFilterView];
+	
+	[self setStartingView];
 }
  
 

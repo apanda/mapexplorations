@@ -15,6 +15,7 @@
 	bool m_backboard;
 	int m_rating;
 	bool m_indoor;
+	NSUserDefaults *m_defaults;
 }
 
 @property (nonatomic) bool lights;
@@ -25,4 +26,6 @@
 
 - (NSString*) whereClause;
 - (id) init;
+- (void) loadSettings;
+- (void) save;
 @end

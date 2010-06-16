@@ -145,6 +145,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 	
     NSError *error = nil;
+	[[NSUserDefaults standardUserDefaults] synchronize];
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
 			/*
