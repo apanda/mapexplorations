@@ -18,7 +18,8 @@
 @interface TennisDatabase : NSObject {
 	sqlite3 *m_db;
 }
-
+@property (readonly, nonatomic) int MinCourts;
+@property (readonly, nonatomic) int MaxCourts;
 - (id) initWithWritableDbWithAppDelegate: (MapExplorationAppDelegate*) delegate;
 - (NSArray*) getAnnotationsWithFilter: (TennisFilter*) filter;
 - (void) updateRatingsForAnnotation:(PinAnnotation*) annotation;

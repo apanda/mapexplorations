@@ -598,7 +598,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57E6E2A5-F36D-4328-B5BD-AF59D22A1255";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
 			};
 			name = Debug;
 		};
@@ -624,7 +624,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57E6E2A5-F36D-4328-B5BD-AF59D22A1255";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
 			};
 			name = Release;
 		};
@@ -646,7 +646,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Enlistments.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aurojit Panda";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aurojit Panda (77Q22PUTHZ)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -664,7 +664,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CB39AE06-08CB-4817-B8E3-A8862CDA795E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
 			};
 			name = Distribution;
 		};

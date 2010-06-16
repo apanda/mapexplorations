@@ -107,6 +107,10 @@
 	return m_currentLocation;
 }
 
+- (TennisDatabase*) database {
+	return m_database;
+}
+
 
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation {
 	m_informationView.currentAnnotation = annotation;

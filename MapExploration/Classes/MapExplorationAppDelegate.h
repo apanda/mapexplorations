@@ -50,6 +50,7 @@
 @property (nonatomic, retain, readonly) NSString *writableDbFilePath;
 @property (nonatomic, retain, readonly) TennisFilter *filter;
 @property (nonatomic, retain, readonly) CLLocation *location;
+@property (nonatomic, retain, readonly) TennisDatabase *database;
 
 - (NSString *)applicationDocumentsDirectory;
 - (void) updateLocation: (CLLocation*) location;

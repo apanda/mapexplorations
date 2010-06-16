@@ -106,4 +106,14 @@
 	int err = sqlite3_exec(m_db, [sqlstatement UTF8String], NULL, NULL, NULL);
 	NSLog(@"dbrc = %d SQLITE_OK = %d", err, SQLITE_OK);
 }
+
+- (int) MaxCourts
+{
+	return 14;
+}
+
+- (int) MinCourts
+{
+	return 1;
+}
 @end
