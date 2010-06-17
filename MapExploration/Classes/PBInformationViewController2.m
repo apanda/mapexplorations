@@ -155,10 +155,12 @@
     UIImage* nonselectedStar = [UIImage imageNamed:@"star_off.png"];
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewSelected];
     [m_ratingView setStarImage:nonselectedStar forState:kSCRatingViewNonSelected];
-    
+    [m_ratingView setStarImage:selectedStar forState:kSCRatingViewUserSelected];
+    [m_ratingView setDelegate:self];
     m_ratingView.rating = 3;
     
-    m_ratingView.userInteractionEnabled = NO;
+    m_ratingView.userInteractionEnabled = YES;
+    
     
     [parentView addSubview:m_ratingView];
 }
@@ -240,7 +242,7 @@
     m_courtsInfoLabel.text = [NSString stringWithFormat:formatString, m_currentAnnotation.numCourts];
 }
 
-#pragma mark Callacks
+#pragma mark Callbacks
 
 - (IBAction)directionsButtonPressed:(id)sender
 {
@@ -263,6 +265,17 @@
                            encodedAddress];
     
     [app openURL:[NSURL URLWithString: urlString]];
+}
+
+- (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating
+{
+    MapExplorationAppDelegate *delegate = (MapExplorationAppDelegate*)[UIApplication sharedApplication].delegate;
+    self.currentAnnotation.rating = userRating;
+    [delegate updateRatingForAnnotation:self.currentAnnotation];
+}
+
+- (void)ratingView:(SCRatingView *)ratingView didChangeRatingFrom:(CGFloat)previousRating to:(CGFloat)rating
+{
 }
 
 #pragma mark Deallocaiton Methods

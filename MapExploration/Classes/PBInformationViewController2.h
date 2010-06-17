@@ -10,9 +10,12 @@
 #import "Three20/Three20.h"
 #import "SCRatingView.h"
 #import "PinAnnotation.h"
+#import "MapExplorationAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface PBInformationViewController2 : UIViewController {
+@class MapExplorationAppDelegate;
+
+@interface PBInformationViewController2 : UIViewController <SCRatingDelegate> {
     
     // Info labels
     TTLabel* m_nameLabel;
@@ -46,5 +49,8 @@
 - (void)createRatingsInfoWithParentView:(UIView*)parentView;
 - (void)createLightsInfoWithParentView:(UIView*)parentView;
 - (void)createCourtsInfoWithParentView:(UIView*)parentView;
+
+- (void)ratingView:(SCRatingView *)ratingView didChangeUserRatingFrom:(NSInteger)previousUserRating to:(NSInteger)userRating;
+- (void)ratingView:(SCRatingView *)ratingView didChangeRatingFrom:(CGFloat)previousRating to:(CGFloat)rating;
 
 @end
