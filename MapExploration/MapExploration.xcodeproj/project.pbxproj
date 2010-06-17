@@ -79,6 +79,8 @@
 		6693EECE11C37A97000A56B9 /* target_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6693EEC411C37A97000A56B9 /* target_on.png */; };
 		6693F33811C45975000A56B9 /* PBFilterViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6693F33711C45975000A56B9 /* PBFilterViewController2.m */; };
 		6693F51E11C5B273000A56B9 /* mesh.png in Resources */ = {isa = PBXBuildFile; fileRef = 6693F51D11C5B273000A56B9 /* mesh.png */; };
+		6693FA8511C9C207000A56B9 /* gearOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 6693FA8311C9C207000A56B9 /* gearOrange.png */; };
+		6693FA8611C9C207000A56B9 /* locateGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 6693FA8411C9C207000A56B9 /* locateGrey.png */; };
 		66AA1DEE1172F80B00FDB03B /* PBInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AA1DED1172F80B00FDB03B /* PBInformationView.m */; };
 		66C279EF116DAC3000B4F7D5 /* PBFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EC116DAC3000B4F7D5 /* PBFilterView.m */; };
 		66C279F0116DAC3000B4F7D5 /* PBToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C279EE116DAC3000B4F7D5 /* PBToastView.m */; };
@@ -212,6 +214,8 @@
 		6693F33611C45975000A56B9 /* PBFilterViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFilterViewController2.h; sourceTree = "<group>"; };
 		6693F33711C45975000A56B9 /* PBFilterViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFilterViewController2.m; sourceTree = "<group>"; };
 		6693F51D11C5B273000A56B9 /* mesh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mesh.png; path = Resources/Images/mesh.png; sourceTree = "<group>"; };
+		6693FA8311C9C207000A56B9 /* gearOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gearOrange.png; path = Resources/Images/gearOrange.png; sourceTree = "<group>"; };
+		6693FA8411C9C207000A56B9 /* locateGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locateGrey.png; path = Resources/Images/locateGrey.png; sourceTree = "<group>"; };
 		66AA1DEC1172F80B00FDB03B /* PBInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBInformationView.h; sourceTree = "<group>"; };
 		66AA1DED1172F80B00FDB03B /* PBInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBInformationView.m; sourceTree = "<group>"; };
 		66C279EB116DAC3000B4F7D5 /* PBFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFilterView.h; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6693FA8311C9C207000A56B9 /* gearOrange.png */,
+				6693FA8411C9C207000A56B9 /* locateGrey.png */,
 				6693F51D11C5B273000A56B9 /* mesh.png */,
 				57896B3111C5583E003F6E7D /* pin_of.png */,
 				57896B3211C5583E003F6E7D /* pin_on.png */,
@@ -525,6 +531,8 @@
 				57896B3311C5583E003F6E7D /* pin_of.png in Resources */,
 				57896B3411C5583E003F6E7D /* pin_on.png in Resources */,
 				6693F51E11C5B273000A56B9 /* mesh.png in Resources */,
+				6693FA8511C9C207000A56B9 /* gearOrange.png in Resources */,
+				6693FA8611C9C207000A56B9 /* locateGrey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aurojit Panda (77Q22PUTHZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Itay NEEMAN (D3W7AYAAK2)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -598,7 +606,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3CA20C6-93FC-4B60-BCD4-FAD86F7DE6A8";
 			};
 			name = Debug;
 		};
@@ -606,7 +614,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aurojit Panda (77Q22PUTHZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Itay NEEMAN (D3W7AYAAK2)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -624,7 +632,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3CA20C6-93FC-4B60-BCD4-FAD86F7DE6A8";
 			};
 			name = Release;
 		};
@@ -646,7 +654,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Enlistments.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aurojit Panda (77Q22PUTHZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Itay NEEMAN (D3W7AYAAK2)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -664,7 +672,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3CA20C6-93FC-4B60-BCD4-FAD86F7DE6A8";
 			};
 			name = Distribution;
 		};

@@ -29,8 +29,8 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
     m_appDelegate = appDelegate;
     m_database = [database retain];
     
-    UIImage *target = [UIImage imageNamed:@"target_on.png"];
-    UIImage *gear = [UIImage imageNamed:@"settings_off.png"];
+    UIImage *target = [UIImage imageNamed:@"locateGrey.png"];
+    UIImage *gear = [UIImage imageNamed:@"gearOrange.png"];
     UIBarButtonItem *targetButton = [[[UIBarButtonItem alloc] initWithImage:target style:UIBarButtonItemStylePlain target:self 
                                                                      action:@selector(targetClicked)] autorelease];
     targetButton.title = @"Locate";
