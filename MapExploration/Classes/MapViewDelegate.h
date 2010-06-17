@@ -17,8 +17,8 @@
 @interface MapViewDelegate : NSObject <MKMapViewDelegate> {
     MapViewController *m_mapView;
     MapExplorationAppDelegate *m_appDelegate;
-    UIImage *m_unselectedPin;
-    UIImage *m_selectedPin;
+    NSArray *m_unselectedPins;
+    NSArray *m_selectedPins;
     bool m_largePins;
 }
 

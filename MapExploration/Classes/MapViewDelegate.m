@@ -17,9 +17,17 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
     self = [super init];
     m_mapView = [mapView retain];
     m_appDelegate = [appDelegate retain];
+    UIImage* unselectedImages[14];
+    for (int i = 0; i < 14; i++)  {
+        unselectedImages[i] = [UIImage imageNamed:[NSString stringWithFormat:@"pin_of_%d.png", (i+1)]];
+    }
+    m_unselectedPins = [[NSArray arrayWithObjects: unselectedImages count: 14] retain];
     
-    m_selectedPin = [[UIImage imageNamed:@"pin_on.png"] retain];
-    m_unselectedPin = [[UIImage imageNamed:@"pin_of_3.png"] retain];
+    UIImage* selectedImages[14];
+    for (int i = 0; i < 14; i++)  {
+        selectedImages[i] = [UIImage imageNamed:[NSString stringWithFormat:@"pin_on_%d.png", (i+1)]];
+    }
+    m_selectedPins = [[NSArray arrayWithObjects:selectedImages count: 14] retain];
     m_largePins = false;
     
     return self;
@@ -57,10 +65,10 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
     
     UIImage *annotationImage;
     if (annotation.selected) {
-        annotationImage = m_selectedPin;
+        annotationImage = (UIImage*)[m_selectedPins objectAtIndex:(annotation.numCourts - 1)];
     }
     else {
-        annotationImage = m_unselectedPin;
+        annotationImage = (UIImage*)[m_unselectedPins objectAtIndex:(annotation.numCourts - 1)];
     }
     return annotationImage;
     
@@ -106,8 +114,8 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
 }
 
 - (void) dealloc {
-    [m_selectedPin release];
-    [m_unselectedPin release];
+    [m_selectedPins release];
+    [m_unselectedPins release];
     [super dealloc];
 }
 @end
