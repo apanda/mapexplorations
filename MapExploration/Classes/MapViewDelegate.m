@@ -19,7 +19,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
     m_appDelegate = [appDelegate retain];
     
     m_selectedPin = [[UIImage imageNamed:@"pin_on.png"] retain];
-    m_unselectedPin = [[UIImage imageNamed:@"pin_of_14.png"] retain];
+    m_unselectedPin = [[UIImage imageNamed:@"pin_of_3.png"] retain];
     m_largePins = false;
     
     return self;
