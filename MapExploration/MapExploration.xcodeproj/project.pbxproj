@@ -31,6 +31,7 @@
 		575128D6116ADF47001BF241 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575128D5116ADF47001BF241 /* CoreFoundation.framework */; };
 		5751295A116AF58C001BF241 /* BallandCourtSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 57512959116AF58C001BF241 /* BallandCourtSmall.png */; };
 		57512992116B007C001BF241 /* TennisDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 57512991116B007C001BF241 /* TennisDatabase.m */; };
+		57540F0E11C9CAC400E64B90 /* pin_of_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 57540F0D11C9CAC400E64B90 /* pin_of_14.png */; };
 		577FE3C411328FE100072027 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 577FE3C311328FE100072027 /* InformationViewController.m */; };
 		57896B3311C5583E003F6E7D /* pin_of.png in Resources */ = {isa = PBXBuildFile; fileRef = 57896B3111C5583E003F6E7D /* pin_of.png */; };
 		57896B3411C5583E003F6E7D /* pin_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 57896B3211C5583E003F6E7D /* pin_on.png */; };
@@ -157,6 +158,7 @@
 		57512959116AF58C001BF241 /* BallandCourtSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BallandCourtSmall.png; path = Resources/Images/BallandCourtSmall.png; sourceTree = "<group>"; };
 		57512990116B007C001BF241 /* TennisDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TennisDatabase.h; sourceTree = "<group>"; };
 		57512991116B007C001BF241 /* TennisDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TennisDatabase.m; sourceTree = "<group>"; };
+		57540F0D11C9CAC400E64B90 /* pin_of_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_of_14.png; path = Resources/Images/pin_of_14.png; sourceTree = "<group>"; };
 		577FE3C211328FE100072027 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		577FE3C311328FE100072027 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		57896B3111C5583E003F6E7D /* pin_of.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_of.png; path = Resources/Images/pin_of.png; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			children = (
 				6693FA8311C9C207000A56B9 /* gearOrange.png */,
 				6693FA8411C9C207000A56B9 /* locateGrey.png */,
+				57540F0D11C9CAC400E64B90 /* pin_of_14.png */,
 				6693F51D11C5B273000A56B9 /* mesh.png */,
 				57896B3111C5583E003F6E7D /* pin_of.png */,
 				57896B3211C5583E003F6E7D /* pin_on.png */,
@@ -533,6 +536,7 @@
 				6693F51E11C5B273000A56B9 /* mesh.png in Resources */,
 				6693FA8511C9C207000A56B9 /* gearOrange.png in Resources */,
 				6693FA8611C9C207000A56B9 /* locateGrey.png in Resources */,
+				57540F0E11C9CAC400E64B90 /* pin_of_14.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
