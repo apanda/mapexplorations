@@ -161,7 +161,7 @@
     [m_ratingView setDelegate:self];
     m_ratingView.rating = 3;
     
-    m_ratingView.userInteractionEnabled = YES;
+    m_ratingView.userInteractionEnabled = NO;
     
     
     [parentView addSubview:m_ratingView];
