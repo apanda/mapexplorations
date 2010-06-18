@@ -2,7 +2,7 @@
 from geopy import geocoders
 import sqlite3
 
-connection = sqlite3.connect('partiallyprocessed_tennis.db')
+connection = sqlite3.connect('tennis_new.db')
 connection2 = sqlite3.connect('tennis.db')
 
 c = connection.cursor()
@@ -13,7 +13,7 @@ yahoo = geocoders.Yahoo('9E7nLOPV34HwxYM0gRxwbasTCb2juFN1IZJh7N8Zz0xJ.RtlGkdwrD.
 c.execute('select courtname, address, city, neighborhood, courts, key, lights, backboard, indoor, latitude, longitude, rating from tenniscourts')
 for row in c:
     if str(row[1]) != '' and str(row[2]) != '':
-        if row[9] == 0 and row[10] == 0:
+        if row[9] == '' and row[10] == '':
             addr = str.format("{0} in {2} {1} WA", row[1], row[2], row[3])
             print addr
             
