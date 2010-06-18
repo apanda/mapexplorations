@@ -12,6 +12,7 @@
 #import "SCRatingView.h"
 #import "PBHorizontalPicker.h"
 #import "MapViewController.h"
+#import "PBRoundedRectView.h"
 
 @interface PBFilterViewController2 : UIViewController <SCRatingDelegate, PBHorizontalPickerDelegate> 
 {

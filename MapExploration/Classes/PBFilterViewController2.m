@@ -8,7 +8,6 @@
 
 #import "PBFilterViewController2.h"
 
-
 @implementation PBFilterViewController2
 
 @synthesize mapView = m_mapView;
@@ -245,16 +244,12 @@
     UIImage* meshImage = [UIImage imageNamed:@"mesh.png"];
     UIColor* meshColor = [[UIColor colorWithPatternImage:meshImage] colorWithAlphaComponent:0.8];
     
-    UIView* parentView = [[[UIView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
-    parentView.backgroundColor = [UIColor colorWithRed:0.1294 green:0.1294 blue:0.1294 alpha:1.0];
-    parentView.layer.cornerRadius = 10;
-    parentView.layer.masksToBounds = YES;
-    parentView.layer.borderColor = [UIColor colorWithRed:0.1647 green:0.1647 blue:0.1647 alpha:1.0].CGColor;
-    parentView.layer.borderWidth = 1.5;
+    PBRoundedRectView* parentView = [[[PBRoundedRectView alloc] initWithFrame:CGRectMake(10, 10, 300, 125)] autorelease];
+    parentView.rectColor = [UIColor colorWithRed:0.1294 green:0.1294 blue:0.1294 alpha:1.0];
     
-    UIView* meshBackgroundView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, parentView.size.width, parentView.size.height)] autorelease];
-    meshBackgroundView.backgroundColor = meshColor;
-    meshBackgroundView.opaque = NO;
+    PBRoundedRectView* meshBackgroundView = [[[PBRoundedRectView alloc] initWithFrame:CGRectMake(0, 0, parentView.size.width, parentView.size.height)] autorelease];
+    meshBackgroundView.rectColor = meshColor;
+    meshBackgroundView.strokeWidth = 0.0;
     
     [parentView addSubview:meshBackgroundView];
     
@@ -270,16 +265,19 @@
                           [NSNumber numberWithFloat:0.0],
                           [NSNumber numberWithFloat:1.0],
                           nil];
-    gradient.opaque = NO;
+    gradient.cornerRadius = 10;
+    gradient.borderColor = [UIColor colorWithRed:0.1647 green:0.1647 blue:0.1647 alpha:1.0].CGColor;
+    gradient.borderWidth = 1.5;
     
-    [meshBackgroundView.layer addSublayer:gradient];    
+    
+    [meshBackgroundView.layer addSublayer:gradient];
     
     //////
     
     [self createRatingViewWithParentView:parentView];
     [self createPickerWithParentView:parentView];
     [self createLightsButtonWithParentView:parentView];
-    [self createBackboardButtonWithParentView:parentView];    
+    [self createBackboardButtonWithParentView:parentView];
     //////
     
     [self.view addSubview:parentView];

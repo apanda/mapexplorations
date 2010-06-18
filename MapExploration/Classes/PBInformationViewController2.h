@@ -12,6 +12,7 @@
 #import "PinAnnotation.h"
 #import "MapExplorationAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "PBRoundedRectView.h"
 
 @class MapExplorationAppDelegate;
 
