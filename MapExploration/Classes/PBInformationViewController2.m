@@ -156,6 +156,8 @@
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewSelected];
     [m_ratingView setStarImage:nonselectedStar forState:kSCRatingViewNonSelected];
     [m_ratingView setStarImage:selectedStar forState:kSCRatingViewUserSelected];
+    [m_ratingView setStarImage:selectedStar forState:kSCRatingViewHot];
+    
     [m_ratingView setDelegate:self];
     m_ratingView.rating = 3;
     
