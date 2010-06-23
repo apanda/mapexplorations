@@ -49,7 +49,7 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
         UIImage *annotationImage = [self pinForAnnotation:pinAnnotation];
         
         annotationView.image = annotationImage;
-        [annotationView setCanShowCallout:YES];
+        [annotationView setCanShowCallout:NO];
         [annotationView setEnabled:YES];
     
         annotationView.calloutOffset = CGPointMake(10000.0, 10000.0);

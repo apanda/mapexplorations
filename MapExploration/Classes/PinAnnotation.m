@@ -35,6 +35,7 @@
     m_lights = (lights == 1);
     m_neighborhood = [neighborhood retain];
     self.selected = false;
+    
     return self;
 }
 

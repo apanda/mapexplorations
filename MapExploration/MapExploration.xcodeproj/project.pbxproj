@@ -727,12 +727,14 @@
 					"../external/TouchCustoms/Classes/**",
 				);
 				INFOPLIST_FILE = "MapExploration-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -753,12 +755,14 @@
 					"../external/TouchCustoms/Classes/**",
 				);
 				INFOPLIST_FILE = "MapExploration-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
@@ -793,12 +797,14 @@
 					"../external/TouchCustoms/Classes/**",
 				);
 				INFOPLIST_FILE = "MapExploration-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = MapExploration;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7978D88-709F-4346-8D3C-4831E5D6FD95";
+				SDKROOT = iphoneos4.0;
 			};
 			name = Distribution;
 		};
