@@ -21,25 +21,19 @@
     return self;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"Touched!");
-    [m_delegate annotationTouched];
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    NSLog(@"Selected: %d", selected);
+    NSLog(@"[%x] Selected: %d", self.annotation, selected);
+    
+    [super setSelected:selected animated:animated];
     PinAnnotation* annotation = (PinAnnotation*)self.annotation;
     annotation.selected = selected;
-
+    
     if (selected) {
         [m_delegate selectedAnnotation:self.annotation];
     } else {
-        [m_delegate deselectedAnnotation:self.annotation];
+        [m_delegate deselectedAnnotation:self.annotation];    
     }
-    
-    [super setSelected:selected animated:animated];
 }
 
 - (void)dealloc

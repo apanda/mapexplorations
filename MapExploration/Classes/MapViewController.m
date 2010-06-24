@@ -200,30 +200,26 @@ static NSString* const GMAP_ANNOTATION_SELECTED = @"gMapAnnontationSelected";
     }
 }
 
-- (void)annotationTouched
-{
-    m_annotationTouched = YES;
-}
-
 - (void) selectedAnnotation:(id)annotation
 {
     [m_mapViewDelegate refreshAnnotation: annotation];
     MKAnnotationView* annotationView = [m_mapView viewForAnnotation:annotation];
     [self showDetailsForAnnotation:annotationView.annotation];
     [m_infoToast show];
-    
-    m_annotationTouched = NO;
+    m_selectedAnnotation = annotation;
 }
 
 - (void) deselectedAnnotation:(id)annotation
 {
-    [m_mapViewDelegate refreshAnnotation: annotation];
-    if (!m_annotationTouched) {
-        NSLog(@"Hiding info toast");
-        [m_infoToast hide]; 
-    }
+    [m_mapViewDelegate refreshAnnotation:annotation];
     
-    m_annotationTouched = NO;
+    // If we are the currently selected annotation, then we want to hide the info toast. 
+    // Otherwise, it means some other annotation got selected.
+    if (m_selectedAnnotation == annotation) {
+        NSLog(@"Hiding info toast");
+        [m_infoToast hide];
+        m_selectedAnnotation = nil;
+    }
 }
 
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation

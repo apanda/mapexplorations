@@ -37,7 +37,7 @@
     PBInformationViewController2* m_informationView;
     NSArray* m_annotations;
   
-    BOOL m_annotationTouched;
+    PinAnnotation* m_selectedAnnotation;
 }
 
 - (id) initWithAppDelegate: (MapExplorationAppDelegate*) appDelegate tennisDatabase: (TennisDatabase*) database;
@@ -47,7 +47,6 @@
 - (void) gearClicked;
 - (void) targetClicked;
 - (void) recalculateFilter;
-- (void) annotationTouched;
 - (void) showDetailsForAnnotation: (PinAnnotation*) annotation;
 - (void) deselectAnnotations;
 - (void) selectedAnnotation:(id)annotation;
