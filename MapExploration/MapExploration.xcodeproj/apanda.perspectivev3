@@ -314,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>57B7BB9B11D31CF0009D5A31</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PBPinAnnotationView.m</string>
+								<string>MapViewController.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,22 +322,22 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>57B7BB9C11D31CF0009D5A31</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PBPinAnnotationView.m</string>
+										<string>MapViewController.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>57B7BC6511D327A7009D5A31</string>
+										<string>57B7BC7411D332C6009D5A31</string>
 										<key>history</key>
 										<array>
 											<string>57B7BBB511D31E39009D5A31</string>
 											<string>57B7BBB711D31E39009D5A31</string>
 											<string>57B7BBB811D31E39009D5A31</string>
-											<string>57B7BBD511D31FCE009D5A31</string>
 											<string>57B7BBD611D31FCE009D5A31</string>
 											<string>57B7BC1311D32229009D5A31</string>
+											<string>57B7BC7111D332C6009D5A31</string>
+											<string>57B7BC7211D332C6009D5A31</string>
+											<string>57B7BC7311D332C6009D5A31</string>
 											<string>57B7BC6311D327A7009D5A31</string>
-											<string>57B7BC6411D327A7009D5A31</string>
-											<string>57B7BC4B11D325B4009D5A31</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -654,7 +654,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>57B7BC6611D327A7009D5A31</string>
+		<string>57B7BC7511D332C6009D5A31</string>
 		<string>57B7BBB211D31DA4009D5A31</string>
 		<string>57B7BBB311D31DA4009D5A31</string>
 		<string>/Users/apanda/code/tennis/mapexplorations/MapExploration/MapExploration.xcodeproj</string>
