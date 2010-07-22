@@ -7,11 +7,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>PBTennis</string>
+	<string>Seattle Tennis</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>BallandCourtSmall.png</string>
+	<string>app-icon-57x57.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.pandabits.pbtennis</string>
 	<key>CFBundleInfoDictionaryVersion</key>

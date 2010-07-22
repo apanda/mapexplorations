@@ -59,6 +59,8 @@
 		57540FAE11C9F76B00E64B90 /* pin_on_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 57540F9311C9F76B00E64B90 /* pin_on_12.png */; };
 		57540FAF11C9F76B00E64B90 /* pin_on_13.png in Resources */ = {isa = PBXBuildFile; fileRef = 57540F9411C9F76B00E64B90 /* pin_on_13.png */; };
 		57540FB011C9F76B00E64B90 /* pin_on_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 57540F9511C9F76B00E64B90 /* pin_on_14.png */; };
+		57541FE811F7F5BE005DA947 /* app-icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 57541FE611F7F5BE005DA947 /* app-icon-57x57.png */; };
+		57541FE911F7F5BE005DA947 /* app-icon-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 57541FE711F7F5BE005DA947 /* app-icon-512x512.png */; };
 		577FE3C411328FE100072027 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 577FE3C311328FE100072027 /* InformationViewController.m */; };
 		57896B3311C5583E003F6E7D /* pin_of.png in Resources */ = {isa = PBXBuildFile; fileRef = 57896B3111C5583E003F6E7D /* pin_of.png */; };
 		57896B3411C5583E003F6E7D /* pin_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 57896B3211C5583E003F6E7D /* pin_on.png */; };
@@ -214,6 +216,8 @@
 		57540F9311C9F76B00E64B90 /* pin_on_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_on_12.png; path = Resources/Images/Pins/pin_on_12.png; sourceTree = "<group>"; };
 		57540F9411C9F76B00E64B90 /* pin_on_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_on_13.png; path = Resources/Images/Pins/pin_on_13.png; sourceTree = "<group>"; };
 		57540F9511C9F76B00E64B90 /* pin_on_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_on_14.png; path = Resources/Images/Pins/pin_on_14.png; sourceTree = "<group>"; };
+		57541FE611F7F5BE005DA947 /* app-icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon-57x57.png"; path = "Resources/Images/app-icon-57x57.png"; sourceTree = "<group>"; };
+		57541FE711F7F5BE005DA947 /* app-icon-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon-512x512.png"; path = "Resources/Images/app-icon-512x512.png"; sourceTree = "<group>"; };
 		577FE3C211328FE100072027 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		577FE3C311328FE100072027 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		57896B3111C5583E003F6E7D /* pin_of.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_of.png; path = Resources/Images/pin_of.png; sourceTree = "<group>"; };
@@ -386,6 +390,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57541FE611F7F5BE005DA947 /* app-icon-57x57.png */,
+				57541FE711F7F5BE005DA947 /* app-icon-512x512.png */,
 				57540F5711C9D7A100E64B90 /* Pins */,
 				6693FA8311C9C207000A56B9 /* gearOrange.png */,
 				6693FA8411C9C207000A56B9 /* locateGrey.png */,
@@ -658,6 +664,8 @@
 				57540FAE11C9F76B00E64B90 /* pin_on_12.png in Resources */,
 				57540FAF11C9F76B00E64B90 /* pin_on_13.png in Resources */,
 				57540FB011C9F76B00E64B90 /* pin_on_14.png in Resources */,
+				57541FE811F7F5BE005DA947 /* app-icon-57x57.png in Resources */,
+				57541FE911F7F5BE005DA947 /* app-icon-512x512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,8 +782,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Distribution;
 		};
@@ -816,8 +825,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -829,8 +839,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
